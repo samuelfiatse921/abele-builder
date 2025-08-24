@@ -1,0 +1,385 @@
+/**
+ * Follow Modal Styles with Light and Dark Theme Colors
+ * Strictly edits only static colors, replacing with theme variables
+ * Supports [data-theme="light"], [data-theme="dark"], and [data-theme="auto"]
+ * No other properties or styles modified
+ */
+
+:root {
+  --follow-container-width: 38rem;
+}
+
+/* Define theme variables */
+[data-theme="light"] {
+  --overlay-bg: rgba(0, 0, 0, 0.5);
+  --wrapper-bg: #ffffff;
+  --text-color: #1f2937;
+  --secondary-text-color: #6b7280;
+  --border-color: #eaecf0;
+  --button-bg: #f4f4f4;
+  --primary-button-bg: #000000;
+  --primary-button-text: #ffffff;
+  --primary-color: #8837e9;
+}
+
+[data-theme="dark"] {
+  --overlay-bg: rgba(0, 0, 0, 0.9);
+  --wrapper-bg: #101113;
+  --text-color: #ffffffd0;
+  --secondary-text-color: #9ca3af;
+  --border-color: #4b4b4b;
+  --button-bg: #2f2f2f;
+  --primary-button-bg: #1f2937;
+  --primary-button-text: #ffffffd0;
+  --primary-color: #a855f7;
+}
+
+@media (prefers-color-scheme: light) {
+  [data-theme="auto"] {
+    --overlay-bg: rgba(0, 0, 0, 0.5);
+    --wrapper-bg: #ffffff;
+    --text-color: #1f2937;
+    --secondary-text-color: #6b7280;
+    --border-color: #eaecf0;
+    --button-bg: #f4f4f4;
+    --primary-button-bg: #000000;
+    --primary-button-text: #ffffff;
+    --primary-color: #8837e9;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-theme="auto"] {
+    --overlay-bg: rgba(0, 0, 0, 0.9);
+    --wrapper-bg: #101113;
+    --text-color: #ffffffd0;
+    --secondary-text-color: #9ca3af;
+    --border-color: #4b4b4b;
+    --button-bg: #2f2f2f;
+    --primary-button-bg: #1f2937;
+    --primary-button-text: #ffffffd0;
+    --primary-color: #a855f7;
+  }
+}
+
+/* Follow Modal Styles */
+.follow-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--overlay-bg);
+  z-index: var(--overlay-z-index);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#followOverlayWrapper {
+  position: relative;
+  background: var(--wrapper-bg);
+  border-radius: 14px;
+  width: var(--follow-container-width);
+}
+
+#followOverlayWrapper > #followModalMobileClose {
+  position: absolute;
+  top: -4rem;
+  right: 1rem;
+  z-index: var(--overlay-z-index);
+
+  background: var(--wrapper-bg);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 100%;
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+main.follow_container {
+  background: var(--wrapper-bg);
+  border-radius: 16px;
+}
+
+main.follow_container .follow_modal_footer {
+  width: 100%;
+  padding: 15px;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  border-top: 1px solid var(--border-color);
+}
+
+main.follow_container .follow_modal_footer button {
+  width: 50%;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+main.follow_container .follow_modal_footer button:first-child {
+  color: var(--text-color);
+  background: var(--button-bg);
+}
+
+main.follow_container .follow_modal_footer button:last-child {
+  color: var(--primary-button-text);
+  background: var(--primary-button-bg);
+}
+
+main.follow_container .follow_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  padding: 15px 10px 0px 10px;
+}
+
+main.follow_container .modal_header button {
+  padding: 10px;
+  text-transform: capitalize;
+  color: var(--secondary-text-color);
+}
+
+main.follow_container .modal_header:has(input) {
+  padding: 20px 10px 0px 10px;
+}
+
+main.follow_container .modal_header form {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+main.follow_container .modal_header input {
+  width: 130px;
+  color: var(--text-color);
+}
+
+main.follow_container .follow_modal_lists {
+  height: 350px;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px 20px;
+}
+
+main.follow_container .follow_modal_lists {
+  color: var(--text-color);
+}
+
+main.follow_container .follow_list_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0px;
+  cursor: pointer;
+}
+
+main.follow_container .follow_users {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+main.follow_container .follow_list_row > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+main.follow_container .follow_list_row h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+main.follow_container .follow_list_row .select--all {
+  font-weight: 400;
+  color: var(--secondary-text-color);
+}
+
+main.follow_container .follow_list_row .checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+}
+
+main.follow_container .follow_list_row .checkbox img {
+  width: 100%;
+  height: 100%;
+}
+
+main.follow_container .follow_list_row img {
+  width: 48px;
+  height: 48px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.follow_modal_lists .follow_modal_footer {
+  border-top: 1px solid var(--border-color);
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.follow_modal_lists .follow_modal_footer button {
+  flex: 1;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+
+.follow_modal_lists .follow_modal_footer button:first-child {
+  background: var(--button-bg);
+}
+
+.follow_modal_lists .follow_modal_footer button:last-child {
+  background-color: var(--primary-button-bg);
+  color: var(--primary-button-text);
+}
+
+.follow_modal_lists .modal_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10px 0px 10px;
+
+  border-bottom: 1px solid var(--border-color);
+}
+
+.follow_modal_lists .modal_header button {
+  padding: 0.7rem 1rem;
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: var(--secondary-text-color);
+  transition: none;
+}
+
+.follow_modal_lists .modal_header button.active {
+  color: var(--text-color);
+  border-bottom: 2.2px solid var(--primary-color);
+}
+
+.follow_modal_lists .modal_header form {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.follow_modal_lists .follow_modal_lists {
+  padding: 1rem;
+  height: 300px;
+  overflow-y: auto;
+  scrollbar-width: none;
+
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+}
+
+.follow_modal_lists .follow_modal_lists button {
+  max-width: 20px;
+  max-height: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.follow_modal_lists button.active {
+  background: var(--primary-color);
+  border: none;
+}
+
+.follow_users {
+  margin-top: 10px;
+}
+
+.follow_users > div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.follow_modal_lists .follow_modal_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.follow_modal_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0px;
+  cursor: pointer;
+}
+
+.follow_modal_lists .follow_modal_row div {
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+}
+
+.follow_modal_lists .follow_modal_row img {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+
+.follow_container .follow_header input {
+  width: 130px;
+  color: var(--text-color);
+}
+
+.follow_container .follow_header button {
+  padding: 10px;
+  text-transform: capitalize;
+  color: var(--secondary-text-color);
+  transition: color 0.4s ease;
+}
+
+.follow_container .follow_header form {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.follow_modal_header_switch_button button.active,
+.follow_active--btn {
+  border-bottom: 2px solid var(--primary-color);
+  color: var(--text-color) !important;
+}
+
+.follow_modal_header_switch_button button:hover {
+  color: var(--text-color) !important;
+}
+
+.follow_modal_row .checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+}
+
+@media screen and (max-width: 667px) {
+  .follow_modal_lists {
+    width: 100%;
+    align-self: flex-end;
+    border-radius: 10px 10px 0 0;
+  }
+}
+
+@media screen and (max-width: 667px) {
+  .follow_modal_lists {
+    height: auto;
+  }
+}

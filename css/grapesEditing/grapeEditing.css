@@ -1,0 +1,16 @@
+.single_section{
+    padding: 1rem;
+    border-color: red;
+}
+
+.multiple_sections{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap:1rem;
+    padding: 1rem;
+}
+
+.multiple_sections>div{
+    width: 50%;
+}

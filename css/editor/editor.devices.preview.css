@@ -1,0 +1,153 @@
+.preview-navigation {
+  background: #000000;
+  padding: 6px;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.preview-navigation > * {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.preview-navigation .quick_action button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
+  width: 100%;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.preview-navigation .share-and-export {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.preview-navigation .quick_action > div button.share {
+  background: #1c64f2;
+  color: white;
+}
+
+/* .preview-navigation .quick_action > div button.share svg {
+  color: #fff;
+  stroke: red;
+  border: red;
+  fill: red;
+} */
+
+.preview-navigation .quick_action > div button.export {
+  background: #ffffff;
+  color: black;
+}
+
+.preview-navigation .quick_action > div button {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 3px;
+
+  padding: 5px 10px;
+}
+
+.preview-navigation button.profile {
+  min-width: 30px;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.preview-navigation button.profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.preview-navigation .spacer {
+  font-family: "Kaushan Script", cursive;
+  font-size: 1.4rem;
+  color: #ffffff;
+}
+
+.spacer {
+  font-family: "Kaushan Script", cursive;
+  font-size: 1.4rem;
+  color: var(--text-color);
+}
+
+.preview-dimensions > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.preview-dimensions > div .dimension {
+  font-size: 1rem;
+  padding: 4px 1.5rem;
+  background: white;
+  border-radius: 5px;
+  color: black;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.preview-buttons button#desktopPreviewButton.active svg path,
+.preview-buttons button#tabletPreviewButton.active svg path {
+  stroke: var(--primary-color);
+}
+
+.preview-buttons button#mobilePreviewButton.active svg path {
+  fill: var(--primary-color);
+}
+
+#previewScreenPreviewButton {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: #000;
+  padding: 1rem;
+  z-index: 1000000000;
+  opacity: 0;
+  display: none;
+  transition: all 0.2s ease-out;
+}
+
+#previewScreenPreviewButton:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.gjs-selected.preview {
+  outline: 0px solid transparent !important;
+}
+
+.gjs-toolbar.preview {
+  display: none !important;
+}
+
+.gjs-frame.preview {
+  border: 10px solid #2f2f2f;
+  border-radius: 1rem;
+  overflow: hidden; /* Hides both horizontal and vertical scrollbars */
+  scrollbar-width: none; /* Hides scrollbar in Firefox */
+}
+
+/* Hides scrollbar in WebKit-based browsers (Chrome, Safari, etc.) */
+.gjs-frame::-webkit-scrollbar {
+  display: none;
+}
+
+.gjs-frame-wrapper.preview {
+  top: 50% !important;
+  transform: translateY(-50%);
+}

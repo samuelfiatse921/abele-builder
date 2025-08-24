@@ -1,0 +1,360 @@
+/**
+ * Aside Toolbar Styles with Light and Dark Theme Colors
+ * Strictly edits only static colors, replacing with theme variables
+ * Supports [data-theme="light"], [data-theme="dark"], and [data-theme="auto"]
+ * No other properties or styles modified
+ */
+
+/* Define theme variables */
+[data-theme="light"] {
+  --wrapper-bg: #ffffff;
+  --color-white: #ffffff;
+  --primary-bg-color: #ffffff;
+  --primary-color: #8837e9;
+  --dropdown-hover: #e5e7eb;
+  --lavender-deep: #8837e9;
+  --lavender-fade: #d8b4fe;
+  --dark-gray: #6b7280;
+  --global-red: #ff3b30;
+  --global-red-light: #fee2e2;
+  --global-red-stroke: #ef4444;
+  --color-stroke: #eaecf0;
+  --border-stroke: #eaecf0;
+  --toolbar-bg: #000000;
+  --highlight-color: #ff0000;
+}
+
+[data-theme="dark"] {
+  --wrapper-bg: #101113;
+  --color-white: #ffffffd0;
+  --primary-bg-color: #262429;
+  --primary-color: #a855f7;
+  --dropdown-hover: #2f2f2f;
+  --lavender-deep: #a855f7;
+  --lavender-fade: #c084fc;
+  --dark-gray: #9ca3af;
+  --global-red: #ef4444;
+  --global-red-light: #7f1d1d;
+  --global-red-stroke: #dc2626;
+  --color-stroke: #4b4b4b;
+  --border-stroke: #4b4b4b;
+  --toolbar-bg: #1f2937;
+  --highlight-color: #ef4444;
+}
+
+@media (prefers-color-scheme: light) {
+  [data-theme="auto"] {
+    --wrapper-bg: #ffffff;
+    --color-white: #ffffff;
+    --primary-bg-color: #ffffff;
+    --primary-color: #8837e9;
+    --dropdown-hover: #e5e7eb;
+    --lavender-deep: #8837e9;
+    --lavender-fade: #d8b4fe;
+    --dark-gray: #6b7280;
+    --global-red: #ff3b30;
+    --global-red-light: #fee2e2;
+    --global-red-stroke: #ef4444;
+    --color-stroke: #eaecf0;
+    --border-stroke: #eaecf0;
+    --toolbar-bg: #000000;
+    --highlight-color: #ff0000;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-theme="auto"] {
+    --wrapper-bg: #101113;
+    --color-white: #ffffffd0;
+    --primary-bg-color: #262429;
+    --primary-color: #a855f7;
+    --dropdown-hover: #2f2f2f;
+    --lavender-deep: #a855f7;
+    --lavender-fade: #c084fc;
+    --dark-gray: #9ca3af;
+    --global-red: #ef4444;
+    --global-red-light: #7f1d1d;
+    --global-red-stroke: #dc2626;
+    --color-stroke: #4b4b4b;
+    --border-stroke: #4b4b4b;
+    --toolbar-bg: #1f2937;
+    --highlight-color: #ef4444;
+  }
+}
+
+/**                                                                     */
+
+.aside_toolbar_container {
+  height: 100%;
+  overflow-y: auto;
+  scrollbar-width: none;
+
+  padding: 10px;
+}
+
+.aside_header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.aside_header_action_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.aside_header_action_wrapper button {
+  background: none !important;
+  padding: 0 !important;
+}
+
+.aside_header h2 {
+  color: var(--color-white);
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.aside_header button {
+  padding: 1px 8px;
+  border-radius: 7px;
+
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  background: var(--primary-bg-color);
+  color: var(--lavender-deep);
+  font-size: 14px;
+}
+
+.aside_header button:disabled svg path {
+  fill: var(--lavender-fade);
+}
+
+.aside_header button:disabled {
+  color: var(--lavender-fade);
+}
+
+.aside_toolbar_container h5 {
+  color: var(--dark-gray);
+  font-size: 14px;
+  font-weight: 400;
+
+  padding-bottom: 10px;
+}
+
+/*------------------------------ Delete Button ------------------------------*/
+.aside_container_delete_button {
+  color: var(--global-red);
+  background: var(--global-red-light);
+  border: 1px solid var(--global-red-stroke);
+  border-radius: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px;
+  font-weight: 500;
+}
+
+.aside_container_default_button {
+  width: 100%;
+
+  color: var(--color-white);
+  background: var(--primary-color);
+  border-radius: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px;
+  font-weight: 500;
+}
+
+/*--------------------------- Aside Container Dropdowns ---------------------------*/
+.aside_tools_dropdown_container {
+  position: relative;
+  width: 100%;
+}
+
+.aside_tools_dropdown_button {
+  background: var(--primary-bg-color);
+  border: 1px solid var(--color-stroke);
+  border-radius: 10px;
+  padding: 6px 10px;
+  width: 100%;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: var(--color-white);
+}
+
+.aside_tools_dropdown {
+  display: none;
+}
+
+.aside_tools_dropdown_button[aria-expanded="true"] ~ .aside_tools_dropdown {
+  display: flex;
+}
+
+.aside_tools_dropdown_button svg {
+  transition: transform 0.3s ease-in-out;
+}
+
+.aside_tools_dropdown_button[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.aside_tools_dropdown {
+  position: absolute;
+  top: 3rem;
+  background: var(--primary-bg-color);
+  border: 1px solid var(--color-stroke);
+  border-radius: 10px;
+  overflow: hidden;
+
+  width: 100%;
+  z-index: 99;
+
+  box-shadow: var(--global-box-shadow);
+}
+
+.aside_tools_dropdown button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 10px;
+  transition: background-color 0.3s ease-in-out;
+  text-align: left;
+  color: var(--color-white);
+  font-weight: 500;
+}
+
+.aside_tools_dropdown button > * {
+  transition: all 0.3s ease-in-out;
+}
+
+.aside_tools_dropdown button:hover {
+  background: var(--dropdown-hover);
+}
+
+.aside_tools_dropdown button[aria-selected="true"] {
+  color: var(--primary-color);
+}
+
+.aside_tools_dropdown button[aria-selected="true"] span.checkbox {
+  background: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.aside_tools_dropdown button span.checkbox {
+  width: 16px;
+  height: 16px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 6px;
+  border: 2px solid var(--color-white);
+}
+
+.aside_tools_dropdown button:hover span.checkbox {
+  border: 2px solid var(--primary-color);
+}
+
+.aside_tools_dropdown button span.checkbox svg {
+  display: none;
+}
+
+.aside_tools_dropdown button[aria-selected="true"] span.checkbox svg {
+  display: block;
+}
+
+.percentage_reading {
+  height: 25px;
+  width: 35px;
+
+  border-radius: 4px;
+  border: 1px solid var(--color-white);
+  font-size: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-white);
+}
+
+/* Custom Footer Buttons */
+.custom_footer_buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.custom_footer_buttons button {
+  padding: 10px;
+  border-radius: 10px;
+
+  font-weight: 500;
+  font-size: 0.9rem;
+  width: 100%;
+  color: var(--color-white);
+}
+
+.custom_footer_buttons button:first-child {
+  border: 1px solid var(--border-stroke);
+  background: var(--primary-bg-color);
+}
+
+.custom_footer_buttons button:last-child {
+  background: var(--primary-color);
+}
+
+/* Thin Solid Border */
+.properties_container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 10px;
+}
+
+.properties_container_item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  width: 100%;
+}
+
+.properties_container_item_color_picker,
+.properties_container_item_color_picker_shadow {
+  width: 100%;
+  background: var(--wrapper-bg);
+  border-radius: 10px;
+  height: 3rem;
+}
+
+.properties_container_item_color_picker_shadow {
+  background: var(--highlight-color);
+}
+
+.gjs-one-bg {
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: none;
+}
+
+.gjs-rte-toolbar {
+  background-color: var(--toolbar-bg) !important;
+}
