@@ -3,6 +3,7 @@ class Export {
     this.grapeEditor = grapeEditor;
     this.downloadPDF = document.getElementById("downloadPDF");
     this.downloadHTML = document.getElementById("downloadHTML");
+    this.downloadHTMLOpt = document.getElementById("downloadHTMLOpt");
     this.downloadPNG = document.getElementById("downloadPNG");
     this.fileNameInput = document.getElementById("fileNameInput");
 
@@ -12,6 +13,7 @@ class Export {
   init() {
     // Hook up buttons to export methods
     this.downloadHTML.addEventListener("click", this.exportHTML.bind(this));
+    this.downloadHTMLOpt.addEventListener("click", this.exportHTML.bind(this));
     this.downloadPNG.addEventListener("click", this.exportAsImage.bind(this));
     this.downloadPDF.addEventListener("click", this.exportAsPDF.bind(this));
   }

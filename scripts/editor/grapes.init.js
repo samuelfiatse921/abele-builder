@@ -579,12 +579,12 @@ async function get_user_template(template_id) {
         }
     }
 
-    const response = await fetch(`https://abele-backend.onrender.com/api/v1/template/upload/single/${template_id}`, request_details);
+    const response = await fetch(`${api_endpoint}/template/upload/single/${template_id}`, request_details);
     const result =  await response.json();
 
     let user_template = []
 
-    if (result.code == "00") {
+    if (result.code === "00") {
         user_template = result.data;
     }
 
