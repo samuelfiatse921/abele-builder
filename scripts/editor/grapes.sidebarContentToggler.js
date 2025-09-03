@@ -24,6 +24,10 @@ function hideOtherEditorUIs(currentEditorId) {
       element: document.getElementById("buttonStyleContainer"),
     },
     {
+      id: "mapStyleContainer",
+      element: document.getElementById("mapStyleContainer"),
+    },
+    {
       id: "textStyleContainer",
       element: document.getElementById("textStyleContainer"),
     },
@@ -160,8 +164,20 @@ function showButtonEditorUI() {
   hideOtherEditorUIs("buttonStyleContainer");
 }
 
+function showMapEditorUI() {
+  const buttonStyleContainer = document.getElementById("mapStyleContainer");
+  hideEditorUI(document.getElementById("searchFileNameSection"));
+  hideEditorUI(document.getElementById("editorToolsList"));
+  showEditorUI(buttonStyleContainer);
+  hideOtherEditorUIs("mapStyleContainer");
+}
+
 function hideButtonEditorUI() {
   hideEditorUI(document.getElementById("buttonStyleContainer"));
+}
+
+function hideMapEditorUI()  {
+  hideEditorUI(document.getElementById("mapStyleContainer"));
 }
 
 // ==========================================================================
@@ -193,6 +209,7 @@ function manageSidebarVisibility() {
   hideIconEditorUI();
   hideImageEditorUI();
   hideButtonEditorUI();
+  hideMapEditorUI();
   hideVideoEditorUI();
   // hideOtherEditorUI();
   hideEditorUI(document.getElementById("textStyleContainer"));
@@ -224,6 +241,8 @@ function manageSidebarVisibility() {
       break;
     case "icon":
       showIconEditorUI();
+    case "map":
+      showMapEditorUI();
       break;
     default:
       showDefaultUI();

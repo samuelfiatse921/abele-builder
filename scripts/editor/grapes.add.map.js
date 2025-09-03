@@ -97,13 +97,13 @@
         if (selectedComponent && selectedComponent.components) {
             // Fallback to selected component
             newButtonComponent = selectedComponent.append(
-                grapeEditor.Component.addType("button", button)
+                grapeEditor.Component.addType("map", button)
             )[0];
         } else {
             // Fallback to canvas root
             newButtonComponent = grapeEditor
                 .getComponents()
-                .add(grapeEditor.Component.addType("button", button))[0];
+                .add(grapeEditor.Component.addType("map", button))[0];
         }
 
 
@@ -205,7 +205,7 @@
         if (component.get("content") === "addMapStyleButton") {
             // Get the parent component where the text was added
             component.parent().set(buttonConfig);
-            component.set("content", "Button");
+            component.set("content", "map");
 
             // component.parent().replaceWith(buttonConfig);
         }
