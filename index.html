@@ -343,6 +343,22 @@
                 <span>Inner Section</span>
               </button>
 
+              <button id="addTripleSectionTool" draggable="true">
+                <span>
+                  <!-- prettier-ignore -->
+                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 15 15"><path fill="#ffffff" fill-rule="evenodd" d="M2 1.5a.5.5 0 1 1-1 0a.5.5 0 0 1 1 0M2 5v5h11V5zm0-1a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zm-.5 10a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1M4 1.5a.5.5 0 1 1-1 0a.5.5 0 0 1 1 0M3.5 14a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1M6 1.5a.5.5 0 1 1-1 0a.5.5 0 0 1 1 0M5.5 14a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1M8 1.5a.5.5 0 1 1-1 0a.5.5 0 0 1 1 0M7.5 14a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1M10 1.5a.5.5 0 1 1-1 0a.5.5 0 0 1 1 0M9.5 14a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1M12 1.5a.5.5 0 1 1-1 0a.5.5 0 0 1 1 0M11.5 14a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1M14 1.5a.5.5 0 1 1-1 0a.5.5 0 0 1 1 0M13.5 14a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1"/><path fill="#ffffff" d="M7 5v5H6V5zm3 0v5H9V5z"/></svg>
+                </span>
+                <span>Tri Section</span>
+              </button>
+
+              <button id="addSplitSectionTool" draggable="true">
+                <span>
+                  <!-- prettier-ignore -->
+                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 15 15"><path fill="#ffffff" fill-rule="evenodd" d="M2 1.5a.5.5 0 1 1-1 0a.5.5 0 0 1 1 0M2 5v5h11V5zm0-1a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zm-.5 10a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1M14 1.5a.5.5 0 1 1-1 0a.5.5 0 0 1 1 0M13.5 14a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1"/><path fill="#ffffff" d="M6 5v5H5V5z"/></svg>
+                </span>
+                <span>Split Section</span>
+              </button>
+
               <button id="addHeadingButton" draggable="true">
                 <span>
                   <!-- prettier-ignore -->
@@ -389,6 +405,18 @@
                   <svg width="30" height="30" viewBox="0 0 57 53" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M28.6921 13.2305L32.4065 17.6879C32.8408 18.2089 32.4702 19 31.792 19L25.208 19C24.5298 19 24.1592 18.2089 24.5935 17.6879L28.3079 13.2305C28.4079 13.1105 28.5921 13.1105 28.6921 13.2305Z" fill="white"/><path d="M12.1667 24H44.8334" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M12.1667 29H44.8334" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M28.3079 39.7695L24.5935 35.3121C24.1592 34.7911 24.5298 34 25.208 34H31.792C32.4702 34 32.8408 34.7911 32.4065 35.3121L28.6921 39.7695C28.5921 39.8895 28.4079 39.8895 28.3079 39.7695Z" fill="white"/></svg>
                 </span>
                 <span>Divider</span>
+              </button>
+
+              <button
+                id="addMapStyleButton"
+                class="addMapStyleButton"
+                draggable="true"
+              >
+                <span>
+                  <!-- prettier-ignore -->
+                  <svg width="30" height="30" viewBox="0 0 24 24"><path fill="currentColor" d="M20.5,3L20.34,3.03L15,5.1L9,3L3.36,4.9C3.15,4.97 3,5.15 3,5.38V20.5A0.5,0.5 0 0,0 3.5,21L3.66,20.97L9,18.9L15,21L20.64,19.1C20.85,19.03 21,18.85 21,18.62V3.5A0.5,0.5 0 0,0 20.5,3M10,5.47L14,6.87V18.53L10,17.13V5.47M5,6.46L8,5.45V17.15L5,18.31V6.46M19,17.54L16,18.55V6.86L19,5.7V17.54Z"></path></svg>
+                </span>
+                <span>Map</span>
               </button>
 
               <button
@@ -864,6 +892,47 @@
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#f43f3f" d="M10 18a1 1 0 0 0 1-1v-6a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1M20 6h-4V5a3 3 0 0 0-3-3h-2a3 3 0 0 0-3 3v1H4a1 1 0 0 0 0 2h1v11a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8h1a1 1 0 0 0 0-2M10 5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1h-4Zm7 14a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V8h10Zm-3-1a1 1 0 0 0 1-1v-6a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1"/></svg>
                 </span>
                 <span>Delete button</span>
+              </button>
+            </div>
+
+            <!-- Button Style Container -->
+            <div
+                    id="mapStyleContainer"
+                    class="editing_tools_container text_style_container editor--hidden"
+            >
+              <header id="mapStyleContainerHeader">
+                <button data-type="Content" class="content active">
+                  Content
+                </button>
+              </header>
+
+              <!-- Text Style Container Content -->
+              <div
+                      id="mapStyleContainerContent"
+                      class="button_style_container_container text_style_container_content"
+              >
+                <h3>Map editor</h3>
+
+                <!-- Placeholder Section -->
+                <div class="text_style_inner_container_button_placeholder">
+                  <h6>Placeholder</h6>
+                  <input type="text" id="mapText" placeholder="Button" />
+                  <button
+                          class="image_style_container_button"
+                          id="addMapButton"
+                  >
+                    Insert Map
+                  </button>
+                </div>
+              </div>
+
+              <!-- Delete Text Button -->
+              <button id="deleteSelectedMap" class="delete_text_button">
+                <span>
+                  <!-- prettier-ignore -->
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#f43f3f" d="M10 18a1 1 0 0 0 1-1v-6a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1M20 6h-4V5a3 3 0 0 0-3-3h-2a3 3 0 0 0-3 3v1H4a1 1 0 0 0 0 2h1v11a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8h1a1 1 0 0 0 0-2M10 5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1h-4Zm7 14a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V8h10Zm-3-1a1 1 0 0 0 1-1v-6a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1"/></svg>
+                </span>
+                <span>Delete Map</span>
               </button>
             </div>
 
@@ -2485,8 +2554,12 @@
     <script src="/scripts/editor/editor.comments.js"></script>
     <script src="/scripts/editor/top.quick.event.js"></script>
 
+    <script src="/scripts/editor/grapes.add.map.js"></script>
+
     <script src="/scripts/editor/grapes.add.section.js"></script>
     <script src="/scripts/editor/grapes.add.multipleSections.js"></script>
+    <script src="/scripts/editor/grapes.add.tripleSections.js"></script>
+    <script src="/scripts/editor/grapes.add.splitSections.js"></script>
 
     <script src="/scripts/editor/grapes.add.gap.js"></script>
     <script src="/scripts/editor/grapes.add.divider.js"></script>
@@ -2536,6 +2609,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.9/beautify.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.9/beautify-html.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.9/beautify-css.min.js"></script>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <script>
       function updateColorisBadge(inputElement) {
