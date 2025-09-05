@@ -51,6 +51,9 @@
     <link rel="stylesheet" href="./css/components/dropdown.css" />
     <link rel="stylesheet" href="./css/components/colorpicker.css" />
     <link rel="stylesheet" href="./css/previewCode.css" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
   </head>
   <body>
     <main class="main_editor_container">
@@ -410,7 +413,6 @@
               <button
                 id="addMapStyleButton"
                 class="addMapStyleButton"
-                draggable="true"
               >
                 <span>
                   <!-- prettier-ignore -->
@@ -916,10 +918,11 @@
                 <!-- Placeholder Section -->
                 <div class="text_style_inner_container_button_placeholder">
                   <h6>Placeholder</h6>
-                  <input type="text" id="mapText" placeholder="Latitude, Longitude" />
+                  <input type="text" id="mapLatLongText" placeholder="Latitude, Longitude" />
                   <button
-                          class="image_style_container_button"
+                          class="image_style_container_button leaflet-button"
                           id="addMapButton"
+                          data-block="leaflet-map"
                   >
                     Insert Map
                   </button>
@@ -2554,9 +2557,6 @@
     <script src="/scripts/editor/editor.comments.js"></script>
     <script src="/scripts/editor/top.quick.event.js"></script>
 
-    <script src="/scripts/editor/grapes.add.map.js"></script>
-    <script src="/scripts/editor/grapes.add.map.style.js"></script>
-
     <script src="/scripts/editor/grapes.add.section.js"></script>
     <script src="/scripts/editor/grapes.add.multipleSections.js"></script>
     <script src="/scripts/editor/grapes.add.tripleSections.js"></script>
@@ -2571,6 +2571,9 @@
 
     <script src="/scripts/editor/grapes.add.button.js"></script>
     <script src="/scripts/editor/grapes.add.button.style.js"></script>
+
+    <script src="/scripts/editor/grapes.add.map.js"></script>
+    <script src="/scripts/editor/grapes.add.map.style.js"></script>
     <!-- <script src="/scripts/editor/grapes.add.button.styles.functionaity.js"></script> -->
 
     <script src="/scripts/editor/grapes.add.video.js"></script>
@@ -2611,7 +2614,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.9/beautify-html.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.9/beautify-css.min.js"></script>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
     <script>
       function updateColorisBadge(inputElement) {

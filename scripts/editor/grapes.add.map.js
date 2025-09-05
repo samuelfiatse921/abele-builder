@@ -15,7 +15,6 @@
         return;
     }
     window.addMapFunctionalityLoaded = true;
-
     // ==========================================================================
     // Initial Setup and Validation
     // ==========================================================================
@@ -32,10 +31,10 @@
     // DOM Elements
     // ==========================================================================
 
-    const mapTextInput = document.getElementById("mapText");
-    const addButtonButton = document.getElementById("addMapButton");
-    const addMapStyleButton = document.getElementById("addMapStyleButton");
+    const addMapButton = document.getElementById("addMapButton");
     const deleteSelectedButton = document.getElementById("deleteSelectedMap");
+
+    console.log("add map button", addMapButton);
 
     // State to track if the element is over the canvas
     let isOverCanvas = false;
@@ -44,113 +43,104 @@
     // Shared Button-Adding Logic
     // ==========================================================================
 
-    const mapText =
-        mapTextInput.value.trim() || mapTextInput.placeholder || "Map";
+    const get_map_coordinates = () => {
+        const map_cordi = document.getElementById("mapLatLongText").value;
 
-    const button = {
-        model: {
-            defaults: {
-                tagName: "button",
-                content: mapText,
-                attributes: { class: "custom-button" },
-                style: {
-                    padding: "10px 20px",
-                    color: "#fff",
-                    border: "none",
-                    borderRadius: "5px",
-                    "background-color": "#007bff",
-                },
-            },
-        },
-    };
+        let coordinates = map_cordi.split(",");
 
-    const buttonConfig = {
-        type: "button",
-        content: mapText,
-        style: {
-            "background-color": "#007bff",
-            color: "#ffffff",
-            "padding-left": "15px",
-            "padding-top": "10px",
-            "padding-bottom": "10px",
-            "padding-right": "15px",
-            "margin-left": "0px",
-            "margin-top": "0px",
-            "margin-bottom": "0px",
-            "margin-right": "auto",
-            position: "relative",
-            display: "block",
-            width: "fit-content",
-            height: "fit-content",
-            border: "none",
-            "border-radius": "4px",
-            cursor: "pointer",
-            "text-align": "center",
-            flex: "none",
-        },
-    };
+        let lat = 5.6037;
+        let lng = -0.1870;
 
-    const addButtonToEditor = () => {
-        let newButtonComponent;
-        const selectedComponent = grapeEditor.getSelected();
-
-        if (selectedComponent && selectedComponent.components) {
-            // Fallback to selected component
-            newButtonComponent = selectedComponent.append(
-                grapeEditor.Component.addType("map", button)
-            )[0];
-        } else {
-            // Fallback to canvas root
-            newButtonComponent = grapeEditor
-                .getComponents()
-                .add(grapeEditor.Component.addType("map", button))[0];
+        if (coordinates.length > 1) {
+            lat = coordinates[0];
+            lng = coordinates[1];
         }
 
+        return {
+            "data-lat": lat,
+            "data-lng": lng
+        };
+    }
 
+    const button = {
+        isComponent: el => el.classList && el.classList.contains("leaflet-map"),
+        model: {
+            defaults: {
+                tagName: "div",
+                classes: ["leaflet-map"],
+                style: { height: "300px", width: "100%" },
+                droppable: false,
+                editable: false,
+                script: function () {
+                    const lat = parseFloat(this.getAttribute("data-lat"));
+                    const lng = parseFloat(this.getAttribute("data-lng"));
 
-        grapeEditor.select(newButtonComponent);
+                    const init = () => {
+                        const map = L.map(this).setView([lat, lng], 12);
+                        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+                            attribution: "© OpenStreetMap contributors"
+                        }).addTo(map);
+
+                        setTimeout(() => map.invalidateSize(), 200);
+                    };
+
+                    if (typeof L !== "undefined") {
+                        init();
+                    } else {
+                        // inject Leaflet CSS/JS inside the iframe
+                        const script = document.createElement("script");
+                        script.src = "https://unpkg.com/leaflet/dist/leaflet.js";
+                        script.onload = init;
+                        document.body.appendChild(script);
+
+                        const link = document.createElement("link");
+                        link.rel = "stylesheet";
+                        link.href = "https://unpkg.com/leaflet/dist/leaflet.css";
+                        document.head.appendChild(link);
+                    }
+                }
+            }
+        }
     };
 
-    // ==========================================================================
-    // Add Button via Click (#addButtonButton)
-    // ==========================================================================
+    grapeEditor.DomComponents.addType("leaflet-map",button)
 
-    if (addButtonButton) {
-        addButtonButton.addEventListener("click", () => {
-            addButtonToEditor();
+    // // ==========================================================================
+    // // Add Button via Click (#addButtonButton)
+    // // ==========================================================================
+
+    if (addMapButton) {
+        addMapButton.setAttribute("draggable", true);
+
+        addMapButton.addEventListener("dragstart", (e) => {
+            console.log("Dragging map tool with ID: addMapButton");
+            // Instead of passing just the ID, pass the actual component definition
+            const dataLat = get_map_coordinates()["data-lat"];
+            const dataLng = get_map_coordinates()["data-lng"];
+
+            const mapComponent = {
+                type: 'leaflet-map',
+                attributes: {
+                    'data-lat': dataLat,  // Default coordinates - update as needed
+                    'data-lng': dataLng
+                }
+            };
+
+            // Set both formats for compatibility
+            e.dataTransfer.setData('text/plain', JSON.stringify(mapComponent));
+            e.dataTransfer.setData('text/html', `<div class="leaflet-map" data-lat=${dataLat} data-lng=${dataLng}></div>`);
         });
-    } else {
-        console.error(
-            "Add map element not found. Please check the selector '#addMapButton'."
-        );
+
+        addMapButton.addEventListener("dragend", (e) => {
+            isOverCanvas = false;
+        });
     }
 
-    // ==========================================================================
-    // Add Button via Drag-and-Drop (#addMapStyleButton)
-    // ==========================================================================
-
-    if (addMapStyleButton) {
-        // Enable drag-and-drop for the button
-        addMapStyleButton.addEventListener("dragstart", (e) => {
-            e.dataTransfer.setData("text/plain", "addMapStyleButton");
-            console.log("Dragging button with ID: addMapStyleButton");
-        });
-
-        // Log dragend event
-        addMapStyleButton.addEventListener("dragend", (e) => {
-            console.log("Drag ended, over canvas:", isOverCanvas);
-            isOverCanvas = false; // Reset state
-        });
-    } else {
-        console.error(
-            "Add button style element not found. Please check the selector '#addMapStyleButton'."
-        );
-    }
-
-    // ==========================================================================
-    // Delete Button Functionality
-    // ==========================================================================
-
+    //
+    // // ==========================================================================
+    // // Delete Button Functionality
+    // // ==========================================================================
+    //
     if (deleteSelectedButton) {
         deleteSelectedButton.addEventListener("click", () => {
             const selectedComponent = grapeEditor.getSelected();
@@ -181,15 +171,15 @@
         });
     } else {
         console.error(
-            "Delete map element not found. Please check the selector '#deleteSelectedMap'."
+            "Delete button element not found. Please check the selector '#deleteSelectedButton'."
         );
     }
-
-    // ==========================================================================
-    // Track Drag-and-Drop State Using GrapesJS Events
-    // ==========================================================================
-
-    // Track drag over the canvas
+    //
+    // // ==========================================================================
+    // // Track Drag-and-Drop State Using GrapesJS Events
+    // // ==========================================================================
+    //
+    // // Track drag over the canvas
     grapeEditor.on("canvas:dragover", (e) => {
         isOverCanvas = true;
     });
@@ -198,16 +188,5 @@
     grapeEditor.on("canvas:dragleave", (e) => {
         isOverCanvas = false;
         console.log("Left canvas");
-    });
-
-    // Handle component addition to replace text with button
-    grapeEditor.on("component:add", (component) => {
-        if (component.get("content") === "addMapStyleButton") {
-            // Get the parent component where the text was added
-            component.parent().set(buttonConfig);
-            component.set("content", "map");
-
-            // component.parent().replaceWith(buttonConfig);
-        }
     });
 })();

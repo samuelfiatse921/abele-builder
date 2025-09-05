@@ -1,13 +1,6 @@
-const addButtonStyleButton = document.getElementById("addMapStyleButton");
-const buttonStyleContainerHeader = document.getElementById(
-  "buttonStyleContainerHeader"
-);
-const allButtonStyleHeaderButtons = mapStyleContainer.querySelector("button");
-const buttonStyleContainerContainers = document.querySelectorAll(
-    ".button_style_container_container"
-);
+const addMapStyleButton = document.getElementById("addMapStyleButton");
 
-addButtonStyleButton.addEventListener("click", (e) => {
+addMapStyleButton.addEventListener("click", (e) => {
     const searchFileNameSection = document.getElementById(
         "searchFileNameSection"
     );
