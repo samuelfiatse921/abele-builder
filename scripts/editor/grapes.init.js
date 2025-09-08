@@ -515,6 +515,55 @@ const grapeEditor = grapesjs.init({
   panels: { defaults: [] },
   plugins: [customToolbarPlugin, "grapesjs-zoom-plugin"],
   canvas: { styles: [cssPath] },
+  traitManager: {
+    appendTo: "#styles-content2"
+  },
+  layerManager: {
+    appendTo: "#content3"
+  },
+  styleManager: {
+    appendTo: "#content4",
+    sectors: [
+      {
+        name: 'General',
+        open: true,
+        buildProps: ['float', 'display', 'position', 'top', 'right', 'left', 'bottom']
+      },
+      {
+        name: 'Flex',
+        open: false,
+        buildProps: [
+          'flex-direction', 'flex-wrap', 'justify-content',
+          'align-items', 'align-content', 'order',
+          'flex-basis', 'flex-grow', 'flex-shrink'
+        ]
+      },
+      {
+        name: 'Dimension',
+        open: false,
+        buildProps: ['width', 'height', 'max-width', 'min-height', 'margin', 'padding']
+      },
+      {
+        name: 'Typography',
+        open: false,
+        buildProps: [
+          'font-family', 'font-size', 'font-weight',
+          'letter-spacing', 'color', 'line-height',
+          'text-align', 'text-decoration', 'text-shadow'
+        ]
+      },
+      {
+        name: 'Decorations',
+        open: false,
+        buildProps: ['background-color', 'border-radius', 'border', 'box-shadow', 'background']
+      },
+      {
+        name: 'Extra',
+        open: false,
+        buildProps: ['opacity', 'transition', 'perspective', 'transform']
+      }
+    ]
+  },
   domComponents: {
     defaults: {
       // You can leave this empty, since our plugin takes over

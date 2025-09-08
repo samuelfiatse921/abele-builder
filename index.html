@@ -282,166 +282,178 @@
               </button>
             </div>
 
-            <!-- Search Panel -->
-            <div id="searchFileNameSection" class="search_file_name_section">
-              <form>
+            <div class="tab-container">
+              <div class="tabs">
+                <div class="tab active" data-tab="1">Pages</div>
+                <div class="tab" data-tab="2">Tools</div>
+                <div class="tab" data-tab="3">Layers</div>
+                <div class="tab" data-tab="4">All Styles</div>
+
+              </div>
+
+              <div class="tab-content active" id="content1">
+                <h2>Pages</h2>
+              </div>
+
+              <div class="tab-content" id="content2">
+                <!-- Search Panel -->
+                <div id="searchFileNameSection" class="search_file_name_section">
+                  <form>
                 <span>
                   <svg
-                    width="24"
-                    height="25"
-                    viewBox="0 0 24 25"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="25"
+                          viewBox="0 0 24 25"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
                   >
                     <circle
-                      cx="11"
-                      cy="11.5"
-                      r="7"
-                      stroke="white"
-                      stroke-opacity="0.6"
-                      stroke-width="2"
+                            cx="11"
+                            cy="11.5"
+                            r="7"
+                            stroke="white"
+                            stroke-opacity="0.6"
+                            stroke-width="2"
                     />
                     <path
-                      d="M20 20.5L17 17.5"
-                      stroke="white"
-                      stroke-opacity="0.6"
-                      stroke-width="2"
-                      stroke-linecap="round"
+                            d="M20 20.5L17 17.5"
+                            stroke="white"
+                            stroke-opacity="0.6"
+                            stroke-width="2"
+                            stroke-linecap="round"
                     />
                   </svg>
                 </span>
-                <input type="text" placeholder="Search" />
-              </form>
-            </div>
-          </div>
-
-          <!-- Main -->
-          <div class="main_aside_container_wrapper">
-            <!-- New Blank Template -->
-            <div id="newBlankWrapper" class="new_blank_wrapper">
-              <button>
+                    <input type="text" placeholder="Search" />
+                  </form>
+                </div>
+                <!-- Main -->
+                <div class="main_aside_container_wrapper">
+                  <!-- New Blank Template -->
+                  <div id="newBlankWrapper" class="new_blank_wrapper">
+                    <button>
                 <span class="icon_con">
                   <!-- prettier-ignore -->
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="#fff" d="M18 12.998h-5v5a1 1 0 0 1-2 0v-5H6a1 1 0 0 1 0-2h5v-5a1 1 0 0 1 2 0v5h5a1 1 0 0 1 0 2"/></svg>
                 </span>
-                <span>New Blank</span>
-              </button>
-            </div>
+                      <span>New Blank</span>
+                    </button>
+                  </div>
 
-            <!-- GRID Button Items -->
-            <div id="editorToolsList" class="editor_tools_list">
-              <button id="addSectionTool" draggable="true">
+                  <!-- GRID Button Items -->
+                  <div id="editorToolsList" class="editor_tools_list">
+                    <button id="addSectionTool" draggable="true">
                 <span>
                   <!-- prettier-ignore -->
                   <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"/></svg>
                 </span>
-                <span>Section</span>
-              </button>
+                      <span>Section</span>
+                    </button>
 
-              <button id="addMultipleSectionTool" draggable="true">
+                    <button id="addMultipleSectionTool" draggable="true">
                 <span>
                   <!-- prettier-ignore -->
                   <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 15 15"><path fill="#ffffff" fill-rule="evenodd" d="M2 1.5a.5.5 0 1 1-1 0a.5.5 0 0 1 1 0M2 5v5h11V5zm0-1a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zm-.5 10a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1M4 1.5a.5.5 0 1 1-1 0a.5.5 0 0 1 1 0M3.5 14a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1M6 1.5a.5.5 0 1 1-1 0a.5.5 0 0 1 1 0M5.5 14a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1M8 1.5a.5.5 0 1 1-1 0a.5.5 0 0 1 1 0M7.5 14a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1M10 1.5a.5.5 0 1 1-1 0a.5.5 0 0 1 1 0M9.5 14a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1M12 1.5a.5.5 0 1 1-1 0a.5.5 0 0 1 1 0M11.5 14a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1M14 1.5a.5.5 0 1 1-1 0a.5.5 0 0 1 1 0M13.5 14a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1" clip-rule="evenodd"/></svg>
                 </span>
-                <span>Inner Section</span>
-              </button>
+                      <span>Inner Section</span>
+                    </button>
 
-              <button id="addTripleSectionTool" draggable="true">
+                    <button id="addTripleSectionTool" draggable="true">
                 <span>
                   <!-- prettier-ignore -->
                   <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 15 15"><path fill="#ffffff" fill-rule="evenodd" d="M2 1.5a.5.5 0 1 1-1 0a.5.5 0 0 1 1 0M2 5v5h11V5zm0-1a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zm-.5 10a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1M4 1.5a.5.5 0 1 1-1 0a.5.5 0 0 1 1 0M3.5 14a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1M6 1.5a.5.5 0 1 1-1 0a.5.5 0 0 1 1 0M5.5 14a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1M8 1.5a.5.5 0 1 1-1 0a.5.5 0 0 1 1 0M7.5 14a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1M10 1.5a.5.5 0 1 1-1 0a.5.5 0 0 1 1 0M9.5 14a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1M12 1.5a.5.5 0 1 1-1 0a.5.5 0 0 1 1 0M11.5 14a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1M14 1.5a.5.5 0 1 1-1 0a.5.5 0 0 1 1 0M13.5 14a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1"/><path fill="#ffffff" d="M7 5v5H6V5zm3 0v5H9V5z"/></svg>
                 </span>
-                <span>Tri Section</span>
-              </button>
+                      <span>Tri Section</span>
+                    </button>
 
-              <button id="addSplitSectionTool" draggable="true">
+                    <button id="addSplitSectionTool" draggable="true">
                 <span>
                   <!-- prettier-ignore -->
                   <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 15 15"><path fill="#ffffff" fill-rule="evenodd" d="M2 1.5a.5.5 0 1 1-1 0a.5.5 0 0 1 1 0M2 5v5h11V5zm0-1a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zm-.5 10a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1M14 1.5a.5.5 0 1 1-1 0a.5.5 0 0 1 1 0M13.5 14a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1"/><path fill="#ffffff" d="M6 5v5H5V5z"/></svg>
                 </span>
-                <span>Split Section</span>
-              </button>
+                      <span>Split Section</span>
+                    </button>
 
-              <button id="addHeadingButton" draggable="true">
+                    <button id="addHeadingButton" draggable="true">
                 <span>
                   <!-- prettier-ignore -->
                   <svg width="30" height="30" viewBox="0 0 57 56" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 11.6667C7.5 9.08934 9.58934 7 12.1667 7H44.8333C47.4107 7 49.5 9.08934 49.5 11.6667V16.3333C49.5 17.622 48.4553 18.6667 47.1667 18.6667C45.878 18.6667 44.8333 17.622 44.8333 16.3333V11.6667H30.8333V44.3333H35.5C36.7887 44.3333 37.8333 45.378 37.8333 46.6667C37.8333 47.9553 36.7887 49 35.5 49H21.5C20.2113 49 19.1667 47.9553 19.1667 46.6667C19.1667 45.378 20.2113 44.3333 21.5 44.3333H26.1667V11.6667H12.1667V16.3333C12.1667 17.622 11.122 18.6667 9.83333 18.6667C8.54467 18.6667 7.5 17.622 7.5 16.3333V11.6667Z" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
                 </span>
-                <span>Heading</span>
-              </button>
+                      <span>Heading</span>
+                    </button>
 
-              <button id="addTextButton" draggable="true">
+                    <button id="addTextButton" draggable="true">
                 <span>
                   <!-- prettier-ignore -->
                   <svg width="30" height="30" viewBox="0 0 57 53" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.1667 13H36.1667" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M12.1667 19.75H44.8334" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M12.1667 26.5H36.1667" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M12.1667 33.25H44.8334" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M12.1667 40H36.1667" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
                 </span>
-                <span>Text Editor</span>
-              </button>
+                      <span>Text Editor</span>
+                    </button>
 
-              <button id="imageButton">
+                    <button id="imageButton">
                 <span>
                   <!-- prettier-ignore -->
                   <svg width="30" height="30" viewBox="0 0 57 56" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 15C7.5 11.2288 7.5 9.34315 8.67157 8.17157C9.84315 7 11.7288 7 15.5 7H41.5C45.2712 7 47.1569 7 48.3284 8.17157C49.5 9.34315 49.5 11.2288 49.5 15V41C49.5 44.7712 49.5 46.6569 48.3284 47.8284C47.1569 49 45.2712 49 41.5 49H15.5C11.7288 49 9.84315 49 8.67157 47.8284C7.5 46.6569 7.5 44.7712 7.5 41V15Z" stroke="white" stroke-width="2"/><path fill-rule="evenodd" clip-rule="evenodd" d="M47.5 36.2522L41.3689 30.121L41.3224 30.0745L41.3222 30.0744C40.6955 29.4476 40.1554 28.9075 39.6648 28.5331C39.139 28.1319 38.5541 27.8281 37.8333 27.8281C37.1126 27.8281 36.5277 28.1319 36.0019 28.5331C35.5112 28.9075 34.9712 29.4476 34.3444 30.0745L34.2978 30.121L29.8817 34.5371C29.3853 35.0335 29.0912 35.3239 28.8628 35.4935L28.8528 35.5009L28.8463 35.4903C28.6973 35.2481 28.532 34.8692 28.2555 34.2239L24.7465 26.0362L24.715 25.9628C24.2147 24.7952 23.7952 23.8164 23.3625 23.1131C22.91 22.3776 22.3195 21.7354 21.3927 21.5569C20.4659 21.3784 19.6791 21.7554 18.9858 22.2702C18.3228 22.7625 17.5698 23.5156 16.6716 24.4139L16.6152 24.4703L9.5 31.5855V34.4139L18.0294 25.8845C18.9991 24.9149 19.6481 24.2696 20.1782 23.8759C20.6918 23.4945 20.8993 23.4986 21.0145 23.5208C21.1297 23.543 21.3239 23.6163 21.6591 24.1611C22.0051 24.7235 22.368 25.5637 22.9082 26.8241L26.4172 35.0117L26.444 35.0742L26.444 35.0742C26.6843 35.6353 26.9068 36.1546 27.1429 36.5384C27.3985 36.9538 27.7928 37.4171 28.4591 37.5454C29.1254 37.6737 29.6636 37.39 30.0552 37.0992C30.4169 36.8306 30.8163 36.4311 31.2478 35.9994L31.2479 35.9994L31.2959 35.9513L35.712 31.5352C36.3987 30.8486 36.844 30.4062 37.215 30.1232C37.563 29.8577 37.7257 29.8281 37.8333 29.8281C37.941 29.8281 38.1037 29.8577 38.4516 30.1232C38.8226 30.4062 39.268 30.8486 39.9547 31.5352L46.4596 38.0401L47.5 36.9997V36.2522ZM28.7161 35.5861C28.7161 35.586 28.7176 35.5853 28.7205 35.5844C28.7175 35.5857 28.716 35.5862 28.7161 35.5861ZM28.9482 35.6308C28.9482 35.6307 28.947 35.6295 28.9447 35.6276C28.9459 35.6288 28.9468 35.6296 28.9474 35.6301C28.9479 35.6306 28.9482 35.6308 28.9482 35.6308Z" fill="white"/><circle cx="39" cy="17.5" r="3.5" fill="white"/></svg>
                 </span>
-                <span>Image</span>
-              </button>
+                      <span>Image</span>
+                    </button>
 
-              <button id="videoButton">
+                    <button id="videoButton">
                 <span>
                   <!-- prettier-ignore -->
                   <svg width="30" height="30" viewBox="0 0 57 56" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M31.2338 7H21.5001C17.1003 7 14.9004 7 13.5336 8.36684C12.1667 9.73367 12.1667 11.9336 12.1667 16.3333V39.6667C12.1667 44.0664 12.1667 46.2663 13.5336 47.6332C14.9004 49 17.1003 49 21.5001 49H35.5001C39.8999 49 42.0997 49 43.4666 47.6332C44.8334 46.2663 44.8334 44.0664 44.8334 39.6667V20.5997C44.8334 19.6459 44.8334 19.169 44.6558 18.7402C44.4782 18.3114 44.141 17.9742 43.4666 17.2998L34.5336 8.36684C33.8592 7.69243 33.522 7.35523 33.0932 7.17761C32.6644 7 32.1875 7 31.2338 7Z" stroke="white" stroke-width="2"/><path d="M32.8291 32.8553L25.403 29.6727C23.5553 28.8809 21.5 30.2362 21.5 32.2463V37.7537C21.5 39.7639 23.5553 41.1191 25.403 40.3273L32.8291 37.1447C34.7147 36.3366 34.7147 33.6634 32.8291 32.8553Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M30.8333 7V16.3333C30.8333 18.5332 30.8333 19.6332 31.5167 20.3166C32.2001 21 33.3 21 35.4999 21H44.8333" stroke="white" stroke-width="2"/></svg>
                 </span>
-                <span>Video</span>
-              </button>
+                      <span>Video</span>
+                    </button>
 
-              <button id="toggleFlexSpacing">
+                    <button id="toggleFlexSpacing">
                 <span>
                   <!-- prettier-ignore -->
                   <svg width="30" height="30" viewBox="0 0 57 54" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.1667 13.5H44.8334" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M28.6921 18.7305L32.4065 23.1879C32.8408 23.7089 32.4702 24.5 31.792 24.5L25.208 24.5C24.5298 24.5 24.1592 23.7089 24.5935 23.1879L28.3079 18.7305C28.4079 18.6105 28.5921 18.6105 28.6921 18.7305Z" fill="white"/><path d="M28.3079 35.2695L24.5935 30.8121C24.1592 30.2911 24.5298 29.5 25.208 29.5H31.792C32.4702 29.5 32.8408 30.2911 32.4065 30.8121L28.6921 35.2695C28.5921 35.3895 28.4079 35.3895 28.3079 35.2695Z" fill="white"/><path d="M12.1667 40.5H44.8334" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
                 </span>
-                <span>Spacer</span>
-              </button>
+                      <span>Spacer</span>
+                    </button>
 
-              <button id="toggleMarginSizes">
+                    <button id="toggleMarginSizes">
                 <span>
                   <!-- prettier-ignore -->
                   <svg width="30" height="30" viewBox="0 0 57 53" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M28.6921 13.2305L32.4065 17.6879C32.8408 18.2089 32.4702 19 31.792 19L25.208 19C24.5298 19 24.1592 18.2089 24.5935 17.6879L28.3079 13.2305C28.4079 13.1105 28.5921 13.1105 28.6921 13.2305Z" fill="white"/><path d="M12.1667 24H44.8334" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M12.1667 29H44.8334" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M28.3079 39.7695L24.5935 35.3121C24.1592 34.7911 24.5298 34 25.208 34H31.792C32.4702 34 32.8408 34.7911 32.4065 35.3121L28.6921 39.7695C28.5921 39.8895 28.4079 39.8895 28.3079 39.7695Z" fill="white"/></svg>
                 </span>
-                <span>Divider</span>
-              </button>
+                      <span>Divider</span>
+                    </button>
 
-              <button
-                id="addMapStyleButton"
-                class="addMapStyleButton"
-              >
+                    <button
+                            id="addMapStyleButton"
+                            class="addMapStyleButton"
+                    >
                 <span>
                   <!-- prettier-ignore -->
                   <svg width="30" height="30" viewBox="0 0 24 24"><path fill="currentColor" d="M20.5,3L20.34,3.03L15,5.1L9,3L3.36,4.9C3.15,4.97 3,5.15 3,5.38V20.5A0.5,0.5 0 0,0 3.5,21L3.66,20.97L9,18.9L15,21L20.64,19.1C20.85,19.03 21,18.85 21,18.62V3.5A0.5,0.5 0 0,0 20.5,3M10,5.47L14,6.87V18.53L10,17.13V5.47M5,6.46L8,5.45V17.15L5,18.31V6.46M19,17.54L16,18.55V6.86L19,5.7V17.54Z"></path></svg>
                 </span>
-                <span>Map</span>
-              </button>
+                      <span>Map</span>
+                    </button>
 
-              <button
-                id="addButtonStyleButton"
-                class="addButtonButton"
-                draggable="true"
-              >
+                    <button
+                            id="addButtonStyleButton"
+                            class="addButtonButton"
+                            draggable="true"
+                    >
                 <span>
                   <!-- prettier-ignore -->
                   <svg width="30" height="30" viewBox="0 0 57 56" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="-1" y="1" width="45" height="24" rx="3" transform="matrix(-1 0 0 1 50 14)" stroke="white" stroke-width="2"/><g filter="url(#filter0_d_1_7339)"><path fill-rule="evenodd" clip-rule="evenodd" d="M37.5 35V47L40.5 44L43 49C43 49 43.3501 49.3704 44 49C44.6499 48.6296 44.5 48 44.5 48L42 43H45.5L37.5 35Z" fill="#1C1E25"/><path d="M37.8536 34.6464L37 33.7929V35V47V48.2071L37.8536 47.3536L40.363 44.8441L42.5528 49.2236L42.5859 49.2897L42.6366 49.3435L43 49C42.6366 49.3435 42.6369 49.3437 42.6371 49.344L42.6376 49.3445L42.6386 49.3456L42.6408 49.3478L42.6456 49.3527L42.6573 49.3642C42.6659 49.3725 42.6764 49.3822 42.6887 49.3929C42.7133 49.4142 42.7456 49.4399 42.7856 49.4668C42.8655 49.5206 42.9787 49.5812 43.124 49.6211C43.4301 49.705 43.8161 49.6803 44.2476 49.4344C44.7111 49.1703 44.9127 48.7913 44.9826 48.4661C45.016 48.3106 45.0183 48.1736 45.0124 48.0741C45.0093 48.024 45.0041 47.9819 44.9991 47.9499C44.9965 47.9338 44.994 47.9202 44.9918 47.9092L44.9888 47.8947L44.9875 47.8889L44.9869 47.8864L44.9867 47.8853L44.9865 47.8847C44.9865 47.8845 44.9864 47.8842 44.5 48L44.9864 47.8842L44.973 47.828L44.9472 47.7764L42.809 43.5H45.5H46.7071L45.8536 42.6464L37.8536 34.6464Z" stroke="white"/></g><defs><filter id="filter0_d_1_7339" x="33.5" y="30.5858" width="17.4143" height="23.5789" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dy="1"/><feGaussianBlur stdDeviation="1.5"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_7339"/><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_7339" result="shape"/></filter></defs></svg>
                 </span>
-                <span>Button</span>
-              </button>
+                      <span>Button</span>
+                    </button>
 
-              <button id="addIconsButton">
+                    <button id="addIconsButton">
                 <span>
                   <!-- prettier-ignore -->
                   <svg width="30" height="30" viewBox="0 0 57 56" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M28.5001 49V30.3333M28.5001 49L13.0043 37.9316C12.5937 37.6383 12.3884 37.4917 12.2776 37.2763C12.1667 37.0609 12.1667 36.8087 12.1667 36.3041V18.6667M28.5001 49L43.9959 37.9316C44.4065 37.6383 44.6117 37.4917 44.7226 37.2763C44.8334 37.0609 44.8334 36.8087 44.8334 36.3041V18.6667M28.5001 30.3333L12.1667 18.6667M28.5001 30.3333L44.8334 18.6667M12.1667 18.6667L27.3376 7.83034C27.8989 7.42938 28.1796 7.2289 28.5001 7.2289C28.8205 7.2289 29.1012 7.42938 29.6626 7.83034L44.8334 18.6667" stroke="white" stroke-width="2" stroke-linejoin="round"/></svg>
                 </span>
-                <span>Icon</span>
-              </button>
+                      <span>Icon</span>
+                    </button>
 
-              <button id="addFormButton">
+                    <button id="addFormButton">
                 <span style="opacity: 0.6">
                   <!-- prettier-ignore -->
                   <svg width="41" height="37" viewBox="0 0 41 37" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -452,39 +464,39 @@
                     <rect x="15" y="27" width="11" height="5" rx="1" stroke="white" stroke-width="2"/>
                   </svg>
                 </span>
-                <span>Form</span>
-              </button>
+                      <span>Form</span>
+                    </button>
 
-              <button id="addLabelButton">
-                <svg
-                  width="25"
-                  height="11"
-                  viewBox="0 0 25 11"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    x="0.5"
-                    y="0.5"
-                    width="16.5"
-                    height="3.88889"
-                    rx="1.94444"
-                    fill="#D9D9D9"
-                    stroke="white"
-                  />
-                  <rect
-                    x="0.5"
-                    y="6.61108"
-                    width="24"
-                    height="3.88889"
-                    rx="1.94444"
-                    stroke="white"
-                  />
-                </svg>
-                <span>Label</span>
-              </button>
+                    <button id="addLabelButton">
+                      <svg
+                              width="25"
+                              height="11"
+                              viewBox="0 0 25 11"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                                x="0.5"
+                                y="0.5"
+                                width="16.5"
+                                height="3.88889"
+                                rx="1.94444"
+                                fill="#D9D9D9"
+                                stroke="white"
+                        />
+                        <rect
+                                x="0.5"
+                                y="6.61108"
+                                width="24"
+                                height="3.88889"
+                                rx="1.94444"
+                                stroke="white"
+                        />
+                      </svg>
+                      <span>Label</span>
+                    </button>
 
-              <button id="addInputButton">
+                    <button id="addInputButton">
                 <span style="opacity: 0.8">
                   <!-- prettier-ignore -->
                   <svg width="27" height="28" viewBox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -492,10 +504,10 @@
                   <path d="M13.5 23.3333H12.375C11.7783 23.3333 11.206 23.0875 10.784 22.6499C10.3621 22.2123 10.125 21.6188 10.125 21M10.125 21C10.125 21.6188 9.88795 22.2123 9.46599 22.6499C9.04403 23.0875 8.47174 23.3333 7.875 23.3333H6.75M10.125 21V6.99996M14.625 9.33329H22.5C23.0967 9.33329 23.669 9.57913 24.091 10.0167C24.5129 10.4543 24.75 11.0478 24.75 11.6666V16.3333C24.75 16.9521 24.5129 17.5456 24.091 17.9832C23.669 18.4208 23.0967 18.6666 22.5 18.6666H14.625M5.625 18.6666H4.5C3.90326 18.6666 3.33097 18.4208 2.90901 17.9832C2.48705 17.5456 2.25 16.9521 2.25 16.3333V11.6666C2.25 11.0478 2.48705 10.4543 2.90901 10.0167C3.33097 9.57913 3.90326 9.33329 4.5 9.33329H5.625M6.75 4.66663H7.875C8.47174 4.66663 9.04403 4.91246 9.46599 5.35004C9.88795 5.78763 10.125 6.38112 10.125 6.99996M10.125 6.99996C10.125 6.38112 10.3621 5.78763 10.784 5.35004C11.206 4.91246 11.7783 4.66663 12.375 4.66663H13.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </span>
-                <span>Input</span>
-              </button>
+                      <span>Input</span>
+                    </button>
 
-              <button id="addTextareaButton">
+                    <button id="addTextareaButton">
                 <span style="opacity: 0.6">
                   <!-- prettier-ignore -->
                   <svg width="34" height="19" viewBox="0 0 34 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -503,28 +515,28 @@
                     <path d="M6.11364 4.27273V13H5.05682V4.27273H6.11364Z" fill="white"/>
                   </svg>
                 </span>
-                <span>Textarea</span>
-              </button>
+                      <span>Textarea</span>
+                    </button>
 
-              <button id="addSelectButton">
+                    <button id="addSelectButton">
                 <span>
                   <!-- prettier-ignore -->
                   <svg width="30" height="30" viewBox="0 0 57 56" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M28.5001 49V30.3333M28.5001 49L13.0043 37.9316C12.5937 37.6383 12.3884 37.4917 12.2776 37.2763C12.1667 37.0609 12.1667 36.8087 12.1667 36.3041V18.6667M28.5001 49L43.9959 37.9316C44.4065 37.6383 44.6117 37.4917 44.7226 37.2763C44.8334 37.0609 44.8334 36.8087 44.8334 36.3041V18.6667M28.5001 30.3333L12.1667 18.6667M28.5001 30.3333L44.8334 18.6667M12.1667 18.6667L27.3376 7.83034C27.8989 7.42938 28.1796 7.2289 28.5001 7.2289C28.8205 7.2289 29.1012 7.42938 29.6626 7.83034L44.8334 18.6667" stroke="white" stroke-width="2" stroke-linejoin="round"/></svg>
                 </span>
-                <span>Select</span>
-              </button>
+                      <span>Select</span>
+                    </button>
 
-              <button id="addCheckboxButton">
+                    <button id="addCheckboxButton">
                 <span>
                   <!-- prettier-ignore -->
                   <svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M9.25 12L11.75 14.3333L16.75 9.66667M4.25 1.5H21.75C23.1307 1.5 24.25 2.54467 24.25 3.83333V20.1667C24.25 21.4553 23.1307 22.5 21.75 22.5H4.25C2.86929 22.5 1.75 21.4553 1.75 20.1667V3.83333C1.75 2.54467 2.86929 1.5 4.25 1.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </span>
-                <span>Checkbox</span>
-              </button>
+                      <span>Checkbox</span>
+                    </button>
 
-              <button id="addRadioButton">
+                    <button id="addRadioButton">
                 <span>
                   <!-- prettier-ignore -->
                   <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -532,10 +544,10 @@
                     <rect x="3.5" y="3.5" width="8" height="8" rx="4" stroke="white"/>
                   </svg>
                 </span>
-                <span>Radio</span>
-              </button>
+                      <span>Radio</span>
+                    </button>
 
-              <button id="addNavbarButton">
+                    <button id="addNavbarButton">
                 <span style="opacity: 0.6">
                   <!-- prettier-ignore -->
                   <svg width="92" height="19" viewBox="0 0 92 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -544,10 +556,10 @@
                     <rect x="62" y="7" width="23" height="5" rx="1" stroke="white" stroke-width="2"/>
                   </svg>
                 </span>
-                <span>Navbar</span>
-              </button>
+                      <span>Navbar</span>
+                    </button>
 
-              <button id="addFooterButton">
+                    <button id="addFooterButton">
                 <span style="opacity: 0.6">
                   <!-- prettier-ignore -->
                   <svg width="92" height="32" viewBox="0 0 92 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -557,451 +569,463 @@
                     <rect x="31" y="23" width="23" height="5" rx="1" stroke="white" stroke-width="2"/>
                   </svg>
                 </span>
-                <span>Footer</span>
-              </button>
-            </div>
+                      <span>Footer</span>
+                    </button>
+                  </div>
 
-            <!-- Text Style Container -->
-            <div
-              id="textStyleContainer"
-              class="editing_tools_container text_style_container editor--hidden"
-            >
-              <header id="textStyleContainerHeader">
-                <button data-type="Content" class="content active">
-                  Content
-                </button>
-              </header>
+                  <!-- Text Style Container -->
+                  <div
+                          id="textStyleContainer"
+                          class="editing_tools_container text_style_container editor--hidden"
+                  >
+                    <header id="textStyleContainerHeader">
+                      <button data-type="Content" class="content active">
+                        Content
+                      </button>
+                    </header>
 
-              <!-- Text Style Container Content -->
-              <div
-                id="textStyleContainerContent"
-                class="text_style_container_container text_style_container_container_text text_style_container_content"
-              >
-                <h3>Text editor</h3>
+                    <!-- Text Style Container Content -->
+                    <div
+                            id="textStyleContainerContent"
+                            class="text_style_container_container text_style_container_container_text text_style_container_content"
+                    >
+                      <h3>Text editor</h3>
 
-                <div class="text_style_inner_container_color">
-                  <input type="text" id="textColorInput" data-coloris />
-                </div>
+                      <div class="text_style_inner_container_color">
+                        <input type="text" id="textColorInput" data-coloris />
+                      </div>
 
-                <div
-                  style="
+                      <div
+                              style="
                     display: flex;
                     align-items: center;
                     gap: 1rem;
                     padding: 1rem 0;
                   "
-                >
-                  <!-- Font size -->
-                  <div>
-                    <h6>Size</h6>
-                    <div
-                      class="dropdown"
-                      id="fontSizeDropDown"
-                      style="width: 80px"
-                    >
-                      <div class="dropdown-select">
-                        <span class="selected" id="fontSizeSelect">12</span>
-                        <i class="dropdown-arrow"></i>
-                      </div>
-                      <div class="dropdown-menu">
-                        <button class="dropdown-item" id="fontSize12">
-                          12
-                        </button>
-                        <button class="dropdown-item" id="fontSize13">
-                          13
-                        </button>
-                        <button class="dropdown-item" id="fontSize14">
-                          14
-                        </button>
-                        <button class="dropdown-item" id="fontSize15">
-                          15
-                        </button>
-                        <button class="dropdown-item" id="fontSize16">
-                          16
-                        </button>
-                        <button class="dropdown-item" id="fontSize17">
-                          17
-                        </button>
-                        <button class="dropdown-item" id="fontSize18">
-                          18
-                        </button>
-                        <button class="dropdown-item" id="fontSize19">
-                          19
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Font Family Section -->
-                  <div class="font_family_section" style="width: 100%">
-                    <h6>Font Family</h6>
-                    <div
-                      class="dropdown"
-                      id="fontFamilyDropDown"
-                      style="width: 100%; max-width: 100%"
-                    >
-                      <div class="dropdown-select">
-                        <span class="selected" id="fontFamilySelect"
-                          >Inter</span
-                        >
-                        <i class="dropdown-arrow"></i>
-                      </div>
-                      <div class="dropdown-menu">
-                        <button class="dropdown-item" id="fontFamilyInter">
-                          Inter
-                        </button>
-                        <button class="dropdown-item" id="fontFamilyRoboto">
-                          Roboto
-                        </button>
-                        <button class="dropdown-item" id="fontFamilyPoppins">
-                          Poppins
-                        </button>
-                        <button class="dropdown-item" id="fontFamilyMontserrat">
-                          Montserrat
-                        </button>
-                        <button class="dropdown-item" id="fontFamilyRaleway">
-                          Raleway
-                        </button>
-                        <button class="dropdown-item" id="fontFamilyLato">
-                          Lato
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Text Formatting Section -->
-                <div class="text_formatting_section">
-                  <div class="text_formatting_section_font_size"></div>
-                  <div class="text_formatting_section_buttons">
-                    <button data-type="case" id="btnUppercase">
-                      <!-- prettier-ignore -->
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256"><path fill="#fff" d="M87.24 52.59a8 8 0 0 0-14.48 0l-64 136a8 8 0 1 0 14.48 6.81L39.9 160h80.2l16.66 35.4a8 8 0 1 0 14.48-6.81ZM47.43 144L80 74.79L112.57 144ZM200 96c-12.76 0-22.73 3.47-29.63 10.32a8 8 0 0 0 11.26 11.36c3.8-3.77 10-5.68 18.37-5.68c13.23 0 24 9 24 20v3.22a42.76 42.76 0 0 0-24-7.22c-22.06 0-40 16.15-40 36s17.94 36 40 36a42.73 42.73 0 0 0 24-7.25a8 8 0 0 0 16-.75v-60c0-19.85-17.94-36-40-36m0 88c-13.23 0-24-9-24-20s10.77-20 24-20s24 9 24 20s-10.77 20-24 20"/></svg>
-                    </button>
-
-                    <button data-type="bold" id="btnBold">
-                      <!-- prettier-ignore -->
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill="#ffffff" d="M8.9 1c2.4 0 4.2.3 5.4 1c1.3.7 1.9 1.9 1.9 3.6c0 1-.3 1.9-.7 2.6a3 3 0 0 1-2 1.3a4.8 4.8 0 0 1 1.6.7c.4.3.8.8 1.1 1.3a5 5 0 0 1 .4 2.3a4.6 4.6 0 0 1-1.7 3.8A7.6 7.6 0 0 1 10 19H3.3V1zm.4 7.1c1.1 0 1.9-.1 2.3-.5c.5-.3.7-.9.7-1.5c0-.7-.3-1.2-.8-1.5s-1.3-.5-2.4-.5h-2v4zm-2.2 3V16h2.5c1.1 0 2-.3 2.4-.7c.5-.5.7-1 .7-1.8a2 2 0 0 0-.7-1.6c-.5-.4-1.3-.6-2.5-.6H7z"/></svg>
-                    </button>
-
-                    <button data-type="italic" id="btnItalic">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
                       >
-                        <path
-                          fill="#ffffff"
-                          d="M15 20H7v-2h2.927l2.116-12H9V4h8v2h-2.927l-2.116 12H15z"
-                        />
-                      </svg>
-                    </button>
+                        <!-- Font size -->
+                        <div>
+                          <h6>Size</h6>
+                          <div
+                                  class="dropdown"
+                                  id="fontSizeDropDown"
+                                  style="width: 80px"
+                          >
+                            <div class="dropdown-select">
+                              <span class="selected" id="fontSizeSelect">12</span>
+                              <i class="dropdown-arrow"></i>
+                            </div>
+                            <div class="dropdown-menu">
+                              <button class="dropdown-item" id="fontSize12">
+                                12
+                              </button>
+                              <button class="dropdown-item" id="fontSize13">
+                                13
+                              </button>
+                              <button class="dropdown-item" id="fontSize14">
+                                14
+                              </button>
+                              <button class="dropdown-item" id="fontSize15">
+                                15
+                              </button>
+                              <button class="dropdown-item" id="fontSize16">
+                                16
+                              </button>
+                              <button class="dropdown-item" id="fontSize17">
+                                17
+                              </button>
+                              <button class="dropdown-item" id="fontSize18">
+                                18
+                              </button>
+                              <button class="dropdown-item" id="fontSize19">
+                                19
+                              </button>
+                            </div>
+                          </div>
+                        </div>
 
-                    <button data-type="link" id="btnLink">
-                      <!-- prettier-ignore -->
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#ffffff" d="M11 17H7q-2.075 0-3.537-1.463T2 12t1.463-3.537T7 7h4v2H7q-1.25 0-2.125.875T4 12t.875 2.125T7 15h4zm-3-4v-2h8v2zm5 4v-2h4q1.25 0 2.125-.875T20 12t-.875-2.125T17 9h-4V7h4q2.075 0 3.538 1.463T22 12t-1.463 3.538T17 17z"/></svg>
-                    </button>
+                        <!-- Font Family Section -->
+                        <div class="font_family_section" style="width: 100%">
+                          <h6>Font Family</h6>
+                          <div
+                                  class="dropdown"
+                                  id="fontFamilyDropDown"
+                                  style="width: 100%; max-width: 100%"
+                          >
+                            <div class="dropdown-select">
+                        <span class="selected" id="fontFamilySelect"
+                        >Inter</span
+                        >
+                              <i class="dropdown-arrow"></i>
+                            </div>
+                            <div class="dropdown-menu">
+                              <button class="dropdown-item" id="fontFamilyInter">
+                                Inter
+                              </button>
+                              <button class="dropdown-item" id="fontFamilyRoboto">
+                                Roboto
+                              </button>
+                              <button class="dropdown-item" id="fontFamilyPoppins">
+                                Poppins
+                              </button>
+                              <button class="dropdown-item" id="fontFamilyMontserrat">
+                                Montserrat
+                              </button>
+                              <button class="dropdown-item" id="fontFamilyRaleway">
+                                Raleway
+                              </button>
+                              <button class="dropdown-item" id="fontFamilyLato">
+                                Lato
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Text Formatting Section -->
+                      <div class="text_formatting_section">
+                        <div class="text_formatting_section_font_size"></div>
+                        <div class="text_formatting_section_buttons">
+                          <button data-type="case" id="btnUppercase">
+                            <!-- prettier-ignore -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256"><path fill="#fff" d="M87.24 52.59a8 8 0 0 0-14.48 0l-64 136a8 8 0 1 0 14.48 6.81L39.9 160h80.2l16.66 35.4a8 8 0 1 0 14.48-6.81ZM47.43 144L80 74.79L112.57 144ZM200 96c-12.76 0-22.73 3.47-29.63 10.32a8 8 0 0 0 11.26 11.36c3.8-3.77 10-5.68 18.37-5.68c13.23 0 24 9 24 20v3.22a42.76 42.76 0 0 0-24-7.22c-22.06 0-40 16.15-40 36s17.94 36 40 36a42.73 42.73 0 0 0 24-7.25a8 8 0 0 0 16-.75v-60c0-19.85-17.94-36-40-36m0 88c-13.23 0-24-9-24-20s10.77-20 24-20s24 9 24 20s-10.77 20-24 20"/></svg>
+                          </button>
 
-                    <button data-type="bullet-list" id="btnUL">
-                      <!-- prettier-ignore -->
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 100 100"><path fill="#ffffff" d="M88.721 20.13H26.258a3.407 3.407 0 0 0-3.407 3.407v3.143a3.407 3.407 0 0 0 3.407 3.407h62.463a3.407 3.407 0 0 0 3.407-3.407v-3.143a3.407 3.407 0 0 0-3.407-3.407m0 24.892H26.258a3.407 3.407 0 0 0-3.407 3.407v3.143a3.407 3.407 0 0 0 3.407 3.407h62.463a3.407 3.407 0 0 0 3.407-3.407v-3.143a3.407 3.407 0 0 0-3.407-3.407m0 24.891H26.258a3.407 3.407 0 0 0-3.407 3.407v3.143a3.407 3.407 0 0 0 3.407 3.407h62.463a3.407 3.407 0 0 0 3.407-3.407V73.32a3.41 3.41 0 0 0-3.407-3.407"/><circle cx="12.856" cy="25.108" r="4.984" fill="#ffffff"/><circle cx="12.856" cy="49.002" r="4.984" fill="#ffffff"/><circle cx="12.856" cy="74.891" r="4.984" fill="#ffffff"/></svg>
-                    </button>
+                          <button data-type="bold" id="btnBold">
+                            <!-- prettier-ignore -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill="#ffffff" d="M8.9 1c2.4 0 4.2.3 5.4 1c1.3.7 1.9 1.9 1.9 3.6c0 1-.3 1.9-.7 2.6a3 3 0 0 1-2 1.3a4.8 4.8 0 0 1 1.6.7c.4.3.8.8 1.1 1.3a5 5 0 0 1 .4 2.3a4.6 4.6 0 0 1-1.7 3.8A7.6 7.6 0 0 1 10 19H3.3V1zm.4 7.1c1.1 0 1.9-.1 2.3-.5c.5-.3.7-.9.7-1.5c0-.7-.3-1.2-.8-1.5s-1.3-.5-2.4-.5h-2v4zm-2.2 3V16h2.5c1.1 0 2-.3 2.4-.7c.5-.5.7-1 .7-1.8a2 2 0 0 0-.7-1.6c-.5-.4-1.3-.6-2.5-.6H7z"/></svg>
+                          </button>
 
-                    <button data-type="number-list" id="btnOL">
-                      <!-- prettier-ignore -->
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 100 100"><path fill="#ffffff" d="M14.427 22.495v7.747H16.7V19.566h-1.985l-3.361 3.377l1.296 1.361zm-1.599 23.928c.88 0 1.729.448 1.729 1.393c0 1.312-1.28 2.401-5.65 5.634v1.793h8.035v-2.001h-4.354c2.77-2.017 4.274-3.601 4.274-5.426c0-2.129-1.792-3.41-4.082-3.41c-1.489 0-3.073.544-4.114 1.745l1.296 1.505c.721-.753 1.649-1.233 2.866-1.233m1.776 28.313c1.184-.208 2.337-1.088 2.337-2.433c0-1.776-1.537-2.897-4.034-2.897c-1.873 0-3.217.72-4.082 1.697l1.136 1.424a3.85 3.85 0 0 1 2.721-1.104c1.104 0 1.985.416 1.985 1.264c0 .785-.8 1.137-1.985 1.137c-.4 0-1.137 0-1.329-.016v2.049c.16-.016.88-.032 1.329-.032c1.489 0 2.145.384 2.145 1.233c0 .8-.721 1.36-2.017 1.36c-1.041 0-2.209-.448-2.929-1.216l-1.2 1.521c.784.96 2.257 1.712 4.209 1.712c2.561 0 4.21-1.296 4.21-3.137c.002-1.602-1.407-2.45-2.496-2.562m73.322-54.847H25.462a3.407 3.407 0 0 0-3.407 3.407v3.143a3.407 3.407 0 0 0 3.407 3.407h62.463a3.407 3.407 0 0 0 3.407-3.407v-3.143a3.406 3.406 0 0 0-3.406-3.407m0 24.892H25.462a3.407 3.407 0 0 0-3.407 3.407v3.143a3.407 3.407 0 0 0 3.407 3.407h62.463a3.407 3.407 0 0 0 3.407-3.407v-3.143a3.406 3.406 0 0 0-3.406-3.407m0 24.892H25.462a3.407 3.407 0 0 0-3.407 3.407v3.143a3.407 3.407 0 0 0 3.407 3.407h62.463a3.407 3.407 0 0 0 3.407-3.407V73.08a3.406 3.406 0 0 0-3.406-3.407"/></svg>
-                    </button>
+                          <button data-type="italic" id="btnItalic">
+                            <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                            >
+                              <path
+                                      fill="#ffffff"
+                                      d="M15 20H7v-2h2.927l2.116-12H9V4h8v2h-2.927l-2.116 12H15z"
+                              />
+                            </svg>
+                          </button>
+
+                          <button data-type="link" id="btnLink">
+                            <!-- prettier-ignore -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#ffffff" d="M11 17H7q-2.075 0-3.537-1.463T2 12t1.463-3.537T7 7h4v2H7q-1.25 0-2.125.875T4 12t.875 2.125T7 15h4zm-3-4v-2h8v2zm5 4v-2h4q1.25 0 2.125-.875T20 12t-.875-2.125T17 9h-4V7h4q2.075 0 3.538 1.463T22 12t-1.463 3.538T17 17z"/></svg>
+                          </button>
+
+                          <button data-type="bullet-list" id="btnUL">
+                            <!-- prettier-ignore -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 100 100"><path fill="#ffffff" d="M88.721 20.13H26.258a3.407 3.407 0 0 0-3.407 3.407v3.143a3.407 3.407 0 0 0 3.407 3.407h62.463a3.407 3.407 0 0 0 3.407-3.407v-3.143a3.407 3.407 0 0 0-3.407-3.407m0 24.892H26.258a3.407 3.407 0 0 0-3.407 3.407v3.143a3.407 3.407 0 0 0 3.407 3.407h62.463a3.407 3.407 0 0 0 3.407-3.407v-3.143a3.407 3.407 0 0 0-3.407-3.407m0 24.891H26.258a3.407 3.407 0 0 0-3.407 3.407v3.143a3.407 3.407 0 0 0 3.407 3.407h62.463a3.407 3.407 0 0 0 3.407-3.407V73.32a3.41 3.41 0 0 0-3.407-3.407"/><circle cx="12.856" cy="25.108" r="4.984" fill="#ffffff"/><circle cx="12.856" cy="49.002" r="4.984" fill="#ffffff"/><circle cx="12.856" cy="74.891" r="4.984" fill="#ffffff"/></svg>
+                          </button>
+
+                          <button data-type="number-list" id="btnOL">
+                            <!-- prettier-ignore -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 100 100"><path fill="#ffffff" d="M14.427 22.495v7.747H16.7V19.566h-1.985l-3.361 3.377l1.296 1.361zm-1.599 23.928c.88 0 1.729.448 1.729 1.393c0 1.312-1.28 2.401-5.65 5.634v1.793h8.035v-2.001h-4.354c2.77-2.017 4.274-3.601 4.274-5.426c0-2.129-1.792-3.41-4.082-3.41c-1.489 0-3.073.544-4.114 1.745l1.296 1.505c.721-.753 1.649-1.233 2.866-1.233m1.776 28.313c1.184-.208 2.337-1.088 2.337-2.433c0-1.776-1.537-2.897-4.034-2.897c-1.873 0-3.217.72-4.082 1.697l1.136 1.424a3.85 3.85 0 0 1 2.721-1.104c1.104 0 1.985.416 1.985 1.264c0 .785-.8 1.137-1.985 1.137c-.4 0-1.137 0-1.329-.016v2.049c.16-.016.88-.032 1.329-.032c1.489 0 2.145.384 2.145 1.233c0 .8-.721 1.36-2.017 1.36c-1.041 0-2.209-.448-2.929-1.216l-1.2 1.521c.784.96 2.257 1.712 4.209 1.712c2.561 0 4.21-1.296 4.21-3.137c.002-1.602-1.407-2.45-2.496-2.562m73.322-54.847H25.462a3.407 3.407 0 0 0-3.407 3.407v3.143a3.407 3.407 0 0 0 3.407 3.407h62.463a3.407 3.407 0 0 0 3.407-3.407v-3.143a3.406 3.406 0 0 0-3.406-3.407m0 24.892H25.462a3.407 3.407 0 0 0-3.407 3.407v3.143a3.407 3.407 0 0 0 3.407 3.407h62.463a3.407 3.407 0 0 0 3.407-3.407v-3.143a3.406 3.406 0 0 0-3.406-3.407m0 24.892H25.462a3.407 3.407 0 0 0-3.407 3.407v3.143a3.407 3.407 0 0 0 3.407 3.407h62.463a3.407 3.407 0 0 0 3.407-3.407V73.08a3.406 3.406 0 0 0-3.406-3.407"/></svg>
+                          </button>
+                        </div>
+
+                        <div class="text_formatting_section_buttons">
+                          <button data-text-align="left">
+                            <!-- prettier-ignore -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#fff" fill-rule="evenodd" d="M1 3.25a.75.75 0 0 1 .75-.75h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 3.25M1 8a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5A.75.75 0 0 1 1 8m.75 4a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5z" clip-rule="evenodd"/></svg>
+                          </button>
+
+                          <button data-text-align="center">
+                            <!-- prettier-ignore -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#fff" fill-rule="evenodd" d="M1 3.25a.75.75 0 0 1 .75-.75h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 3.25M3 8a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5A.75.75 0 0 1 3 8m3.75 4a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5z" clip-rule="evenodd"/></svg>
+                          </button>
+
+                          <button data-text-align="right">
+                            <!-- prettier-ignore -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#fff" fill-rule="evenodd" d="M15 3.25a.75.75 0 0 0-.75-.75H1.75a.75.75 0 0 0 0 1.5h12.5a.75.75 0 0 0 .75-.75M15 8a.75.75 0 0 0-.75-.75h-8.5a.75.75 0 0 0 0 1.5h8.5A.75.75 0 0 0 15 8m-.75 4a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1 0-1.5z" clip-rule="evenodd"/></svg>
+                          </button>
+                        </div>
+                      </div>
+
+                      <!-- Textarea Section -->
+                      <div class="text_style_container_textarea">
+                        <div
+                                id="sampleText"
+                                contenteditable="false"
+                                placeholder="Sample title"
+                        ></div>
+                      </div>
+                    </div>
+
+                    <!-- <button class="delete_text_button">
+                      <span>
+                        prettier-ignore
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#f43f3f" d="M10 18a1 1 0 0 0 1-1v-6a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1M20 6h-4V5a3 3 0 0 0-3-3h-2a3 3 0 0 0-3 3v1H4a1 1 0 0 0 0 2h1v11a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8h1a1 1 0 0 0 0-2M10 5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1h-4Zm7 14a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V8h10Zm-3-1a1 1 0 0 0 1-1v-6a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1"/></svg>
+                      </span>
+                      <span>Delete text</span>
+                    </button> -->
                   </div>
 
-                  <div class="text_formatting_section_buttons">
-                    <button data-text-align="left">
-                      <!-- prettier-ignore -->
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#fff" fill-rule="evenodd" d="M1 3.25a.75.75 0 0 1 .75-.75h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 3.25M1 8a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5A.75.75 0 0 1 1 8m.75 4a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5z" clip-rule="evenodd"/></svg>
-                    </button>
-
-                    <button data-text-align="center">
-                      <!-- prettier-ignore -->
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#fff" fill-rule="evenodd" d="M1 3.25a.75.75 0 0 1 .75-.75h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 3.25M3 8a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5A.75.75 0 0 1 3 8m3.75 4a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5z" clip-rule="evenodd"/></svg>
-                    </button>
-
-                    <button data-text-align="right">
-                      <!-- prettier-ignore -->
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#fff" fill-rule="evenodd" d="M15 3.25a.75.75 0 0 0-.75-.75H1.75a.75.75 0 0 0 0 1.5h12.5a.75.75 0 0 0 .75-.75M15 8a.75.75 0 0 0-.75-.75h-8.5a.75.75 0 0 0 0 1.5h8.5A.75.75 0 0 0 15 8m-.75 4a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1 0-1.5z" clip-rule="evenodd"/></svg>
-                    </button>
-                  </div>
-                </div>
-
-                <!-- Textarea Section -->
-                <div class="text_style_container_textarea">
+                  <!-- Image Style Container -->
                   <div
-                    id="sampleText"
-                    contenteditable="false"
-                    placeholder="Sample title"
-                  ></div>
-                </div>
-              </div>
-
-              <!-- <button class="delete_text_button">
-                <span>
-                  prettier-ignore
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#f43f3f" d="M10 18a1 1 0 0 0 1-1v-6a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1M20 6h-4V5a3 3 0 0 0-3-3h-2a3 3 0 0 0-3 3v1H4a1 1 0 0 0 0 2h1v11a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8h1a1 1 0 0 0 0-2M10 5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1h-4Zm7 14a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V8h10Zm-3-1a1 1 0 0 0 1-1v-6a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1"/></svg>
-                </span>
-                <span>Delete text</span>
-              </button> -->
-            </div>
-
-            <!-- Image Style Container -->
-            <div
-              id="imageStyleContainer"
-              class="editing_tools_container text_style_container image_style_container editor--hidden"
-            >
-              <header id="imageStyleContainerHeader">
-                <button data-type="Content" class="content active">
-                  Content
-                </button>
-              </header>
-
-              <!-- Image Style Container Content -->
-              <div
-                id="imageStyleContainerContent"
-                class="text_style_container_content image_style_container_item image_style_container_content"
-              >
-                <h3>Image editor</h3>
-
-                <div class="image_style_container_image" id="mediaPreview">
-                  <img src="./images/empty-image.png" alt="Empty Images" />
-                </div>
-
-                <input
-                  type="file"
-                  src=""
-                  id="imageFileInput"
-                  alt=""
-                  style="width: 0; height: 0; visibility: hidden"
-                />
-
-                <label for="imageFileInput" class="image_style_container_button"
-                  >Change image</label
-                >
-                <button
-                  id="insertSelectedImage"
-                  class="image_style_container_button"
-                >
-                  Insert Image
-                </button>
-              </div>
-
-              <!-- Delete Text Button -->
-              <button id="deleteSelectedImage" class="delete_text_button">
-                <span>
-                  <!-- prettier-ignore -->
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#f43f3f" d="M10 18a1 1 0 0 0 1-1v-6a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1M20 6h-4V5a3 3 0 0 0-3-3h-2a3 3 0 0 0-3 3v1H4a1 1 0 0 0 0 2h1v11a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8h1a1 1 0 0 0 0-2M10 5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1h-4Zm7 14a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V8h10Zm-3-1a1 1 0 0 0 1-1v-6a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1"/></svg>
-                </span>
-                <span id="deleteImage">Delete image</span>
-              </button>
-            </div>
-
-            <!-- Video Style Container -->
-            <div
-              id="videoStyleContainer"
-              class="editing_tools_container text_style_container image_style_container editor--hidden"
-            >
-              <header id="videoStyleContainerHeader">
-                <button data-type="Content" class="content active">
-                  Content
-                </button>
-              </header>
-
-              <!-- Image Style Container Content -->
-              <div
-                id="videoStyleContainerContent"
-                class="text_style_container_content video_style_container_item image_style_container_content"
-              >
-                <h3>Video editor</h3>
-
-                <div class="image_style_container_image" id="videoPreview">
-                  <img src="./images/empty-video.png" alt="Empty Video" />
-                </div>
-
-                <input
-                  type="file"
-                  src=""
-                  id="videoFileInput"
-                  alt=""
-                  style="width: 0; height: 0; visibility: hidden"
-                />
-
-                <label
-                  for="videoFileInput"
-                  class="image_style_container_button"
-                >
-                  Change video
-                </label>
-
-                <button
-                  id="insertSelectedVideo"
-                  class="image_style_container_button"
-                >
-                  Insert video
-                </button>
-              </div>
-
-              <!-- Delete Button -->
-              <button id="deleteSelectedVideo" class="delete_text_button">
-                <span>
-                  <!-- prettier-ignore -->
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#f43f3f" d="M10 18a1 1 0 0 0 1-1v-6a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1M20 6h-4V5a3 3 0 0 0-3-3h-2a3 3 0 0 0-3 3v1H4a1 1 0 0 0 0 2h1v11a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8h1a1 1 0 0 0 0-2M10 5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1h-4Zm7 14a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V8h10Zm-3-1a1 1 0 0 0 1-1v-6a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1"/></svg>
-                </span>
-                <span id="deleteSelectedVideo">Delete video</span>
-              </button>
-            </div>
-
-            <!-- Button Style Container -->
-            <div
-              id="buttonStyleContainer"
-              class="editing_tools_container text_style_container editor--hidden"
-            >
-              <header id="buttonStyleContainerHeader">
-                <button data-type="Content" class="content active">
-                  Content
-                </button>
-              </header>
-
-              <!-- Text Style Container Content -->
-              <div
-                id="buttonStyleContainerContent"
-                class="button_style_container_container text_style_container_content"
-              >
-                <h3>Button editor</h3>
-
-                <!-- Placeholder Section -->
-                <div class="text_style_inner_container_button_placeholder">
-                  <h6>Placeholder</h6>
-                  <input type="text" id="buttonText" placeholder="Button" />
-                  <button
-                    class="image_style_container_button"
-                    id="addButtonButton"
+                          id="imageStyleContainer"
+                          class="editing_tools_container text_style_container image_style_container editor--hidden"
                   >
-                    Insert Button
-                  </button>
-                </div>
-              </div>
+                    <header id="imageStyleContainerHeader">
+                      <button data-type="Content" class="content active">
+                        Content
+                      </button>
+                    </header>
 
-              <!-- Delete Text Button -->
-              <button id="deleteSelectedButton" class="delete_text_button">
+                    <!-- Image Style Container Content -->
+                    <div
+                            id="imageStyleContainerContent"
+                            class="text_style_container_content image_style_container_item image_style_container_content"
+                    >
+                      <h3>Image editor</h3>
+
+                      <div class="image_style_container_image" id="mediaPreview">
+                        <img src="./images/empty-image.png" alt="Empty Images" />
+                      </div>
+
+                      <input
+                              type="file"
+                              src=""
+                              id="imageFileInput"
+                              alt=""
+                              style="width: 0; height: 0; visibility: hidden"
+                      />
+
+                      <label for="imageFileInput" class="image_style_container_button"
+                      >Change image</label
+                      >
+                      <button
+                              id="insertSelectedImage"
+                              class="image_style_container_button"
+                      >
+                        Insert Image
+                      </button>
+                    </div>
+
+                    <!-- Delete Text Button -->
+                    <button id="deleteSelectedImage" class="delete_text_button">
                 <span>
                   <!-- prettier-ignore -->
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#f43f3f" d="M10 18a1 1 0 0 0 1-1v-6a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1M20 6h-4V5a3 3 0 0 0-3-3h-2a3 3 0 0 0-3 3v1H4a1 1 0 0 0 0 2h1v11a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8h1a1 1 0 0 0 0-2M10 5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1h-4Zm7 14a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V8h10Zm-3-1a1 1 0 0 0 1-1v-6a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1"/></svg>
                 </span>
-                <span>Delete button</span>
-              </button>
-            </div>
+                      <span id="deleteImage">Delete image</span>
+                    </button>
+                  </div>
 
-            <!-- Button Style Container -->
-            <div
-                    id="mapStyleContainer"
-                    class="editing_tools_container text_style_container editor--hidden"
-            >
-              <header id="mapStyleContainerHeader">
-                <button data-type="Content" class="content active">
-                  Content
-                </button>
-              </header>
-
-              <!-- Text Style Container Content -->
-              <div
-                      id="mapStyleContainerContent"
-                      class="map_style_container_container text_style_container_content"
-              >
-                <h3>Map editor</h3>
-
-                <!-- Placeholder Section -->
-                <div class="text_style_inner_container_button_placeholder">
-                  <h6>Placeholder</h6>
-                  <input type="text" id="mapLatLongText" placeholder="Latitude, Longitude" />
-                  <button
-                          class="image_style_container_button leaflet-button"
-                          id="addMapButton"
-                          data-block="leaflet-map"
+                  <!-- Video Style Container -->
+                  <div
+                          id="videoStyleContainer"
+                          class="editing_tools_container text_style_container image_style_container editor--hidden"
                   >
-                    Insert Map
-                  </button>
-                </div>
-              </div>
+                    <header id="videoStyleContainerHeader">
+                      <button data-type="Content" class="content active">
+                        Content
+                      </button>
+                    </header>
 
-              <!-- Delete Text Button -->
-              <button id="deleteSelectedMap" class="delete_text_button">
+                    <!-- Image Style Container Content -->
+                    <div
+                            id="videoStyleContainerContent"
+                            class="text_style_container_content video_style_container_item image_style_container_content"
+                    >
+                      <h3>Video editor</h3>
+
+                      <div class="image_style_container_image" id="videoPreview">
+                        <img src="./images/empty-video.png" alt="Empty Video" />
+                      </div>
+
+                      <input
+                              type="file"
+                              src=""
+                              id="videoFileInput"
+                              alt=""
+                              style="width: 0; height: 0; visibility: hidden"
+                      />
+
+                      <label
+                              for="videoFileInput"
+                              class="image_style_container_button"
+                      >
+                        Change video
+                      </label>
+
+                      <button
+                              id="insertSelectedVideo"
+                              class="image_style_container_button"
+                      >
+                        Insert video
+                      </button>
+                    </div>
+
+                    <!-- Delete Button -->
+                    <button id="deleteSelectedVideo" class="delete_text_button">
                 <span>
                   <!-- prettier-ignore -->
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#f43f3f" d="M10 18a1 1 0 0 0 1-1v-6a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1M20 6h-4V5a3 3 0 0 0-3-3h-2a3 3 0 0 0-3 3v1H4a1 1 0 0 0 0 2h1v11a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8h1a1 1 0 0 0 0-2M10 5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1h-4Zm7 14a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V8h10Zm-3-1a1 1 0 0 0 1-1v-6a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1"/></svg>
                 </span>
-                <span>Delete Map</span>
-              </button>
-            </div>
+                      <span id="deleteSelectedVideo">Delete video</span>
+                    </button>
+                  </div>
 
-            <!-- Icons Style Container -->
-            <div
-              id="iconsStyleContainer"
-              class="editing_tools_container custom-sub-editor-header icons_style_container editor--hidden"
-            >
-              <header id="iconsStyleContainerHeader">
-                <button data-type="Content" class="content active">
-                  Content
-                </button>
-              </header>
+                  <!-- Button Style Container -->
+                  <div
+                          id="buttonStyleContainer"
+                          class="editing_tools_container text_style_container editor--hidden"
+                  >
+                    <header id="buttonStyleContainerHeader">
+                      <button data-type="Content" class="content active">
+                        Content
+                      </button>
+                    </header>
 
-              <!-- Icon List Select -->
-              <div
-                id="iconsStyleContainerContent"
-                class="icons_list_select icons_style_container_item"
-              >
-                <form>
+                    <!-- Text Style Container Content -->
+                    <div
+                            id="buttonStyleContainerContent"
+                            class="button_style_container_container text_style_container_content"
+                    >
+                      <h3>Button editor</h3>
+
+                      <!-- Placeholder Section -->
+                      <div class="text_style_inner_container_button_placeholder">
+                        <h6>Placeholder</h6>
+                        <input type="text" id="buttonText" placeholder="Button" />
+                        <button
+                                class="image_style_container_button"
+                                id="addButtonButton"
+                        >
+                          Insert Button
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- Delete Text Button -->
+                    <button id="deleteSelectedButton" class="delete_text_button">
+                <span>
+                  <!-- prettier-ignore -->
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#f43f3f" d="M10 18a1 1 0 0 0 1-1v-6a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1M20 6h-4V5a3 3 0 0 0-3-3h-2a3 3 0 0 0-3 3v1H4a1 1 0 0 0 0 2h1v11a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8h1a1 1 0 0 0 0-2M10 5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1h-4Zm7 14a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V8h10Zm-3-1a1 1 0 0 0 1-1v-6a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1"/></svg>
+                </span>
+                      <span>Delete button</span>
+                    </button>
+                  </div>
+
+                  <!-- Button Style Container -->
+                  <div
+                          id="mapStyleContainer"
+                          class="editing_tools_container text_style_container editor--hidden"
+                  >
+                    <header id="mapStyleContainerHeader">
+                      <button data-type="Content" class="content active">
+                        Content
+                      </button>
+                    </header>
+
+                    <!-- Text Style Container Content -->
+                    <div
+                            id="mapStyleContainerContent"
+                            class="map_style_container_container text_style_container_content"
+                    >
+                      <h3>Map editor</h3>
+
+                      <!-- Placeholder Section -->
+                      <div class="text_style_inner_container_button_placeholder">
+                        <h6>Placeholder</h6>
+                        <input type="text" id="mapLatLongText" placeholder="Latitude, Longitude" />
+                        <button
+                                class="image_style_container_button leaflet-button"
+                                id="addMapButton"
+                                data-block="leaflet-map"
+                        >
+                          Insert Map
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- Delete Text Button -->
+                    <button id="deleteSelectedMap" class="delete_text_button">
+                <span>
+                  <!-- prettier-ignore -->
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#f43f3f" d="M10 18a1 1 0 0 0 1-1v-6a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1M20 6h-4V5a3 3 0 0 0-3-3h-2a3 3 0 0 0-3 3v1H4a1 1 0 0 0 0 2h1v11a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8h1a1 1 0 0 0 0-2M10 5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1h-4Zm7 14a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V8h10Zm-3-1a1 1 0 0 0 1-1v-6a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1"/></svg>
+                </span>
+                      <span>Delete Map</span>
+                    </button>
+                  </div>
+
+                  <!-- Icons Style Container -->
+                  <div
+                          id="iconsStyleContainer"
+                          class="editing_tools_container custom-sub-editor-header icons_style_container editor--hidden"
+                  >
+                    <header id="iconsStyleContainerHeader">
+                      <button data-type="Content" class="content active">
+                        Content
+                      </button>
+                    </header>
+
+                    <!-- Icon List Select -->
+                    <div
+                            id="iconsStyleContainerContent"
+                            class="icons_list_select icons_style_container_item"
+                    >
+                      <form>
                   <span>
                     <!-- prettier-ignore -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="#999999" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11.5a7.5 7.5 0 1 1-15 0a7.5 7.5 0 0 1 15 0m-2.107 5.42l3.08 3.08" /></svg>
                   </span>
-                  <input type="text" placeholder="Search any icon......" />
-                </form>
+                        <input type="text" placeholder="Search any icon......" />
+                      </form>
 
-                <div class="icons_list_select_tab">
-                  <button aria-selected="true">
-                    <span>All</span>
-                  </button>
+                      <div class="icons_list_select_tab">
+                        <button aria-selected="true">
+                          <span>All</span>
+                        </button>
 
-                  <button>
-                    <span>Line</span>
-                  </button>
+                        <button>
+                          <span>Line</span>
+                        </button>
 
-                  <button>
-                    <span>Fill</span>
-                  </button>
+                        <button>
+                          <span>Fill</span>
+                        </button>
 
-                  <button>
-                    <span>Duotone</span>
-                  </button>
-                </div>
+                        <button>
+                          <span>Duotone</span>
+                        </button>
+                      </div>
 
-                <div
-                  id="iconsListSelectButtons"
-                  class="icons_list_select_buttons"
-                >
-                  <!--  -->
-                </div>
-              </div>
+                      <div
+                              id="iconsListSelectButtons"
+                              class="icons_list_select_buttons"
+                      >
+                        <!--  -->
+                      </div>
+                    </div>
 
-              <!-- Delete Button -->
-              <button id="deleteSelectedIcon" class="delete_text_button">
+                    <!-- Delete Button -->
+                    <button id="deleteSelectedIcon" class="delete_text_button">
                 <span>
                   <!-- prettier-ignore -->
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#f43f3f" d="M10 18a1 1 0 0 0 1-1v-6a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1M20 6h-4V5a3 3 0 0 0-3-3h-2a3 3 0 0 0-3 3v1H4a1 1 0 0 0 0 2h1v11a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8h1a1 1 0 0 0 0-2M10 5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1h-4Zm7 14a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V8h10Zm-3-1a1 1 0 0 0 1-1v-6a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1"/></svg>
                 </span>
-                <span>Delete icon</span>
-              </button>
+                      <span>Delete icon</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-content" id="content3">
+                <h2>Layers</h2>
+              </div>
+
+              <div class="tab-content" id="content4">
+              </div>
             </div>
+
+
           </div>
 
           <!-- Bottom -->
-          <footer class="template_main_footer">
+          <footer class="template_main_footer stayonbottom">
             <button class="logout">
               <!-- prettier-ignore -->
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12h-9.5m7.5 3l3-3l-3-3m-5-2V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5a2 2 0 0 0 2-2v-1" /></svg>
@@ -1336,757 +1360,765 @@
         <!-- Editor Sidebar Container -->
         <div class="editor_sidebar_container">
           <!-- Other Style Container -->
-          <div id="otherStyleContainer" class="text_style_container">
+
+          <div id="otherStyleContainer" class="text_style_container styles-tab-container">
             <header id="otherStyleContainerHeader">
-              <button data-type="Content" class="content active">
-                Apply Style
-              </button>
-              <!-- <button data-type="Style" class="style">Style</button> -->
+              <div class="styles-tabs">
+                <div class="styles-tab active" data-tab="1">Apply Styles</div>
+                <div class="styles-tab" data-tab="2">Properties</div>
+              </div>
             </header>
 
-            <!-- Text Style Container Style -->
-            <div
-              id="otherStyleContainerContent"
-              class="text_style_container_container text_style_container_style text_style_container_container_text"
-            >
-              <h3>Element Style</h3>
+            <div class="styles-tab-content active" id="styles-content1">
+              <!-- Text Style Container Style -->
+              <div
+                      id="otherStyleContainerContent"
+                      class="text_style_container_container text_style_container_style text_style_container_container_text"
+              >
+                <h3>Element Style</h3>
 
-              <!-- Color Section -->
-              <div class="sidebar_styles_group">
-                <div class="header">
-                  <h3>Background Styles</h3>
+                <!-- Color Section -->
+                <div class="sidebar_styles_group">
+                  <div class="header">
+                    <h3>Background Styles</h3>
 
-                  <i
-                    class="dropdown-arrow"
-                    style="width: 0.75rem; height: 0.75rem"
-                  ></i>
-                </div>
-                <br />
-
-                <div>
-                  <h6>Background Color</h6>
-                  <div class="text_style_inner_container_color">
-                    <input
-                      id="backgroundColorInput"
-                      style="max-width: 100%; width: 100%"
-                      type="text"
-                      data-coloris
-                    />
+                    <i
+                            class="dropdown-arrow"
+                            style="width: 0.75rem; height: 0.75rem"
+                    ></i>
                   </div>
-                </div>
-              </div>
+                  <br />
 
-              <div class="sidebar_styles_group">
-                <div class="header">
-                  <h3>Layout Styles</h3>
-
-                  <i
-                    class="dropdown-arrow"
-                    style="width: 0.75rem; height: 0.75rem"
-                  ></i>
-                </div>
-                <br />
-
-                <!-- Alignment Section -->
-                <div>
-                  <h6>Alignment</h6>
-
-                  <div class="text_style_inner_container">
-                    <button data-align="left">
-                      <!-- prettier-ignore -->
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#fff" fill-rule="evenodd" d="M1 3.25a.75.75 0 0 1 .75-.75h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 3.25M1 8a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5A.75.75 0 0 1 1 8m.75 4a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5z" clip-rule="evenodd"/></svg>
-                    </button>
-
-                    <button data-align="center">
-                      <!-- prettier-ignore -->
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#fff" fill-rule="evenodd" d="M1 3.25a.75.75 0 0 1 .75-.75h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 3.25M3 8a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5A.75.75 0 0 1 3 8m3.75 4a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5z" clip-rule="evenodd"/></svg>
-                    </button>
-
-                    <button data-align="right">
-                      <!-- prettier-ignore -->
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#fff" fill-rule="evenodd" d="M15 3.25a.75.75 0 0 0-.75-.75H1.75a.75.75 0 0 0 0 1.5h12.5a.75.75 0 0 0 .75-.75M15 8a.75.75 0 0 0-.75-.75h-8.5a.75.75 0 0 0 0 1.5h8.5A.75.75 0 0 0 15 8m-.75 4a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1 0-1.5z" clip-rule="evenodd"/></svg>
-                    </button>
-                  </div>
-                </div>
-                <br />
-                <!-- Position Section -->
-                <div>
-                  <h6>Position</h6>
-
-                  <div
-                    class="dropdown"
-                    id="positionDropDown"
-                    style="width: 100%"
-                  >
-                    <div class="dropdown-select">
-                      <span class="selected" id="elementPosition">Static</span>
-                      <i class="dropdown-arrow"></i>
-                    </div>
-                    <div class="dropdown-menu">
-                      <button
-                        class="dropdown-item"
-                        id="elementPositionRelative"
-                      >
-                        Relative
-                      </button>
-                      <button
-                        class="dropdown-item"
-                        id="elementPositionAbsolute"
-                      >
-                        Absolute
-                      </button>
-                      <button class="dropdown-item" id="elementPositionFixed">
-                        Fixed
-                      </button>
-                      <button class="dropdown-item" id="Static">Static</button>
-                    </div>
-                  </div>
-                </div>
-                <br />
-
-                <!-- Display Section -->
-                <div>
-                  <h6>Display</h6>
-
-                  <div
-                    class="dropdown"
-                    id="devicesDropDown"
-                    style="width: 100%"
-                  >
-                    <div class="dropdown-select">
-                      <span class="selected" id="elementDisplay"
-                        >Inline Block</span
-                      >
-                      <i class="dropdown-arrow"></i>
-                    </div>
-                    <div class="dropdown-menu">
-                      <button
-                        class="dropdown-item"
-                        id="elementDisplayInlineBlock"
-                      >
-                        Inline Block
-                      </button>
-                      <button class="dropdown-item" id="elementDisplayBlock">
-                        Block
-                      </button>
-                      <button class="dropdown-item" id="elementDisplayFlex">
-                        Flex
-                      </button>
-                      <button class="dropdown-item" id="elementDisplayNone">
-                        None
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <br />
-
-                <!-- Constraint Section -->
-                <div>
-                  <h6>Constraint</h6>
-
-                  <div class="text_style_inner_container_padding">
-                    <div>
-                      <label for="element-position-left">Left</label>
-                      <input
-                        type="number"
-                        placeholder="0"
-                        id="element-position-left"
-                      />
-                    </div>
-
-                    <div>
-                      <label for="element-position-top">Top</label>
-                      <input
-                        type="number"
-                        placeholder="0"
-                        id="element-position-top"
-                      />
-                    </div>
-
-                    <div>
-                      <label for="element-position-bottom">Bottom</label>
-                      <input
-                        type="number"
-                        placeholder="0"
-                        id="element-position-bottom"
-                      />
-                    </div>
-
-                    <div>
-                      <label for="element-position-right">Right</label>
-                      <input
-                        type="number"
-                        placeholder="0"
-                        id="element-position-right"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="sidebar_styles_group">
-                <div class="header">
-                  <h3>Sizes Styles</h3>
-
-                  <i
-                    class="dropdown-arrow"
-                    style="width: 0.75rem; height: 0.75rem"
-                  ></i>
-                </div>
-                <br />
-                <!-- Sizes Section -->
-                <div>
-                  <div class="text_style_inner_container_padding">
-                    <div>
-                      <label for="element-size-width">Width</label>
-                      <div class="flex">
-                        <input
-                          type="number"
-                          placeholder="auto"
-                          id="element-size-width"
-                        />
-                        <div
-                          class="dropdown"
-                          id="widthDropDown"
-                          style="width: 55px"
-                        >
-                          <div class="dropdown-select" style="padding: 7px">
-                            <span
-                              class="selected"
-                              style="font-size: 0.85rem; padding: 0"
-                              id="element-width-unit"
-                              >px</span
-                            >
-                            <!-- <i class="dropdown-arrow"></i> -->
-                          </div>
-                          <div class="dropdown-menu">
-                            <button
-                              style="padding-left: 0.5rem; font-size: 0.8rem"
-                              class="dropdown-item"
-                              id="px"
-                            >
-                              px
-                            </button>
-                            <button
-                              style="padding-left: 0.5rem; font-size: 0.8rem"
-                              class="dropdown-item"
-                              id="rem"
-                            >
-                              rem
-                            </button>
-                            <button
-                              style="padding-left: 0.5rem; font-size: 0.8rem"
-                              class="dropdown-item"
-                              id="per"
-                            >
-                              %
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label for="element-size-height">Height</label>
-                      <div class="flex">
-                        <input
-                          type="number"
-                          placeholder="auto"
-                          id="element-size-height"
-                        />
-                        <div
-                          class="dropdown"
-                          id="heightDropDown"
-                          style="width: 55px"
-                        >
-                          <div class="dropdown-select" style="padding: 7px">
-                            <span
-                              class="selected"
-                              style="font-size: 0.85rem; padding: 0"
-                              id="element-height-unit"
-                              >px</span
-                            >
-                            <!-- <i class="dropdown-arrow"></i> -->
-                          </div>
-                          <div class="dropdown-menu">
-                            <button
-                              style="padding-left: 0.5rem; font-size: 0.8rem"
-                              class="dropdown-item"
-                              id="px"
-                            >
-                              px
-                            </button>
-                            <button
-                              style="padding-left: 0.5rem; font-size: 0.8rem"
-                              class="dropdown-item"
-                              id="rem"
-                            >
-                              rem
-                            </button>
-                            <button
-                              style="padding-left: 0.5rem; font-size: 0.8rem"
-                              class="dropdown-item"
-                              id="per"
-                            >
-                              %
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="text_style_inner_container_padding"
-                    style="padding-top: 1rem; padding-bottom: 1rem"
-                  >
-                    <div>
-                      <label for="element-size-max-width">Max Width</label>
-                      <div class="flex">
-                        <input
-                          type="number"
-                          placeholder="auto"
-                          id="element-size-max-width"
-                        />
-                        <div
-                          class="dropdown"
-                          id="maxWidthDropDown"
-                          style="width: 55px"
-                        >
-                          <div class="dropdown-select" style="padding: 7px">
-                            <span
-                              class="selected"
-                              style="font-size: 0.85rem; padding: 0"
-                              id="element-max-width-unit"
-                              >px</span
-                            >
-                            <!-- <i class="dropdown-arrow"></i> -->
-                          </div>
-                          <div class="dropdown-menu">
-                            <button
-                              style="padding-left: 0.5rem; font-size: 0.8rem"
-                              class="dropdown-item"
-                              id="px"
-                            >
-                              px
-                            </button>
-                            <button
-                              style="padding-left: 0.5rem; font-size: 0.8rem"
-                              class="dropdown-item"
-                              id="rem"
-                            >
-                              rem
-                            </button>
-                            <button
-                              style="padding-left: 0.5rem; font-size: 0.8rem"
-                              class="dropdown-item"
-                              id="per"
-                            >
-                              %
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label for="element-size-max-height">Max Height</label>
-                      <div class="flex">
-                        <input
-                          type="number"
-                          placeholder="auto"
-                          id="element-size-max-height"
-                        />
-                        <div
-                          class="dropdown"
-                          id="maxHeightDropDown"
-                          style="width: 55px"
-                        >
-                          <div class="dropdown-select" style="padding: 7px">
-                            <span
-                              class="selected"
-                              style="font-size: 0.85rem; padding: 0"
-                              id="element-max-height-unit"
-                              >px</span
-                            >
-                            <!-- <i class="dropdown-arrow"></i> -->
-                          </div>
-                          <div class="dropdown-menu">
-                            <button
-                              style="padding-left: 0.5rem; font-size: 0.8rem"
-                              class="dropdown-item"
-                              id="px"
-                            >
-                              px
-                            </button>
-                            <button
-                              style="padding-left: 0.5rem; font-size: 0.8rem"
-                              class="dropdown-item"
-                              id="rem"
-                            >
-                              rem
-                            </button>
-                            <button
-                              style="padding-left: 0.5rem; font-size: 0.8rem"
-                              class="dropdown-item"
-                              id="per"
-                            >
-                              %
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div
-                    class="text_style_inner_container_padding"
-                    style="padding-top: 1rem; padding-bottom: 1rem"
-                  >
-                    <div>
-                      <label for="element-size-min-width">Min Width</label>
-                      <div class="flex">
-                        <input
-                          type="number"
-                          placeholder="auto"
-                          id="element-size-min-width"
-                        />
-                        <div
-                          class="dropdown"
-                          id="minWidthDropDown"
-                          style="width: 55px"
-                        >
-                          <div class="dropdown-select" style="padding: 7px">
-                            <span
-                              class="selected"
-                              style="font-size: 0.85rem; padding: 0"
-                              id="element-min-width-unit"
-                              >px</span
-                            >
-                            <!-- <i class="dropdown-arrow"></i> -->
-                          </div>
-                          <div class="dropdown-menu">
-                            <button
-                              style="padding-left: 0.5rem; font-size: 0.8rem"
-                              class="dropdown-item"
-                              id="px"
-                            >
-                              px
-                            </button>
-                            <button
-                              style="padding-left: 0.5rem; font-size: 0.8rem"
-                              class="dropdown-item"
-                              id="rem"
-                            >
-                              rem
-                            </button>
-                            <button
-                              style="padding-left: 0.5rem; font-size: 0.8rem"
-                              class="dropdown-item"
-                              id="per"
-                            >
-                              %
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label for="element-size-min-height">Min Height</label>
-                      <div class="flex">
-                        <input
-                          type="number"
-                          placeholder="auto"
-                          id="element-size-min-height"
-                        />
-                        <div
-                          class="dropdown"
-                          id="minHeightDropDown"
-                          style="width: 55px"
-                        >
-                          <div class="dropdown-select" style="padding: 7px">
-                            <span
-                              class="selected"
-                              style="font-size: 0.85rem; padding: 0"
-                              id="element-min-height-unit"
-                              >px</span
-                            >
-                            <!-- <i class="dropdown-arrow"></i> -->
-                          </div>
-                          <div class="dropdown-menu">
-                            <button
-                              style="padding-left: 0.5rem; font-size: 0.8rem"
-                              class="dropdown-item"
-                              id="px"
-                            >
-                              px
-                            </button>
-                            <button
-                              style="padding-left: 0.5rem; font-size: 0.8rem"
-                              class="dropdown-item"
-                              id="rem"
-                            >
-                              rem
-                            </button>
-                            <button
-                              style="padding-left: 0.5rem; font-size: 0.8rem"
-                              class="dropdown-item"
-                              id="per"
-                            >
-                              %
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="sidebar_styles_group">
-                <div class="header">
-                  <h3>Spacing Styles</h3>
-
-                  <i
-                    class="dropdown-arrow"
-                    style="width: 0.75rem; height: 0.75rem"
-                  ></i>
-                </div>
-
-                <br />
-
-                <!-- Padding Section -->
-                <div>
-                  <h6>Padding</h6>
-
-                  <div class="text_style_inner_container_padding">
-                    <div>
-                      <label for="element-padding-left">Left</label>
-                      <input
-                        type="number"
-                        placeholder="0"
-                        id="element-padding-left"
-                      />
-                    </div>
-
-                    <div>
-                      <label for="element-padding-top">Top</label>
-                      <input
-                        type="number"
-                        placeholder="0"
-                        id="element-padding-top"
-                      />
-                    </div>
-
-                    <div>
-                      <label for="element-padding-bottom">Bottom</label>
-                      <input
-                        type="number"
-                        placeholder="0"
-                        id="element-padding-bottom"
-                      />
-                    </div>
-
-                    <div>
-                      <label for="element-padding-right">Right</label>
-                      <input
-                        type="number"
-                        placeholder="0"
-                        id="element-padding-right"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <br />
-
-                <!-- Margin Section -->
-                <div>
-                  <h6>Margin</h6>
-
-                  <div class="text_style_inner_container_padding">
-                    <div>
-                      <label for="element-margin-left">Left</label>
-                      <input
-                        type="number"
-                        placeholder="0"
-                        id="element-margin-left"
-                      />
-                    </div>
-
-                    <div>
-                      <label for="element-margin-top">Top</label>
-                      <input
-                        type="number"
-                        placeholder="0"
-                        id="element-margin-top"
-                      />
-                    </div>
-
-                    <div>
-                      <label for="element-margin-bottom">Bottom</label>
-                      <input
-                        type="number"
-                        placeholder="0"
-                        id="element-margin-bottom"
-                      />
-                    </div>
-
-                    <div>
-                      <label for="element-margin-right">Right</label>
-                      <input
-                        type="number"
-                        placeholder="0"
-                        id="element-margin-right"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Border Styles -->
-              <div class="sidebar_styles_group">
-                <div class="header">
-                  <h3>Border Styles</h3>
-
-                  <i
-                    class="dropdown-arrow"
-                    style="width: 0.75rem; height: 0.75rem"
-                  ></i>
-                </div>
-                <br />
-                <div class="text_style_inner_container_padding">
                   <div>
-                    <label for="element-size-width">Border Style</label>
+                    <h6>Background Color</h6>
+                    <div class="text_style_inner_container_color">
+                      <input
+                              id="backgroundColorInput"
+                              style="max-width: 100%; width: 100%"
+                              type="text"
+                              data-coloris
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sidebar_styles_group">
+                  <div class="header">
+                    <h3>Layout Styles</h3>
+
+                    <i
+                            class="dropdown-arrow"
+                            style="width: 0.75rem; height: 0.75rem"
+                    ></i>
+                  </div>
+                  <br />
+
+                  <!-- Alignment Section -->
+                  <div>
+                    <h6>Alignment</h6>
+
+                    <div class="text_style_inner_container">
+                      <button data-align="left">
+                        <!-- prettier-ignore -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#fff" fill-rule="evenodd" d="M1 3.25a.75.75 0 0 1 .75-.75h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 3.25M1 8a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5A.75.75 0 0 1 1 8m.75 4a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5z" clip-rule="evenodd"/></svg>
+                      </button>
+
+                      <button data-align="center">
+                        <!-- prettier-ignore -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#fff" fill-rule="evenodd" d="M1 3.25a.75.75 0 0 1 .75-.75h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 3.25M3 8a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5A.75.75 0 0 1 3 8m3.75 4a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5z" clip-rule="evenodd"/></svg>
+                      </button>
+
+                      <button data-align="right">
+                        <!-- prettier-ignore -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#fff" fill-rule="evenodd" d="M15 3.25a.75.75 0 0 0-.75-.75H1.75a.75.75 0 0 0 0 1.5h12.5a.75.75 0 0 0 .75-.75M15 8a.75.75 0 0 0-.75-.75h-8.5a.75.75 0 0 0 0 1.5h8.5A.75.75 0 0 0 15 8m-.75 4a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1 0-1.5z" clip-rule="evenodd"/></svg>
+                      </button>
+                    </div>
+                  </div>
+                  <br />
+                  <!-- Position Section -->
+                  <div>
+                    <h6>Position</h6>
 
                     <div
-                      class="dropdown"
-                      id="borderStyleDropDown"
-                      style="width: 170px"
+                            class="dropdown"
+                            id="positionDropDown"
+                            style="width: 100%"
                     >
                       <div class="dropdown-select">
-                        <span class="selected" id="borderStyle">None</span>
+                        <span class="selected" id="elementPosition">Static</span>
                         <i class="dropdown-arrow"></i>
                       </div>
                       <div class="dropdown-menu">
-                        <button class="dropdown-item" id="elementBorderNone">
+                        <button
+                                class="dropdown-item"
+                                id="elementPositionRelative"
+                        >
+                          Relative
+                        </button>
+                        <button
+                                class="dropdown-item"
+                                id="elementPositionAbsolute"
+                        >
+                          Absolute
+                        </button>
+                        <button class="dropdown-item" id="elementPositionFixed">
+                          Fixed
+                        </button>
+                        <button class="dropdown-item" id="Static">Static</button>
+                      </div>
+                    </div>
+                  </div>
+                  <br />
+
+                  <!-- Display Section -->
+                  <div>
+                    <h6>Display</h6>
+
+                    <div
+                            class="dropdown"
+                            id="devicesDropDown"
+                            style="width: 100%"
+                    >
+                      <div class="dropdown-select">
+                      <span class="selected" id="elementDisplay"
+                      >Inline Block</span
+                      >
+                        <i class="dropdown-arrow"></i>
+                      </div>
+                      <div class="dropdown-menu">
+                        <button
+                                class="dropdown-item"
+                                id="elementDisplayInlineBlock"
+                        >
+                          Inline Block
+                        </button>
+                        <button class="dropdown-item" id="elementDisplayBlock">
+                          Block
+                        </button>
+                        <button class="dropdown-item" id="elementDisplayFlex">
+                          Flex
+                        </button>
+                        <button class="dropdown-item" id="elementDisplayNone">
                           None
-                        </button>
-                        <button class="dropdown-item" id="elementBorderSolid">
-                          Solid
-                        </button>
-                        <button class="dropdown-item" id="elementBorderDashed">
-                          Dashed
                         </button>
                       </div>
                     </div>
                   </div>
+                  <br />
 
+                  <!-- Constraint Section -->
                   <div>
-                    <label>Border Color</label>
+                    <h6>Constraint</h6>
+
+                    <div class="text_style_inner_container_padding">
+                      <div>
+                        <label for="element-position-left">Left</label>
+                        <input
+                                type="number"
+                                placeholder="0"
+                                id="element-position-left"
+                        />
+                      </div>
+
+                      <div>
+                        <label for="element-position-top">Top</label>
+                        <input
+                                type="number"
+                                placeholder="0"
+                                id="element-position-top"
+                        />
+                      </div>
+
+                      <div>
+                        <label for="element-position-bottom">Bottom</label>
+                        <input
+                                type="number"
+                                placeholder="0"
+                                id="element-position-bottom"
+                        />
+                      </div>
+
+                      <div>
+                        <label for="element-position-right">Right</label>
+                        <input
+                                type="number"
+                                placeholder="0"
+                                id="element-position-right"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sidebar_styles_group">
+                  <div class="header">
+                    <h3>Sizes Styles</h3>
+
+                    <i
+                            class="dropdown-arrow"
+                            style="width: 0.75rem; height: 0.75rem"
+                    ></i>
+                  </div>
+                  <br />
+                  <!-- Sizes Section -->
+                  <div>
+                    <div class="text_style_inner_container_padding">
+                      <div>
+                        <label for="element-size-width">Width</label>
+                        <div class="flex">
+                          <input
+                                  type="number"
+                                  placeholder="auto"
+                                  id="element-size-width"
+                          />
+                          <div
+                                  class="dropdown"
+                                  id="widthDropDown"
+                                  style="width: 55px"
+                          >
+                            <div class="dropdown-select" style="padding: 7px">
+                            <span
+                                    class="selected"
+                                    style="font-size: 0.85rem; padding: 0"
+                                    id="element-width-unit"
+                            >px</span
+                            >
+                              <!-- <i class="dropdown-arrow"></i> -->
+                            </div>
+                            <div class="dropdown-menu">
+                              <button
+                                      style="padding-left: 0.5rem; font-size: 0.8rem"
+                                      class="dropdown-item"
+                                      id="px"
+                              >
+                                px
+                              </button>
+                              <button
+                                      style="padding-left: 0.5rem; font-size: 0.8rem"
+                                      class="dropdown-item"
+                                      id="rem"
+                              >
+                                rem
+                              </button>
+                              <button
+                                      style="padding-left: 0.5rem; font-size: 0.8rem"
+                                      class="dropdown-item"
+                                      id="per"
+                              >
+                                %
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div>
+                        <label for="element-size-height">Height</label>
+                        <div class="flex">
+                          <input
+                                  type="number"
+                                  placeholder="auto"
+                                  id="element-size-height"
+                          />
+                          <div
+                                  class="dropdown"
+                                  id="heightDropDown"
+                                  style="width: 55px"
+                          >
+                            <div class="dropdown-select" style="padding: 7px">
+                            <span
+                                    class="selected"
+                                    style="font-size: 0.85rem; padding: 0"
+                                    id="element-height-unit"
+                            >px</span
+                            >
+                              <!-- <i class="dropdown-arrow"></i> -->
+                            </div>
+                            <div class="dropdown-menu">
+                              <button
+                                      style="padding-left: 0.5rem; font-size: 0.8rem"
+                                      class="dropdown-item"
+                                      id="px"
+                              >
+                                px
+                              </button>
+                              <button
+                                      style="padding-left: 0.5rem; font-size: 0.8rem"
+                                      class="dropdown-item"
+                                      id="rem"
+                              >
+                                rem
+                              </button>
+                              <button
+                                      style="padding-left: 0.5rem; font-size: 0.8rem"
+                                      class="dropdown-item"
+                                      id="per"
+                              >
+                                %
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                            class="text_style_inner_container_padding"
+                            style="padding-top: 1rem; padding-bottom: 1rem"
+                    >
+                      <div>
+                        <label for="element-size-max-width">Max Width</label>
+                        <div class="flex">
+                          <input
+                                  type="number"
+                                  placeholder="auto"
+                                  id="element-size-max-width"
+                          />
+                          <div
+                                  class="dropdown"
+                                  id="maxWidthDropDown"
+                                  style="width: 55px"
+                          >
+                            <div class="dropdown-select" style="padding: 7px">
+                            <span
+                                    class="selected"
+                                    style="font-size: 0.85rem; padding: 0"
+                                    id="element-max-width-unit"
+                            >px</span
+                            >
+                              <!-- <i class="dropdown-arrow"></i> -->
+                            </div>
+                            <div class="dropdown-menu">
+                              <button
+                                      style="padding-left: 0.5rem; font-size: 0.8rem"
+                                      class="dropdown-item"
+                                      id="px"
+                              >
+                                px
+                              </button>
+                              <button
+                                      style="padding-left: 0.5rem; font-size: 0.8rem"
+                                      class="dropdown-item"
+                                      id="rem"
+                              >
+                                rem
+                              </button>
+                              <button
+                                      style="padding-left: 0.5rem; font-size: 0.8rem"
+                                      class="dropdown-item"
+                                      id="per"
+                              >
+                                %
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div>
+                        <label for="element-size-max-height">Max Height</label>
+                        <div class="flex">
+                          <input
+                                  type="number"
+                                  placeholder="auto"
+                                  id="element-size-max-height"
+                          />
+                          <div
+                                  class="dropdown"
+                                  id="maxHeightDropDown"
+                                  style="width: 55px"
+                          >
+                            <div class="dropdown-select" style="padding: 7px">
+                            <span
+                                    class="selected"
+                                    style="font-size: 0.85rem; padding: 0"
+                                    id="element-max-height-unit"
+                            >px</span
+                            >
+                              <!-- <i class="dropdown-arrow"></i> -->
+                            </div>
+                            <div class="dropdown-menu">
+                              <button
+                                      style="padding-left: 0.5rem; font-size: 0.8rem"
+                                      class="dropdown-item"
+                                      id="px"
+                              >
+                                px
+                              </button>
+                              <button
+                                      style="padding-left: 0.5rem; font-size: 0.8rem"
+                                      class="dropdown-item"
+                                      id="rem"
+                              >
+                                rem
+                              </button>
+                              <button
+                                      style="padding-left: 0.5rem; font-size: 0.8rem"
+                                      class="dropdown-item"
+                                      id="per"
+                              >
+                                %
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
 
                     <div
-                      class="text_style_inner_container_color"
-                      style="flex-direction: row"
+                            class="text_style_inner_container_padding"
+                            style="padding-top: 1rem; padding-bottom: 1rem"
                     >
-                      <input id="borderColorInput" type="text" data-coloris />
+                      <div>
+                        <label for="element-size-min-width">Min Width</label>
+                        <div class="flex">
+                          <input
+                                  type="number"
+                                  placeholder="auto"
+                                  id="element-size-min-width"
+                          />
+                          <div
+                                  class="dropdown"
+                                  id="minWidthDropDown"
+                                  style="width: 55px"
+                          >
+                            <div class="dropdown-select" style="padding: 7px">
+                            <span
+                                    class="selected"
+                                    style="font-size: 0.85rem; padding: 0"
+                                    id="element-min-width-unit"
+                            >px</span
+                            >
+                              <!-- <i class="dropdown-arrow"></i> -->
+                            </div>
+                            <div class="dropdown-menu">
+                              <button
+                                      style="padding-left: 0.5rem; font-size: 0.8rem"
+                                      class="dropdown-item"
+                                      id="px"
+                              >
+                                px
+                              </button>
+                              <button
+                                      style="padding-left: 0.5rem; font-size: 0.8rem"
+                                      class="dropdown-item"
+                                      id="rem"
+                              >
+                                rem
+                              </button>
+                              <button
+                                      style="padding-left: 0.5rem; font-size: 0.8rem"
+                                      class="dropdown-item"
+                                      id="per"
+                              >
+                                %
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div>
+                        <label for="element-size-min-height">Min Height</label>
+                        <div class="flex">
+                          <input
+                                  type="number"
+                                  placeholder="auto"
+                                  id="element-size-min-height"
+                          />
+                          <div
+                                  class="dropdown"
+                                  id="minHeightDropDown"
+                                  style="width: 55px"
+                          >
+                            <div class="dropdown-select" style="padding: 7px">
+                            <span
+                                    class="selected"
+                                    style="font-size: 0.85rem; padding: 0"
+                                    id="element-min-height-unit"
+                            >px</span
+                            >
+                              <!-- <i class="dropdown-arrow"></i> -->
+                            </div>
+                            <div class="dropdown-menu">
+                              <button
+                                      style="padding-left: 0.5rem; font-size: 0.8rem"
+                                      class="dropdown-item"
+                                      id="px"
+                              >
+                                px
+                              </button>
+                              <button
+                                      style="padding-left: 0.5rem; font-size: 0.8rem"
+                                      class="dropdown-item"
+                                      id="rem"
+                              >
+                                rem
+                              </button>
+                              <button
+                                      style="padding-left: 0.5rem; font-size: 0.8rem"
+                                      class="dropdown-item"
+                                      id="per"
+                              >
+                                %
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                <br />
+                <div class="sidebar_styles_group">
+                  <div class="header">
+                    <h3>Spacing Styles</h3>
 
-                <!-- Border Width -->
-                <div>
-                  <h6>Border Width</h6>
+                    <i
+                            class="dropdown-arrow"
+                            style="width: 0.75rem; height: 0.75rem"
+                    ></i>
+                  </div>
 
-                  <div class="text_style_inner_container_padding">
-                    <div>
-                      <label for="border-left-width">Left</label>
-                      <input
-                        type="number"
-                        placeholder="0"
-                        id="border-left-width"
-                      />
+                  <br />
+
+                  <!-- Padding Section -->
+                  <div>
+                    <h6>Padding</h6>
+
+                    <div class="text_style_inner_container_padding">
+                      <div>
+                        <label for="element-padding-left">Left</label>
+                        <input
+                                type="number"
+                                placeholder="0"
+                                id="element-padding-left"
+                        />
+                      </div>
+
+                      <div>
+                        <label for="element-padding-top">Top</label>
+                        <input
+                                type="number"
+                                placeholder="0"
+                                id="element-padding-top"
+                        />
+                      </div>
+
+                      <div>
+                        <label for="element-padding-bottom">Bottom</label>
+                        <input
+                                type="number"
+                                placeholder="0"
+                                id="element-padding-bottom"
+                        />
+                      </div>
+
+                      <div>
+                        <label for="element-padding-right">Right</label>
+                        <input
+                                type="number"
+                                placeholder="0"
+                                id="element-padding-right"
+                        />
+                      </div>
                     </div>
+                  </div>
 
-                    <div>
-                      <label for="border-top-width">Top</label>
-                      <input
-                        type="number"
-                        placeholder="0"
-                        id="border-top-width"
-                      />
-                    </div>
+                  <br />
 
-                    <div>
-                      <label for="border-bottom-width">Bottom</label>
-                      <input
-                        type="number"
-                        placeholder="0"
-                        id="border-bottom-width"
-                      />
-                    </div>
+                  <!-- Margin Section -->
+                  <div>
+                    <h6>Margin</h6>
 
-                    <div>
-                      <label for="border-right-width">Right</label>
-                      <input
-                        type="number"
-                        placeholder="0"
-                        id="border-right-width"
-                      />
+                    <div class="text_style_inner_container_padding">
+                      <div>
+                        <label for="element-margin-left">Left</label>
+                        <input
+                                type="number"
+                                placeholder="0"
+                                id="element-margin-left"
+                        />
+                      </div>
+
+                      <div>
+                        <label for="element-margin-top">Top</label>
+                        <input
+                                type="number"
+                                placeholder="0"
+                                id="element-margin-top"
+                        />
+                      </div>
+
+                      <div>
+                        <label for="element-margin-bottom">Bottom</label>
+                        <input
+                                type="number"
+                                placeholder="0"
+                                id="element-margin-bottom"
+                        />
+                      </div>
+
+                      <div>
+                        <label for="element-margin-right">Right</label>
+                        <input
+                                type="number"
+                                placeholder="0"
+                                id="element-margin-right"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                <br />
+                <!-- Border Styles -->
+                <div class="sidebar_styles_group">
+                  <div class="header">
+                    <h3>Border Styles</h3>
 
-                <!-- Border Width -->
-                <div>
-                  <h6>Border Radius</h6>
-
+                    <i
+                            class="dropdown-arrow"
+                            style="width: 0.75rem; height: 0.75rem"
+                    ></i>
+                  </div>
+                  <br />
                   <div class="text_style_inner_container_padding">
                     <div>
-                      <label for="border-top-left-radius">Top Left</label>
-                      <input
-                        type="number"
-                        placeholder="0"
-                        id="border-top-left-radius"
-                      />
-                    </div>
+                      <label for="element-size-width">Border Style</label>
 
-                    <div>
-                      <label for="border-top-right-radius">Top Right</label>
-                      <input
-                        type="number"
-                        placeholder="0"
-                        id="border-top-right-radius"
-                      />
-                    </div>
-
-                    <div>
-                      <label for="border-bottom-left-radius">Bottom Left</label>
-                      <input
-                        type="number"
-                        placeholder="0"
-                        id="border-bottom-left-radius"
-                      />
-                    </div>
-
-                    <div>
-                      <label for="border-bottom-right-radius"
-                        >Bottom Right</label
+                      <div
+                              class="dropdown"
+                              id="borderStyleDropDown"
+                              style="width: 170px"
                       >
-                      <input
-                        type="number"
-                        placeholder="0"
-                        id="border-bottom-right-radius"
-                      />
+                        <div class="dropdown-select">
+                          <span class="selected" id="borderStyle">None</span>
+                          <i class="dropdown-arrow"></i>
+                        </div>
+                        <div class="dropdown-menu">
+                          <button class="dropdown-item" id="elementBorderNone">
+                            None
+                          </button>
+                          <button class="dropdown-item" id="elementBorderSolid">
+                            Solid
+                          </button>
+                          <button class="dropdown-item" id="elementBorderDashed">
+                            Dashed
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label>Border Color</label>
+
+                      <div
+                              class="text_style_inner_container_color"
+                              style="flex-direction: row"
+                      >
+                        <input id="borderColorInput" type="text" data-coloris />
+                      </div>
+                    </div>
+                  </div>
+
+                  <br />
+
+                  <!-- Border Width -->
+                  <div>
+                    <h6>Border Width</h6>
+
+                    <div class="text_style_inner_container_padding">
+                      <div>
+                        <label for="border-left-width">Left</label>
+                        <input
+                                type="number"
+                                placeholder="0"
+                                id="border-left-width"
+                        />
+                      </div>
+
+                      <div>
+                        <label for="border-top-width">Top</label>
+                        <input
+                                type="number"
+                                placeholder="0"
+                                id="border-top-width"
+                        />
+                      </div>
+
+                      <div>
+                        <label for="border-bottom-width">Bottom</label>
+                        <input
+                                type="number"
+                                placeholder="0"
+                                id="border-bottom-width"
+                        />
+                      </div>
+
+                      <div>
+                        <label for="border-right-width">Right</label>
+                        <input
+                                type="number"
+                                placeholder="0"
+                                id="border-right-width"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <br />
+
+                  <!-- Border Width -->
+                  <div>
+                    <h6>Border Radius</h6>
+
+                    <div class="text_style_inner_container_padding">
+                      <div>
+                        <label for="border-top-left-radius">Top Left</label>
+                        <input
+                                type="number"
+                                placeholder="0"
+                                id="border-top-left-radius"
+                        />
+                      </div>
+
+                      <div>
+                        <label for="border-top-right-radius">Top Right</label>
+                        <input
+                                type="number"
+                                placeholder="0"
+                                id="border-top-right-radius"
+                        />
+                      </div>
+
+                      <div>
+                        <label for="border-bottom-left-radius">Bottom Left</label>
+                        <input
+                                type="number"
+                                placeholder="0"
+                                id="border-bottom-left-radius"
+                        />
+                      </div>
+
+                      <div>
+                        <label for="border-bottom-right-radius"
+                        >Bottom Right</label
+                        >
+                        <input
+                                type="number"
+                                placeholder="0"
+                                id="border-bottom-right-radius"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+
+            <div class="styles-tab-content" id="styles-content2">
+            </div>
+
+
 
             <!-- <button class="delete_text_button">
                 <span>
@@ -2615,6 +2647,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.9/beautify-css.min.js"></script>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script src="/scripts/editor/tabs_mover.js"></script>
 
     <script>
       function updateColorisBadge(inputElement) {
