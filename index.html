@@ -288,7 +288,6 @@
                 <div class="tab" data-tab="2">Tools</div>
                 <div class="tab" data-tab="3">Layers</div>
                 <div class="tab" data-tab="4">All Styles</div>
-
               </div>
 
               <div class="tab-content active" id="content1">
@@ -1280,6 +1279,16 @@
           <div class="spacer">Abele Builder</div>
 
           <div class="topBar-buttons">
+            <span id="undoBtn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24" fill="currentColor">
+                <path d="M255.5 8c-66.3 0-126.5 26.9-170.1 70.5L48 0v192h192l-72.6-72.6C199.2 91.5 225.5 80 255.5 80c97 0 176 79 176 176s-79 176-176 176c-59.6 0-112-29.5-144-74.6L54.6 390.4C99.9 455.4 172.6 496 255.5 496c132.5 0 240-107.5 240-240S388 8 255.5 8z"/>
+              </svg>
+            </span>
+            <span id="redoBtn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24" fill="currentColor">
+                <path d="M256.5 8c66.3 0 126.5 26.9 170.1 70.5L464 0v192H272l72.6-72.6C312.8 91.5 286.5 80 256.5 80c-97 0-176 79-176 176s79 176 176 176c59.6 0 112-29.5 144-74.6l56.9 32.6C413.1 455.4 340.4 496 256.5 496c-132.5 0-240-107.5-240-240S124 8 256.5 8z"/>
+              </svg>
+            </span>
             <span id="previewCodeButton"
               ><svg
                 width="24"
@@ -1366,6 +1375,7 @@
               <div class="styles-tabs">
                 <div class="styles-tab active" data-tab="1">Apply Styles</div>
                 <div class="styles-tab" data-tab="2">Properties</div>
+                <div class="styles-tab" data-tab="3" id="assetsmanager">Asserts</div>
               </div>
             </header>
 
@@ -2118,7 +2128,8 @@
             <div class="styles-tab-content" id="styles-content2">
             </div>
 
-
+            <div class="styles-tab-content" id="styles-content3">
+            </div>
 
             <!-- <button class="delete_text_button">
                 <span>
@@ -2593,6 +2604,7 @@
     <script src="/scripts/editor/grapes.add.multipleSections.js"></script>
     <script src="/scripts/editor/grapes.add.tripleSections.js"></script>
     <script src="/scripts/editor/grapes.add.splitSections.js"></script>
+    <script src="/scripts/editor/grapes.add.assert.js"></script>
 
     <script src="/scripts/editor/grapes.add.gap.js"></script>
     <script src="/scripts/editor/grapes.add.divider.js"></script>

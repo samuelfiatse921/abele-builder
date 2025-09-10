@@ -509,10 +509,73 @@ const customToolbarPlugin = (editor) => {
 };
 
 // Initialize GrapesJS editor (which is the based editor for the app)
+// Sample assets data
+const sampleAssets = [
+  {
+    id: 'img1',
+    src: 'https://picsum.photos/150/150?random=1',
+    name: 'Nature 1'
+  },
+  {
+    id: 'img2',
+    src: 'https://picsum.photos/200/150?random=2',
+    name: 'Nature 2'
+  },
+  {
+    id: 'img3',
+    src: 'https://picsum.photos/200/150?random=3',
+    name: 'Nature 3'
+  },
+  {
+    id: 'img4',
+    src: 'https://picsum.photos/200/150?random=4',
+    name: 'Nature 4'
+  },
+  {
+    id: 'img5',
+    src: 'https://picsum.photos/200/150?random=5',
+    name: 'Nature 5'
+  },
+  {
+    id: 'img6',
+    src: 'https://picsum.photos/200/150?random=6',
+    name: 'Nature 6'
+  },
+  {
+    id: 'img7',
+    src: 'https://picsum.photos/150/150?random=7',
+    name: 'Nature 7'
+  },
+  {
+    id: 'img8',
+    src: 'https://picsum.photos/200/150?random=8',
+    name: 'Nature 8'
+  },
+  {
+    id: 'img9',
+    src: 'https://picsum.photos/200/150?random=9',
+    name: 'Nature 9'
+  },
+  {
+    id: 'img10',
+    src: 'https://picsum.photos/200/150?random=10',
+    name: 'Nature 10'
+  },
+  {
+    id: 'img11',
+    src: 'https://picsum.photos/200/150?random=11',
+    name: 'Nature 11'
+  },
+  {
+    id: 'img12',
+    src: 'https://picsum.photos/200/150?random=12',
+    name: 'Nature 12'
+  },
+];
+
 const grapeEditor = grapesjs.init({
   container: "#gjs",
   fromElement: true,
-  panels: { defaults: [] },
   plugins: [customToolbarPlugin, "grapesjs-zoom-plugin"],
   canvas: { styles: [cssPath] },
   traitManager: {
@@ -520,6 +583,11 @@ const grapeEditor = grapesjs.init({
   },
   layerManager: {
     appendTo: "#content3"
+  },
+  assetManager: {
+    assets: sampleAssets,
+    upload: false,
+    multiUpload: false,
   },
   styleManager: {
     appendTo: "#content4",
@@ -618,6 +686,17 @@ const grapeEditor = grapesjs.init({
       },
     ],
   },
+});
+
+const undoBtn = document.getElementById('undoBtn');
+const redoBtn = document.getElementById('redoBtn');
+
+undoBtn.addEventListener('click', function() {
+  grapeEditor.UndoManager.undo();
+});
+
+redoBtn.addEventListener('click', function() {
+  grapeEditor.UndoManager.redo();
 });
 
 async function get_user_template(template_id) {
