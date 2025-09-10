@@ -730,6 +730,12 @@ get_user_template(templateId).then((res) => {
         .then((res) => res.text())
         .then((html) => {
           grapeEditor.setComponents(html); // set HTML inside the editor
+          const pages = grapeEditor.Pages;
+          pages.add({
+            id: uniqueId(),
+            styles: "",
+            component: html,
+          });
         })
         .catch((err) => console.error("Error loading template:", err));
     } 
@@ -737,6 +743,10 @@ get_user_template(templateId).then((res) => {
     //   window.location.href = "http://127.0.0.1:63598/login.html";
     // }
 })
+
+function uniqueId() {
+  return crypto.randomUUID(); // modern browsers
+}
 
 // DOM elements for dimension inputs
 const dimensionXInput = document.getElementById("dimensionX");
