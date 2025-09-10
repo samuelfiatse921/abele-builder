@@ -1,5 +1,5 @@
 const assetsBtn = document.getElementById('assetsmanager');
-const assetsGrid = document.getElementById('styles-content3');
+const assetsGrid = document.getElementById('asset-manager');
 
 // Add image to canvas
 function addImageToCanvas(asset) {

@@ -513,7 +513,7 @@ const customToolbarPlugin = (editor) => {
 const sampleAssets = [
   {
     id: 'img1',
-    src: 'https://picsum.photos/150/150?random=1',
+    src: 'https://picsum.photos/200/150?random=1',
     name: 'Nature 1'
   },
   {
@@ -543,7 +543,7 @@ const sampleAssets = [
   },
   {
     id: 'img7',
-    src: 'https://picsum.photos/150/150?random=7',
+    src: 'https://picsum.photos/200/150?random=7',
     name: 'Nature 7'
   },
   {

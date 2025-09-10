@@ -157,6 +157,13 @@
   border: var(--svg-fill);
   /* fill: var(--svg-fill); */
 }
+
+#searchImageSection svg circle {
+  color: var(--svg-fill);
+  stroke: var(--svg-fill);
+  border: var(--svg-fill);
+  /* fill: var(--svg-fill); */
+}
 .menu-icon svg path {
   color: var(--svg-fill);
   stroke: var(--svg-fill);
@@ -344,6 +351,17 @@
 
 .search_file_name_section {
   padding: 0.5rem;
+}
+
+.search_image_section {
+  padding: 0.5rem;
+}
+
+#asset-manager {
+  padding: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
 }
 
 .search_file_name_section form {
@@ -974,4 +992,21 @@
   color: #9A9A9C;
 }
 
+.upload-btn {
+  background-color: #007bff; /* blue */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px; /* space between svg and text */
+  cursor: pointer;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
 
+.upload-btn svg {
+  display: inline-block;
+  vertical-align: middle;
+}
