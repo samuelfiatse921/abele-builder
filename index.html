@@ -290,18 +290,18 @@
                 <div class="tab" data-tab="4">All Styles</div>
               </div>
 
-              <div class="tab-content active" id="content1">
-                <div style="width: 100%; display: inline-flex; justify-content: space-between; align-items: center;" >
+              <div class="pages-tab-content active" id="content1">
+                <div style="padding: 20px; border-bottom: 1px solid #282B30; width: 100%; display: inline-flex; justify-content: space-between; align-items: center;" >
                   <h2>Add Page</h2>
-                  <span>
+                  <span class="add-page" style="cursor: pointer;" id="addPageButton">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" role="img" aria-label="Add">
-  <title>Add</title>
-  <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
-  <path d="M12 8v8M8 12h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-</svg>
-
+                    <title>Add</title>
+                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 8v8M8 12h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
                 </span>
                 </div>
+                <div id="template-pages"></div>
               </div>
 
               <div class="tab-content" id="content2">
@@ -2621,6 +2621,8 @@
 
     <script src="/scripts/editor/api_routes.js"></script>
     <script src="/scripts/editor/grapes.init.js"></script>
+    <script src="/scripts/editor/grapes.pages.js"></script>
+
     <script src="/scripts/editor/editor.comments.js"></script>
     <script src="/scripts/editor/top.quick.event.js"></script>
 

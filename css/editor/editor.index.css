@@ -934,7 +934,8 @@
 .tab.active {
   /*background: #fff;*/
   font-weight: bold;
-  border-bottom: 1px solid #ffffff;
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--primary-color);
 }
 
 .tab-content {
@@ -943,8 +944,18 @@
   padding: 20px;
 }
 
+.pages-tab-content {
+  display: none;
+  border: 1px solid #282B30;
+}
+
+.pages-tab-content.active {
+  display: block;
+}
+
 .tab-content.active {
   display: block;
+  color: var(--text-color);
 }
 
 .tab-container {
@@ -975,7 +986,8 @@
 .styles-tab.active {
   /*background: #fff;*/
   font-weight: bold;
-  border-bottom: 1px solid #ffffff;
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--primary-color);
 }
 
 .styles-tab-content {
@@ -990,6 +1002,10 @@
 
 .styles-tab-container {
   color: #9A9A9C;
+}
+
+.add-page:hover {
+  color: var(--primary-color);
 }
 
 .upload-btn {
@@ -1010,3 +1026,19 @@
   display: inline-block;
   vertical-align: middle;
 }
+
+.page-list {
+  padding: 20px;
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-list:hover {
+  background: var(--primary-color);
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+

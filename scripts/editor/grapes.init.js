@@ -508,7 +508,6 @@ const customToolbarPlugin = (editor) => {
   });
 };
 
-// Initialize GrapesJS editor (which is the based editor for the app)
 // Sample assets data
 const sampleAssets = [
   {
@@ -573,6 +572,7 @@ const sampleAssets = [
   },
 ];
 
+// Initialize GrapesJS editor (which is the based editor for the app)
 const grapeEditor = grapesjs.init({
   container: "#gjs",
   fromElement: true,
@@ -721,6 +721,7 @@ async function get_user_template(template_id) {
 
 const params = new URLSearchParams(window.location.search);
 const templateId = params.get('templateId');
+const pages = grapeEditor.Pages;
 
 get_user_template(templateId).then((res) => {
     // Fetch your external HTML and load into editor
@@ -730,23 +731,64 @@ get_user_template(templateId).then((res) => {
         .then((res) => res.text())
         .then((html) => {
           grapeEditor.setComponents(html); // set HTML inside the editor
-          const pages = grapeEditor.Pages;
           pages.add({
-            id: uniqueId(),
+            id: "Index Page",
+            name: "Index Page",
             styles: "",
             component: html,
           });
         })
         .catch((err) => console.error("Error loading template:", err));
-    } 
+    }
     // else {
     //   window.location.href = "http://127.0.0.1:63598/login.html";
     // }
 })
 
-function uniqueId() {
-  return crypto.randomUUID(); // modern browsers
-}
+const templatePages = document.getElementById("template-pages");
+
+grapeEditor.on('page', () => {
+  const pages = grapeEditor.Pages;
+  console.log("no. pages is ", pages.getAll());
+
+  templatePages.innerHTML = "";
+
+  const allPages = pages.getAll();
+
+  allPages.forEach(page => {
+    const pageName = page.get('name');
+    const pageId = page.get('id');
+
+    if (pageName) {
+      const pageElement = document.createElement('div');
+      pageElement.style.display = "block";
+      pageElement.style.width = "100%";
+      pageElement.style.borderBottom = "1px solid #282B30";
+
+      pageElement.innerHTML = `
+        <div id="${pageId}" class="page-list" onclick="loadPage(this)">
+          <h2 id="${pageName}">${pageName}</h2>
+          <span>
+            <svg onclick="editPageName(this)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" role="img" aria-label="Edit page">
+              <title>Edit page</title>
+              <!-- page -->
+              <path d="M4 2h9l6 6v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"
+                    stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+              <!-- folded corner -->
+              <path d="M13 2v6h6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+              <!-- pencil -->
+              <path d="M14.2 8.8l1.9 1.9-7.1 7.1-2.2.6.6-2.2 7.1-7.1z"
+                    stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+              <path d="M16.1 6.9c.4-.4 1-.4 1.4 0l.6.6c.4.4.4 1 0 1.4l-1.9-1.9z"
+                    fill="currentColor"/>
+            </svg>
+          </span>
+        </div>
+      `;
+      templatePages.appendChild(pageElement);
+    }
+  });
+});
 
 // DOM elements for dimension inputs
 const dimensionXInput = document.getElementById("dimensionX");
