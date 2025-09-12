@@ -1041,4 +1041,11 @@
   color: var(--text-color);
 }
 
+#undoBtn, #redoBtn {
+  display: flex;
+  align-items: center;
+  width: 17px;
+  height: 17px
+}
+
 
