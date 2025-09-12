@@ -768,27 +768,37 @@ grapeEditor.on('page', () => {
       pageElement.innerHTML = `
         <div id="${pageId}" class="page-list" onclick="loadPage(this)">
           <h2 id="${pageName}">${pageName}</h2>
-          <span>
-            <svg onclick="editPageName(this)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" role="img" aria-label="Edit page">
-              <title>Edit page</title>
-              <!-- page -->
-              <path d="M4 2h9l6 6v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"
-                    stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
-              <!-- folded corner -->
-              <path d="M13 2v6h6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
-              <!-- pencil -->
-              <path d="M14.2 8.8l1.9 1.9-7.1 7.1-2.2.6.6-2.2 7.1-7.1z"
-                    stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
-              <path d="M16.1 6.9c.4-.4 1-.4 1.4 0l.6.6c.4.4.4 1 0 1.4l-1.9-1.9z"
-                    fill="currentColor"/>
-            </svg>
-          </span>
+          <div class="pages-dropdown">
+            <span class="" onclick="togglePagesDropdown(event, this, '${pageName}')">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" role="img" aria-label="More">
+                <title>More</title>
+                <circle cx="12" cy="5.5" r="1.75" fill="currentColor"/>
+                <circle cx="12" cy="12"  r="1.75" fill="currentColor"/>
+                <circle cx="12" cy="18.5" r="1.75" fill="currentColor"/>
+              </svg>
+            </span>
+            <div id="pages-dropdown-menu-${pageName}" class="pages-dropdown-content">
+               <a href="#" onclick="editPageName(this)">Edit</a>
+               <a href="#">Duplicate</a>
+               <a href="#">Share</a>
+            </div>
+          </div>
         </div>
       `;
       templatePages.appendChild(pageElement);
     }
   });
 });
+
+function togglePagesDropdown(event, _, pageName) {
+  event.stopPropagation(); // prevent click from bubbling to window
+  const pagesDropdownMenu = document.getElementById(`pages-dropdown-menu-${pageName}`);
+  pagesDropdownMenu.classList.toggle("pages-dropdown-show");
+
+  window.addEventListener("click", () => {
+    pagesDropdownMenu.classList.remove("pages-dropdown-show");
+  });
+}
 
 // DOM elements for dimension inputs
 const dimensionXInput = document.getElementById("dimensionX");

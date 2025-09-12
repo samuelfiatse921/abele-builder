@@ -98,3 +98,44 @@ p {
   color: var(--text-color);
   font-size: 1.25rem;
 }
+
+.pages-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.pages-dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%; /* place it below the button */
+  right: 50%;
+  background-color: #fff;
+  min-width: 130px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  z-index: 1;       /* 👈 force it on top of other elements */
+}
+
+.pages-dropdown-content a {
+  color: #333;
+  padding: 10px 14px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+}
+
+.pages-dropdown-content a:hover {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+/* Show class toggled by JS */
+.pages-dropdown-show {
+  display: block;
+}
+
+
+
+
+
