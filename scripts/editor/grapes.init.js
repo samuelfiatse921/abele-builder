@@ -769,7 +769,7 @@ grapeEditor.on('page', () => {
         <div id="${pageId}" class="page-list" onclick="loadPage(this)">
           <h2 id="${pageName}">${pageName}</h2>
           <div class="pages-dropdown">
-            <span class="" onclick="togglePagesDropdown(event, this, '${pageName}')">
+            <span onclick="togglePagesDropdown(event, this, '${pageName}')">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" role="img" aria-label="More">
                 <title>More</title>
                 <circle cx="12" cy="5.5" r="1.75" fill="currentColor"/>
@@ -779,8 +779,9 @@ grapeEditor.on('page', () => {
             </span>
             <div id="pages-dropdown-menu-${pageName}" class="pages-dropdown-content">
                <a href="#" onclick="editPageName(this)">Edit</a>
-               <a href="#">Duplicate</a>
+               <a href="#" onclick="duplicatePage('${pageName}')">Duplicate</a>
                <a href="#">Share</a>
+               <a href="#" onclick="deletePage('${pageName}')">Delete</a>
             </div>
           </div>
         </div>
