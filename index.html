@@ -1335,11 +1335,25 @@
                     /></svg></span>
               </div>
               <div class="dropdown-menu theme-options" style="padding: 1rem">
-                <span class="theme-label">Theme</span>
-                <div style="display: flex; margin-top: 1rem">
-                  <button class="dropdown-item" id="theme-auto">Auto</button>
-                  <button class="dropdown-item" id="theme-light">Light</button>
-                  <button class="dropdown-item" id="theme-dark">Dark</button>
+                <div class="project-manager" id="aboutProjectBtn">
+                  <svg viewBox="0 0 24 24" role="presentation" class="gs-cmp-icon" style="width: 25px; height: 25px;"><path d="M15.07,11.25L14.17,12.17C13.45,12.89 13,13.5 13,15H11V14.5C11,13.39 11.45,12.39 12.17,11.67L13.41,10.41C13.78,10.05 14,9.55 14,9C14,7.89 13.1,7 12,7A2,2 0 0,0 10,9H8A4,4 0 0,1 12,5A4,4 0 0,1 16,9C16,9.88 15.64,10.67 15.07,11.25M13,19H11V17H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z" style="fill: currentcolor;"></path></svg>
+                  <span>About</span>
+                </div>
+                <div class="project-manager">
+                  <svg viewBox="0 0 24 24" role="presentation" class="gs-cmp-icon" style="width: 25px; height: 25px;"><path d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z" style="fill: currentcolor;"></path></svg>
+                  <span>Open Project</span>
+                </div>
+                <div class="project-manager" onclick="loadProjects(event, this)">
+                  <svg class="project-manager-icons" viewBox="0 0 24 24" role="presentation" style="width: 25px; height: 25px;"><path d="M20 5L20 19L4 19L4 5H20M20 3H4C2.89 3 2 3.89 2 5V19C2 20.11 2.89 21 4 21H20C21.11 21 22 20.11 22 19V5C22 3.89 21.11 3 20 3M18 15H6V17H18V15M10 7H6V13H10V7M12 9H18V7H12V9M18 11H12V13H18V11Z" style="fill: currentcolor;"></path></svg>
+                  <span>Load Project</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem; ">
+                  <span style="font-size: 20px">Theme</span>
+                  <div style="display: flex">
+                    <button class="dropdown-item" id="theme-auto">Auto</button>
+                    <button class="dropdown-item" id="theme-light">Light</button>
+                    <button class="dropdown-item" id="theme-dark">Dark</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -2596,6 +2610,42 @@
       </div>
     </div>
 
+    <!--Load Projects Modal-->
+    <div id="load-project-modal" class="load-project">
+      <div class="load-project-modal-content">
+        <div style="display: flex; justify-content: space-between; ">
+          <span class="load-project-modal-close">&times;</span>
+          <p>Load project templates</p>
+        </div>
+        <div class="load-project-tab-container">
+          <div class="load-project-tabs">
+            <div class="load-project-tab active" data-tab="1">Your projects</div>
+            <div class="load-project-tab" data-tab="2">Templates</div>
+          </div>
+          <div class="load-project-tab-content active" id="load-project-content-1">
+          </div>
+          <div class="load-project-tab-content" id="load-project-content-2">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--About Abele-->
+    <div id="about-project-modal" class="about-project">
+      <div class="about-project-modal-content">
+        <div style="display: flex; justify-content: space-between; ">
+          <span class="about-project-modal-close">&times;</span>
+          <h2>About</h2>
+        </div>
+        <h1 style="font-size: 30px; display: flex; justify-content: center; margin-bottom: 15px"><b>Abele</b></h1>
+        <p style="margin-bottom: 30px">
+          <b>Abele Builder</b> is an innovative product created to simplify the process involved in owning, editing web templates
+          and deploying without ever needing a code editor or hosting provider.
+        </p>
+        <p style="display: flex; justify-content: right">Abele Builder: v1.0.0</p>
+      </div>
+    </div>
+
     <!-- Flash Message Container -->
     <div class="flash-container" id="flashContainer"></div>
 
@@ -2622,6 +2672,7 @@
     <script src="/scripts/followerFollowingModal.js"></script>
 
     <script src="/scripts/editor/api_routes.js"></script>
+
     <script src="/scripts/editor/grapes.init.js"></script>
     <script src="/scripts/editor/grapes.pages.js"></script>
 
@@ -2692,6 +2743,9 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
     <script src="/scripts/editor/tabs_mover.js"></script>
+    <script src="/scripts/editor/grapes.user.templates.js"></script>
+
+    <script src="/scripts/editor/grapes.project.manager.js"></script>
 
     <script>
       function updateColorisBadge(inputElement) {

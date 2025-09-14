@@ -572,12 +572,29 @@ const sampleAssets = [
   },
 ];
 
+const remoteStoragePlugin = (editor) => {
+  editor.Storage.add('remote', {
+    async load(options = {}) {
+      // call backend to save
+      return JSON.parse(sessionStorage.getItem(options.key));
+    },
+
+    async store(data, options = {}) {
+      sessionStorage.setItem(options.key, JSON.stringify(data));
+    }
+  });
+};
+
 // Initialize GrapesJS editor (which is the based editor for the app)
 const grapeEditor = grapesjs.init({
   container: "#gjs",
   fromElement: true,
-  plugins: [customToolbarPlugin, "grapesjs-zoom-plugin"],
+  plugins: [customToolbarPlugin, "grapesjs-zoom-plugin", remoteStoragePlugin],
   canvas: { styles: [cssPath] },
+  storageManager: {
+    type: 'remote',
+    stepsBeforeSave: 3,
+  },
   traitManager: {
     appendTo: "#styles-content2"
   },

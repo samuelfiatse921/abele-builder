@@ -27,3 +27,26 @@ stylestabs.forEach(tab => {
         document.getElementById("styles-content" + tab.dataset.tab).classList.add("active");
     });
 });
+
+const loadProjectTabs = document.querySelectorAll(".load-project-tab");
+const loadProjectContents = document.querySelectorAll(".load-project-tab-content");
+
+loadProjectTabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+        // remove active from all
+        loadProjectTabs.forEach(t => t.classList.remove("active"));
+        loadProjectContents.forEach(c => c.classList.remove("active"));
+
+        // add active to clicked tab + its content
+        tab.classList.add("active");
+        document.getElementById("load-project-content-" + tab.dataset.tab).classList.add("active");
+    });
+});
+
+
+
+
+
+
+
+
