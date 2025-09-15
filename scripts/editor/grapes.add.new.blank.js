@@ -69,11 +69,88 @@ function clearEditor() {
   }
 }
 
+function getRequestBodyDetails(payload) {
+  return {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload)
+  }
+}
+
+async function submit_request(api_url, payload) {
+  const response = await fetch(api_url, getRequestBodyDetails(payload));
+  const result = await response.json();
+
+  let saved_project = []
+
+  if (result.code === "00") {
+    saved_project = result.data;
+  }
+  return saved_project;
+}
+
+
+async function save_project(requestBody) {
+  const api_url = `${api_endpoint}/grape-js`;
+  return await submit_request(api_url, requestBody);
+}
+
 saveChanges.addEventListener("click", () => {
-  showFlashMessage(
-    "Changes have been saved suvccessfully.",
-    "Changes Saved",
-    "success",
-    5000
-  );
+  const all_pages = pages.getAll();
+
+  if (all_pages.length > 0) {
+    const pages_to_create = []
+    all_pages.forEach((page, index) => {
+      if (index === 0) {
+        return;
+      }
+
+      const component =  page.getMainComponent();
+      const pageAttr = page.attributes;
+      const htmlPage = grapeEditor.getHtml({ component });
+      const cssPage = grapeEditor.getCss({ component });
+
+      const user_pages = {
+        id: pageAttr.id,
+        name: pageAttr.name,
+        htmlPage,
+        cssPage,
+      }
+      console.log("user page to save ", user_pages);
+
+      pages_to_create.push(user_pages);
+    });
+
+    if (pages_to_create.length > 0) {
+      const request_body = {
+        userId,
+        templateId,
+        data: pages_to_create,
+      }
+
+      save_project(request_body).then(result => {
+        if (result.length > 0) {
+          showFlashMessage(
+              "Changes have been saved successfully.",
+              "Changes Saved",
+              "success",
+              5000
+          );
+        } else {
+          showFlashMessage(
+              "Failed to save changes",
+              "Internal service is currently unavailable.",
+              "error",
+              5000
+          );
+        }
+      });
+
+
+
+    }
+
+  }
 });

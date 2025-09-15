@@ -572,29 +572,13 @@ const sampleAssets = [
   },
 ];
 
-const remoteStoragePlugin = (editor) => {
-  editor.Storage.add('remote', {
-    async load(options = {}) {
-      // call backend to save
-      return JSON.parse(sessionStorage.getItem(options.key));
-    },
-
-    async store(data, options = {}) {
-      sessionStorage.setItem(options.key, JSON.stringify(data));
-    }
-  });
-};
-
 // Initialize GrapesJS editor (which is the based editor for the app)
 const grapeEditor = grapesjs.init({
   container: "#gjs",
   fromElement: true,
-  plugins: [customToolbarPlugin, "grapesjs-zoom-plugin", remoteStoragePlugin],
+  plugins: [customToolbarPlugin, "grapesjs-zoom-plugin"],
+  storageManager: false,
   canvas: { styles: [cssPath] },
-  storageManager: {
-    type: 'remote',
-    stepsBeforeSave: 3,
-  },
   traitManager: {
     appendTo: "#styles-content2"
   },
@@ -738,29 +722,77 @@ async function get_user_template(template_id) {
 
 const params = new URLSearchParams(window.location.search);
 const templateId = params.get('templateId');
+const user_id = params.get('userId');
 const pages = grapeEditor.Pages;
 
-get_user_template(templateId).then((res) => {
-    // Fetch your external HTML and load into editor
-    console.log("single user template response", res)
-    if (res.length > 0) {
-      fetch(res[0].templateFiles.htmlFiles[0]) // full path also works if same server
-        .then((res) => res.text())
-        .then((html) => {
-          grapeEditor.setComponents(html); // set HTML inside the editor
-          pages.add({
-            id: "Index Page",
-            name: "Index Page",
-            styles: "",
-            component: html,
-          });
-        })
-        .catch((err) => console.error("Error loading template:", err));
+async function get_saved_project() {
+  const params = new URLSearchParams({
+    user_id,
+    template_id: templateId
+  });
+
+  const request_details = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
     }
-    // else {
-    //   window.location.href = "http://127.0.0.1:63598/login.html";
-    // }
-})
+  }
+
+  const response = await fetch(`${api_endpoint}/grape-js?${params}`, request_details);
+  const result =  await response.json();
+
+  let project = []
+
+  if (result.code === "00") {
+    project = result.data;
+  }
+
+  return project;
+}
+
+function loadTemplateFile(res) {
+  fetch(res[0].templateFiles.htmlFiles[0]) // full path also works if same server
+      .then((res) => res.text())
+      .then((html) => {
+        grapeEditor.setComponents(html); // set HTML inside the editor
+        pages.add({
+          id: "Index Page",
+          name: "Index Page",
+          styles: "",
+          component: html,
+        });
+      })
+      .catch((err) => console.error("Error loading template:", err));
+}
+
+get_saved_project().then((data) => {
+  if (data.length < 1) {
+    get_user_template(templateId).then((res) => {
+      if (res.length > 0) {
+        loadTemplateFile(res)
+      }
+    })
+  } else {
+    const saved_project = data[0].data
+
+    console.log("saved_project json", saved_project)
+
+    saved_project.forEach(result => {
+      console.log("saved project result is ", result);
+      pages.add({
+        id: result.id,
+        name: result.name,
+        styles: result.cssPage,
+        component: result.htmlPage,
+      });
+    });
+
+    console.log("pages now from saved project:", pages.getAll());
+
+    pages.select(pages.get(saved_project[0].name));
+
+  }
+});
 
 const templatePages = document.getElementById("template-pages");
 

@@ -1092,12 +1092,14 @@
 
 .load-project-modal-content {
   background: #000;
-  margin: 10% auto;
+  margin: 5% auto;
   padding: 20px;
-  width: 600px;
+  width: 80%;
   border-radius: 8px;
   position: relative;
   color: var(--text-color);
+  max-height: 600px;
+  overflow-y: auto;
 }
 
 .about-project-modal-close, .load-project-modal-close {
@@ -1123,6 +1125,8 @@
   margin-right: 5px;
   border-bottom: none;
   transition: background 0.3s;
+  position: sticky; /* optional: keeps it visible when scrolling */
+  z-index: 2;       /* optional: stay above content */
 }
 
 .load-project-tab.active {
@@ -1140,6 +1144,8 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
   gap: 1rem; /* space between items */
+  max-height: 600px;
+  overflow-y: auto;
 }
 
 .load-project-tab-container {
@@ -1212,13 +1218,25 @@
   font-weight: 600;
 }
 
+.template_item--overlay a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 130px;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
 .template_item--overlay button.edit {
   background: #8837e9;
   color: #ffff;
 }
 
-.template_item--overlay button.preview {
-  background: #ffff;
+.template_item--overlay button.Preview, .template_item--overlay a.Preview {
+  background: #8837e9;
+  color: #ffff;
 }
 
 .template_item .bottom {

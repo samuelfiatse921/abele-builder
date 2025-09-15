@@ -37,15 +37,38 @@ let user_templates = [];
 
 get_unpurchased_templates().then((res) => {
     unpurchased_templates = res
-    console.log("unpurchased_templates - ", unpurchased_templates)
+    const marketplaceBaseUrl = `${abele_marketplace}`;
 
-})
+    var parentLoadProjectEl = document.querySelector('#load-project-content-2');
+
+    unpurchased_templates.forEach((list, index) => {
+        parentLoadProjectEl.insertAdjacentHTML(
+            'beforeend',
+            `<div class="template_item" data-template="${list.id}">
+                    <div class="top">
+                      <img src="${list.template}" alt="" />
+            
+                      <div class="template_item--overlay">
+                        <a class="Preview" href=${marketplaceBaseUrl}?templateId=${templateId} target="_blank">Preview</a>
+                      </div>
+                    </div>
+            
+                    <div class="bottom">
+                      <div>
+                        <h2>${list.templateName}</h2>
+                      </div>
+            
+                    </div>
+                  </div>`
+        );
+    })
+});
 
 get_user_templates().then((res) => {
     user_templates = res
-    console.log("user_templates - ", user_templates)
 
-    var parentLoadProjectEl = document.querySelector('.load-project-tab-content');
+    var parentLoadProjectEl = document.querySelector('#load-project-content-1');
+    const baseURL = window.location.origin;
 
     user_templates.forEach((list, index) => {
         parentLoadProjectEl.insertAdjacentHTML(
@@ -55,27 +78,22 @@ get_user_templates().then((res) => {
                       <img src="${list.template}" alt="" />
             
                       <div class="template_item--overlay">
-                        <button class="Preview">Preview</button>
+                        ${list.id === templateId ? `
+                            <button class="Preview" disabled>Current Project</button>
+                        ` : `
+                            <a class="Preview" href=${baseURL}?templateId=${list.id} target="_blank">Select</a>
+                        `}
                       </div>
                     </div>
             
                     <div class="bottom">
                       <div>
                         <h2>${list.templateName}</h2>
-                        <span>Available</span>
                       </div>
             
                     </div>
                   </div>`
             );
-
-
     })
-
-    console.log("parentLoadProjectEl ", parentLoadProjectEl)
-
-
-
-
 })
 
