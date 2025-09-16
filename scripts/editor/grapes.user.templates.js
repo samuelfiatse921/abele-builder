@@ -49,7 +49,7 @@ get_unpurchased_templates().then((res) => {
                       <img src="${list.template}" alt="" />
             
                       <div class="template_item--overlay">
-                        <a class="Preview" href=${marketplaceBaseUrl}?templateId=${templateId} target="_blank">Preview</a>
+                        <a class="Preview" href=${marketplaceBaseUrl}?templateId=${list.id} target="_blank">Preview</a>
                       </div>
                     </div>
             
