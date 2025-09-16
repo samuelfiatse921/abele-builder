@@ -81,7 +81,7 @@ get_user_templates().then((res) => {
                         ${list.id === templateId ? `
                             <button class="Preview" disabled>Current Project</button>
                         ` : `
-                            <a class="Preview" href=${baseURL}?templateId=${list.id} target="_blank">Select</a>
+                            <a class="Preview" href=${baseURL}?templateId=${list.id}&userId=${userId} target="_blank">Select</a>
                         `}
                       </div>
                     </div>
