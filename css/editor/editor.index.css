@@ -940,13 +940,15 @@
 
 .tab-content {
   display: none;
-  border: 1px solid #282B30;
+  border-top: 1px solid #282B30;
+  border-right: 1px solid #282B30;
   padding: 20px;
 }
 
 .pages-tab-content {
   display: none;
-  border: 1px solid #282B30;
+  border-top: 1px solid #282B30;
+  border-right: 1px solid #282B30;
 }
 
 .pages-tab-content.active {
@@ -1379,6 +1381,32 @@
 
 }
 
+.has-tooltip {
+  position: relative;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.has-tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 127%;            /* position above element */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 6px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-size: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.has-tooltip:hover::after {
+  opacity: 1;
+}
 
 
 
