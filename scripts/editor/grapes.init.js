@@ -766,7 +766,7 @@ function loadTemplateFile(res) {
 }
 
 get_saved_project().then((data) => {
-  if (data.length < 1) {
+  if (data.length === 0) {
     get_user_template(templateId).then((res) => {
       if (res.length > 0) {
         loadTemplateFile(res)

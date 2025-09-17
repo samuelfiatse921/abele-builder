@@ -1291,17 +1291,22 @@
           <div class="spacer">Abele Builder</div>
 
           <div class="topBar-buttons">
-            <span id="undoBtn">
+            <span onclick="resetProject()" class="reset " style="cursor: pointer;" data-tooltip="Reset to default">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                <path fill-rule="evenodd" d="M12 2.25a.75.75 0 0 1 .75.75v11.69l3.22-3.22a.75.75 0 1 1 1.06 1.06l-4.5 4.5a.75.75 0 0 1-1.06 0l-4.5-4.5a.75.75 0 1 1 1.06-1.06l3.22 3.22V3a.75.75 0 0 1 .75-.75Zm-9 13.5a.75.75 0 0 1 .75.75v2.25a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5V16.5a.75.75 0 0 1 1.5 0v2.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V16.5a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd" />
+              </svg>
+            </span>
+            <span id="undoBtn" style="cursor: pointer">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24" fill="currentColor">
                 <path d="M255.5 8c-66.3 0-126.5 26.9-170.1 70.5L48 0v192h192l-72.6-72.6C199.2 91.5 225.5 80 255.5 80c97 0 176 79 176 176s-79 176-176 176c-59.6 0-112-29.5-144-74.6L54.6 390.4C99.9 455.4 172.6 496 255.5 496c132.5 0 240-107.5 240-240S388 8 255.5 8z"/>
               </svg>
             </span>
-            <span id="redoBtn">
+            <span id="redoBtn" style="cursor: pointer">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24" fill="currentColor">
                 <path d="M256.5 8c66.3 0 126.5 26.9 170.1 70.5L464 0v192H272l72.6-72.6C312.8 91.5 286.5 80 256.5 80c-97 0-176 79-176 176s79 176 176 176c59.6 0 112-29.5 144-74.6l56.9 32.6C413.1 455.4 340.4 496 256.5 496c-132.5 0-240-107.5-240-240S124 8 256.5 8z"/>
               </svg>
             </span>
-            <span id="previewCodeButton"
+            <span id="previewCodeButton" style="cursor: pointer"
               ><svg
                 width="24"
                 height="24"
@@ -2646,6 +2651,24 @@
       </div>
     </div>
 
+    <!--About Abele-->
+    <div id="confirmDeleteProjectModal" class="confirmDeleteProjectModal">
+      <div class="confirmDeleteProjectModalContent">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 20px; border-bottom:  1px solid black; padding-bottom: 5px">
+          <span class="cancelDeleteProjectModalClose">&times;</span>
+          <h2><b>Confirm action</b></h2>
+        </div>
+        <p style="margin-bottom: 20px">
+          Deleting the project will remove the template and any changes done which means repurchasing of template
+          and making changes again. Do you still want to proceed?
+        </p>
+        <div style="display: flex; align-items: center; gap: 20px ">
+          <button class="deleteProjectBtn">Yes, delete</button>
+          <button class="cancelDeleteProjectBtn">No, ignore</button>
+        </div>
+      </div>
+    </div>
+
     <!-- Flash Message Container -->
     <div class="flash-container" id="flashContainer"></div>
 
@@ -2744,7 +2767,6 @@
 
     <script src="/scripts/editor/tabs_mover.js"></script>
     <script src="/scripts/editor/grapes.user.templates.js"></script>
-
     <script src="/scripts/editor/grapes.project.manager.js"></script>
 
     <script>

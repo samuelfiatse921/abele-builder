@@ -1069,7 +1069,7 @@
 }
 
 /* Hidden by default */
-.about-project, .load-project {
+.about-project, .load-project, .confirmDeleteProjectModal {
   display: none;
   position: fixed;
   z-index: 1000;
@@ -1080,7 +1080,7 @@
   background-color: rgba(0,0,0,0.5); /* overlay */
 }
 
-.about-project-modal-content {
+.about-project-modal-content, .confirmDeleteProjectModalContent {
   background: #000;
   margin: 10% auto;
   padding: 20px;
@@ -1088,6 +1088,16 @@
   border-radius: 8px;
   position: relative;
   color: var(--text-color);
+}
+
+.confirmDeleteProjectModalContent {
+  background: #FFFFFF;
+  margin: 10% auto;
+  padding: 20px;
+  width: 400px;
+  border-radius: 8px;
+  position: relative;
+  color: #000000;
 }
 
 .load-project-modal-content {
@@ -1102,7 +1112,7 @@
   overflow-y: auto;
 }
 
-.about-project-modal-close, .load-project-modal-close {
+.about-project-modal-close, .load-project-modal-close, .cancelDeleteProjectModalClose {
   position: absolute;
   right: 15px;
   top: 10px;
@@ -1111,8 +1121,22 @@
   cursor: pointer;
 }
 
-.about-project-modal-close:hover, .load-project-modal-close:hover {
+.about-project-modal-close:hover, .load-project-modal-close:hover, .cancelDeleteProjectModalClose:hover {
   color: var(--primary-color);
+}
+
+.cancelDeleteProjectBtn {
+  background: var(--primary-color);
+  border-radius: 10px;
+  padding: 10px;
+  color: var(--text-color);
+}
+
+.deleteProjectBtn {
+  background: #b42318;
+  border-radius: 10px;
+  padding: 10px;
+  color: var(--text-color);
 }
 
 .load-project-tabs {
@@ -1240,19 +1264,11 @@
 }
 
 .template_item .bottom {
-  height: 25%;
-  margin-top: 8px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.template_item .bottom > div:first-child {
-  width: 88%;
-}
-
-.template_item .bottom > div:last-child {
+  width: 100%;
+  height: 30%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .template_item .bottom h2 {
@@ -1266,6 +1282,10 @@
 
 .template_item .bottom span {
   font-size: 14px;
+  color: #a7a7a7;
+}
+
+.deleteItemSvg {
   color: #a7a7a7;
 }
 
