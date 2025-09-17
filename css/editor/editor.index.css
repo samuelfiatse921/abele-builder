@@ -1364,10 +1364,20 @@
 }
 
 .gjs-layer, .gjs-sm-properties {
-  font-size: 1rem;        /* increase text size */
-  /*padding: 6px 8px;        !* increase padding for items *!*/
+  font-size: 0.9rem;
+  font-weight: 550;
 }
 
+.gjs-sm-icon {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--text-color);
+  padding-bottom: 5px;
+}
+
+.gjs-fields {
+
+}
 
 
 
