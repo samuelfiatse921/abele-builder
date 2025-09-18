@@ -75,7 +75,7 @@ function get_saved_template(parentLoadProjectEl, list, baseURL) {
                         ${list.id === templateId ? `
                             <button class="Preview" disabled>Current Project</button>
                         ` : `
-                            <a class="Preview" href=${baseURL}?templateId=${list.id}&userId=${userId} target="_blank">Select</a>
+                            <button class="Preview" onclick="loadSelectedTemplate('${list.id}', '${userId}')">Select</button>
                         `}
                       </div>
                     </div>
@@ -95,6 +95,29 @@ function get_saved_template(parentLoadProjectEl, list, baseURL) {
                       ` : ''}
                   </div>`
     );
+}
+
+function loadSelectedTemplate(selectedTemplateId, userId) {
+    console.log("loading selected template", selectedTemplateId, userId);
+    loadProjectModal.style.display = 'none';
+
+    saveProjectUpdate(userId, templateId).then(result => {
+        console.log("saved project for template ", templateId, result );
+        if (result.length > 0) {
+            console.log("project saved successfully", result);
+            console.log("getting user saved project using id", selectedTemplateId);
+            get_user_saved_project(selectedTemplateId)
+        } else {
+            console.log("project could not be saved", result);
+            showFlashMessage(
+                "Request failed",
+                "Project could not be loaded. Failed to save current project",
+                "error",
+                5000
+            );
+        }
+    });
+
 }
 
 function prepareProjectToDelete(el, templateId, userId) {

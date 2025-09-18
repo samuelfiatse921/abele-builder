@@ -701,7 +701,8 @@ redoBtn.addEventListener('click', function() {
 });
 
 async function get_user_template(template_id) {
-    const request_details = {
+  console.log("loading template ", template_id);
+  const request_details = {
         method: "GET",
           headers: {
             "Content-Type": "application/json"
@@ -725,10 +726,10 @@ const templateId = params.get('templateId');
 const user_id = params.get('userId');
 const pages = grapeEditor.Pages;
 
-async function get_saved_project() {
+async function get_saved_project(user_id, savedProjectTemplateId) {
   const params = new URLSearchParams({
     user_id,
-    template_id: templateId
+    template_id: savedProjectTemplateId
   });
 
   const request_details = {
@@ -765,34 +766,58 @@ function loadTemplateFile(res) {
       .catch((err) => console.error("Error loading template:", err));
 }
 
-get_saved_project().then((data) => {
-  if (data.length === 0) {
-    get_user_template(templateId).then((res) => {
-      if (res.length > 0) {
-        loadTemplateFile(res)
-      }
-    })
-  } else {
-    const saved_project = data[0].data
-
-    console.log("saved_project json", saved_project)
-
-    saved_project.forEach(result => {
-      console.log("saved project result is ", result);
-      pages.add({
-        id: result.id,
-        name: result.name,
-        styles: result.cssPage,
-        component: result.htmlPage,
-      });
-    });
-
-    console.log("pages now from saved project:", pages.getAll());
-
-    pages.select(pages.get(saved_project[0].name));
-
+function get_user_saved_project(projectTemplateId = null) {
+  var proTemplateId = templateId;
+  if (projectTemplateId) {
+    proTemplateId = projectTemplateId;
   }
-});
+  console.log("getting saved project for template ", proTemplateId)
+  get_saved_project(user_id, proTemplateId).then((data) => {
+    if (data.length === 0) {
+      get_user_template(proTemplateId).then((res) => {
+        if (res.length > 0) {
+          loadTemplateFile(res)
+        }
+      })
+    } else {
+      const oldPages = grapeEditor.Pages.getAll();
+      oldPages.forEach(page => {
+        grapeEditor.Pages.remove(page);
+      });
+
+      const saved_project = data[0].data
+
+      console.log("saved_project json", saved_project)
+
+      let firstIndexPage = null;
+
+      saved_project.forEach(result => {
+        console.log("saved project result is ", result);
+
+        if (result.name && !firstIndexPage) {
+          firstIndexPage = result.name;
+        }
+
+        pages.add({
+          id: result.id,
+          name: result.name,
+          styles: result.cssPage,
+          component: result.htmlPage,
+        });
+      });
+
+      console.log("pages now from saved project:", pages.getAll());
+
+      pages.select(pages.get(firstIndexPage));
+
+      const url = new URL(window.location);
+      url.searchParams.set('templateId', proTemplateId);
+      window.history.replaceState({}, '', url);
+    }
+  });
+}
+
+get_user_saved_project()
 
 const templatePages = document.getElementById("template-pages");
 

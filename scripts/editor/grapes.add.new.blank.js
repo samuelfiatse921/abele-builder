@@ -97,20 +97,21 @@ async function save_project(requestBody) {
   return await submit_request(api_url, requestBody);
 }
 
-saveChanges.addEventListener("click", () => {
-  const all_pages = pages.getAll();
+async function saveProjectUpdate(userId, projectTemplateId) {
+  console.log("saving template update using id", projectTemplateId);
+  const all_pages = grapeEditor.Pages.getAll();
 
   if (all_pages.length > 0) {
-    const pages_to_create = []
-    all_pages.forEach((page, index) => {
-      if (index === 0) {
-        return;
-      }
+    const currentPage = grapeEditor.Pages.getSelected(); // remember which page is active
 
-      const component =  page.getMainComponent();
+    const pages_to_create = []
+
+    for (const [_, page] of all_pages.entries()) {
+      grapeEditor.Pages.select(page);
+
       const pageAttr = page.attributes;
-      const htmlPage = grapeEditor.getHtml({ component });
-      const cssPage = grapeEditor.getCss({ component });
+      const htmlPage = grapeEditor.getHtml();
+      const cssPage = grapeEditor.getCss();
 
       const user_pages = {
         id: pageAttr.id,
@@ -118,39 +119,40 @@ saveChanges.addEventListener("click", () => {
         htmlPage,
         cssPage,
       }
-      console.log("user page to save ", user_pages);
 
       pages_to_create.push(user_pages);
-    });
+    }
 
     if (pages_to_create.length > 0) {
       const request_body = {
         userId,
-        templateId,
+        templateId: projectTemplateId,
         data: pages_to_create,
       }
 
-      save_project(request_body).then(result => {
-        if (result.length > 0) {
-          showFlashMessage(
-              "Changes have been saved successfully.",
-              "Changes Saved",
-              "success",
-              5000
-          );
-        } else {
-          showFlashMessage(
-              "Failed to save changes",
-              "Internal service is currently unavailable.",
-              "error",
-              5000
-          );
-        }
-      });
-
-
-
+      return await save_project(request_body)
     }
 
+    grapeEditor.Pages.select(currentPage);
   }
+}
+
+saveChanges.addEventListener("click", () => {
+  saveProjectUpdate(userId, templateId).then(result => {
+    if (result.length > 0) {
+      showFlashMessage(
+          "Changes have been saved successfully.",
+          "Changes Saved",
+          "success",
+          5000
+      );
+    } else {
+      showFlashMessage(
+          "Failed to save changes",
+          "Internal service is currently unavailable.",
+          "error",
+          5000
+      );
+    }
+  });
 });
