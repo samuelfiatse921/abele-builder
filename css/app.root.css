@@ -485,6 +485,7 @@ select {
 
 .gjs-toolbar {
   background-color: rgba(136, 55, 233, 0.9) !important;
+  border-radius: 5px;
 }
 
 @media (prefers-color-scheme: dark) {

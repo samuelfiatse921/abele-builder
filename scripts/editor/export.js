@@ -19,8 +19,12 @@ class Export {
   }
 
   getFileName() {
-    const name = this.fileNameInput.value.trim();
-    return name ? name : "template";
+    const selectedPage = grapeEditor.Pages.getSelected();
+    let pageName = "template";
+    if (selectedPage) {
+      pageName = selectedPage.get('name');
+    }
+    return pageName;
   }
 
   downloadFile(content, filename, type) {

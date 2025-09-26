@@ -113,14 +113,16 @@ async function saveProjectUpdate(userId, projectTemplateId) {
       const htmlPage = grapeEditor.getHtml();
       const cssPage = grapeEditor.getCss();
 
-      const user_pages = {
-        id: pageAttr.id,
-        name: pageAttr.name,
-        htmlPage,
-        cssPage,
-      }
+      if (pageAttr.name !== "") {
+        const user_pages = {
+          id: pageAttr.id,
+          name: pageAttr.name,
+          htmlPage,
+          cssPage,
+        }
 
-      pages_to_create.push(user_pages);
+        pages_to_create.push(user_pages);
+      }
     }
 
     if (pages_to_create.length > 0) {

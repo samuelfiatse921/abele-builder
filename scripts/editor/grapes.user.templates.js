@@ -67,7 +67,7 @@ get_unpurchased_templates().then((res) => {
 function get_saved_template(parentLoadProjectEl, list, baseURL) {
     parentLoadProjectEl.insertAdjacentHTML(
         'beforeend',
-        `<div class="template_item" data-template="${list.id}">
+        `<div class="template_item" data-template="${list.id}" style="border: 1px solid #3F3F46">
                     <div class="top">
                       <img src="${list.template}" alt="" />
             
@@ -107,6 +107,17 @@ function loadSelectedTemplate(selectedTemplateId, userId) {
             console.log("project saved successfully", result);
             console.log("getting user saved project using id", selectedTemplateId);
             get_user_saved_project(selectedTemplateId)
+            get_user_templates().then((res) => {
+                user_templates = res
+
+                var parentLoadProjectEl = document.querySelector('#load-project-content-1');
+                parentLoadProjectEl.innerHTML = "";
+                const baseURL = window.location.origin;
+
+                user_templates.forEach((list, index) => {
+                    get_saved_template(parentLoadProjectEl, list, baseURL)
+                })
+            })
         } else {
             console.log("project could not be saved", result);
             showFlashMessage(

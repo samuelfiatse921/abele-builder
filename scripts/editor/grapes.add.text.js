@@ -361,6 +361,7 @@
         fontSize: styles["font-size"] || "12px",
         color: styles["color"] || "#000000",
         textAlign: styles["text-align"] || "left",
+        bold: styles["font-weight"] || "normal",
       });
     } else {
       // Clear the preview if no text component is selected
@@ -573,7 +574,9 @@
       command === "font-family" ||
       command === "font-size" ||
       command === "color" ||
-      command === "text-align"
+      command === "text-align" ||
+      command === "bold" ||
+      command === "italic"
     ) {
       const currentStyles = selected.getStyle() || {};
       if (command === "uppercase") {
@@ -593,6 +596,10 @@
         selected.setStyle({ ...currentStyles, color: value });
       } else if (command === "text-align") {
         selected.setStyle({ ...currentStyles, "text-align": value });
+      } else if (command === "bold") {
+        selected.setStyle({ ...currentStyles, "font-weight": "bold" });
+      } else if (command === "italic") {
+        selected.setStyle({ ...currentStyles, "font-style": "italic" });
       }
       updateButtonStates();
       updateSampleTextPreview();
@@ -731,28 +738,61 @@
         applyFormatting("unlink");
       } else {
         // Prompt for URL
-        const url = prompt("Enter the URL (e.g., https://example.com):");
-        if (url && url.trim()) {
-          // Validate URL (basic check)
-          try {
-            new URL(url); // Throws if invalid
-            applyFormatting("createLink", url);
-          } catch (e) {
+        const modal = document.getElementById("urlModal");
+        const cancelBtn = document.getElementById("cancelBtn");
+        const okBtn = document.getElementById("okBtn");
+
+        modal.style.display = "flex";
+
+        // Close modal
+        cancelBtn.addEventListener("click", () => {
+          modal.style.display = "none";
+          urlInput.value = "";
+        });
+
+        // OK button (get URL value)
+        okBtn.addEventListener("click", () => {
+          const url = urlInput.value.trim();
+          if (url && url.trim()) {
+            // Validate URL (basic check)
+            try {
+              new URL(url); // Throws if invalid
+              applyFormatting("createLink", url);
+              showFlashMessage(
+                  "",
+                  "URL Applied",
+                  "success",
+                  5000
+              );
+              modal.style.display = "none";
+            } catch (e) {
+              modal.style.display = "none";
+              showFlashMessage(
+                  "Invalid URL. Please enter a valid URL starting with http:// or https://.",
+                  "Invalid URL",
+                  "error",
+                  5000
+              );
+            }
+          } else if (url == null) {
+            modal.style.display = "none";
             showFlashMessage(
-              "Invalid URL. Please enter a valid URL starting with http:// or https://.",
-              "Invalid URL",
-              "error",
-              5000
+                "No URL provided. Link not added.",
+                "No URL",
+                "info",
+                5000
             );
           }
-        } else if (url !== null) {
-          showFlashMessage(
-            "No URL provided. Link not added.",
-            "No URL",
-            "info",
-            5000
-          );
-        }
+          urlInput.value = "";
+        });
+
+        // Close modal if clicked outside content
+        window.addEventListener("click", (e) => {
+          if (e.target === modal) {
+            modal.style.display = "none";
+            urlInput.value = "";
+          }
+        });
       }
     });
   }

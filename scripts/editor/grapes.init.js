@@ -86,6 +86,22 @@ const customToolbarPlugin = (editor) => {
                         </button>
                       </div>
                     </div>`,
+    ellipsis: `
+        <span id="toggleMenuBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" role="img" aria-label="More">
+              <title>More</title>
+              <circle cx="12" cy="5.5" r="1.75" fill="currentColor"/>
+              <circle cx="12" cy="12"  r="1.75" fill="currentColor"/>
+              <circle cx="12" cy="18.5" r="1.75" fill="currentColor"/>
+          </svg>
+        </span>
+        <div id="gjs-toolbar-menu" class="gjs-toolbar-menu-content">
+           <a onclick="selectItemParent()" style="display: flex; gap: 4px"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="#ffffff" stroke-width="2" d="m18 15l-6-6l-6 6"/></svg>Select Parent</a>
+           <a onclick="duplicateItem()" style="display: flex; gap: 4px"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M6 15h-.6C4.07 15 3 13.93 3 12.6V5.4C3 4.07 4.07 3 5.4 3h7.2C13.93 3 15 4.07 15 5.4V6m-3.6 3h7.2a2.4 2.4 0 0 1 2.4 2.4v7.2a2.4 2.4 0 0 1-2.4 2.4h-7.2A2.4 2.4 0 0 1 9 18.6v-7.2A2.4 2.4 0 0 1 11.4 9"/></svg>Duplicate</a>
+<!--           <a onclick="createToolbarSymbol()">Create Symbol</a>-->
+           <a onclick="deleteItem()" style="display: flex; gap: 4px"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 28 28"><path fill="none" stroke="none" d="M11.5 6h5a2.5 2.5 0 0 0-5 0M10 6a4 4 0 0 1 8 0h6.25a.75.75 0 0 1 0 1.5h-1.31l-1.217 14.603A4.25 4.25 0 0 1 17.488 26h-6.976a4.25 4.25 0 0 1-4.235-3.897L5.06 7.5H3.75a.75.75 0 0 1 0-1.5zM7.772 21.978a2.75 2.75 0 0 0 2.74 2.522h6.976a2.75 2.75 0 0 0 2.74-2.522L21.436 7.5H6.565zM11.75 11a.75.75 0 0 1 .75.75v8.5a.75.75 0 0 1-1.5 0v-8.5a.75.75 0 0 1 .75-.75m5.25.75a.75.75 0 0 0-1.5 0v8.5a.75.75 0 0 0 1.5 0z"/></svg>Delete</a>
+        </div>
+    `,
 
     colorInput: `<div>
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -464,6 +480,33 @@ const customToolbarPlugin = (editor) => {
     // ];
   });
 
+  // Add a command to open the modal with more options
+  editor.Commands.add('tlb-more-options', {
+    run(editor, sender, options) {
+      const toggleMenuBtn = document.querySelector("#toggleMenuBtn");
+      const pagesDropdownMenu = document.getElementById("gjs-toolbar-menu");
+
+      toggleMenuBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        pagesDropdownMenu.classList.toggle("toolbar-show");
+      });
+
+      document.addEventListener("click", (e) => {
+        if (
+            !pagesDropdownMenu.contains(e.target) &&
+            !toggleMenuBtn.contains(e.target)
+        ) {
+          pagesDropdownMenu.classList.remove("toolbar-show");
+        }
+      });
+
+    }
+  });
+
+
+
   // Also patch any new components
   editor.on("component:add", (m) => {
     m.set("toolbar", [
@@ -504,73 +547,32 @@ const customToolbarPlugin = (editor) => {
         },
         label: icons.colorPicker, // or your custom icon
       },
+      {
+        command: "tlb-more-options",
+        attributes: {
+          class: "gjs-btn-more",
+          title: "More Options"
+        },
+        label: icons.ellipsis,
+      }
     ]);
   });
 };
 
-// Sample assets data
-const sampleAssets = [
-  {
-    id: 'img1',
-    src: 'https://picsum.photos/200/150?random=1',
-    name: 'Nature 1'
-  },
-  {
-    id: 'img2',
-    src: 'https://picsum.photos/200/150?random=2',
-    name: 'Nature 2'
-  },
-  {
-    id: 'img3',
-    src: 'https://picsum.photos/200/150?random=3',
-    name: 'Nature 3'
-  },
-  {
-    id: 'img4',
-    src: 'https://picsum.photos/200/150?random=4',
-    name: 'Nature 4'
-  },
-  {
-    id: 'img5',
-    src: 'https://picsum.photos/200/150?random=5',
-    name: 'Nature 5'
-  },
-  {
-    id: 'img6',
-    src: 'https://picsum.photos/200/150?random=6',
-    name: 'Nature 6'
-  },
-  {
-    id: 'img7',
-    src: 'https://picsum.photos/200/150?random=7',
-    name: 'Nature 7'
-  },
-  {
-    id: 'img8',
-    src: 'https://picsum.photos/200/150?random=8',
-    name: 'Nature 8'
-  },
-  {
-    id: 'img9',
-    src: 'https://picsum.photos/200/150?random=9',
-    name: 'Nature 9'
-  },
-  {
-    id: 'img10',
-    src: 'https://picsum.photos/200/150?random=10',
-    name: 'Nature 10'
-  },
-  {
-    id: 'img11',
-    src: 'https://picsum.photos/200/150?random=11',
-    name: 'Nature 11'
-  },
-  {
-    id: 'img12',
-    src: 'https://picsum.photos/200/150?random=12',
-    name: 'Nature 12'
-  },
-];
+function duplicateItem() {
+  grapeEditor.runCommand('tlb-clone');
+}
+
+function deleteItem() {
+  grapeEditor.runCommand('tlb-delete');
+}
+
+function createToolbarSymbol() {
+}
+
+function selectItemParent() {
+  grapeEditor.runCommand('select-parent');
+}
 
 // Initialize GrapesJS editor (which is the based editor for the app)
 const grapeEditor = grapesjs.init({
@@ -586,7 +588,6 @@ const grapeEditor = grapesjs.init({
     appendTo: "#content3"
   },
   assetManager: {
-    assets: sampleAssets,
     upload: false,
     multiUpload: false,
   },
@@ -757,8 +758,8 @@ function loadTemplateFile(res) {
       .then((html) => {
         grapeEditor.setComponents(html); // set HTML inside the editor
         pages.add({
-          id: "Index Page",
-          name: "Index Page",
+          id: "index",
+          name: "index",
           styles: "",
           component: html,
         });
@@ -854,7 +855,7 @@ grapeEditor.on('page', () => {
             <div id="pages-dropdown-menu-${pageName}" class="pages-dropdown-content">
                <a href="#" onclick="editPageName(this)">Edit</a>
                <a href="#" onclick="duplicatePage('${pageName}')">Duplicate</a>
-               <a href="#">Share</a>
+               <a onclick="shareSinglePage('${pageName}')">Share</a>
                <a href="#" onclick="deletePage('${pageName}')">Delete</a>
             </div>
           </div>

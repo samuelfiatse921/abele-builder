@@ -125,4 +125,82 @@ function editPageName(e) {
 
 }
 
+var sharePage = "";
+
+function getDeploymentLink(requestBody, requestUrl) {
+    const request_details = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(requestBody),
+    }
+
+    fetch(requestUrl, request_details).then(response => {
+        response.json().then(result => {
+            if (result.code === "00") {
+                const deployment_link = result.data[0]
+                localStorage.setItem("deployment_link", deployment_link);
+                document.getElementById("template-link").textContent = deployment_link;
+            }
+        })
+    });
+}
+
+function shareSinglePage(pageName) {
+    sharePage = pageName;
+    followingShareModal.classList.remove(HIDDEN);
+
+    const templateInputName = document.getElementById("fileNameInput");
+    const templateName = templateInputName.value;
+
+    const request = {
+        templateName: templateName,
+        templateId,
+        userId,
+        page: sharePage
+    }
+    getDeploymentLink(request,`${api_endpoint}/vercel/deployment/single-file`);
+}
+
+function shareEntirePage() {
+    followingShareModal.classList.remove(HIDDEN);
+
+    const templateInputName = document.getElementById("fileNameInput");
+    const templateName = templateInputName.value;
+
+    const request = {
+        templateName: templateName,
+        templateId,
+        userId,
+    }
+    getDeploymentLink(request,`${api_endpoint}/vercel/deployment/entire-project`);
+}
+
+function shareTemplate(platform) {
+    const pageText = encodeURIComponent(document.title);
+    const builderPageUrl = encodeURIComponent(localStorage.getItem("deployment_link"));
+
+    let platform_url = ""
+
+    if (platform === "whatsapp") {
+        platform_url = `https://wa.me/?text=${pageText}%20${builderPageUrl}`
+    } else if (platform === "twitter") {
+        platform_url = `https://twitter.com/intent/tweet?text=${pageText}&url=${builderPageUrl}`
+    } else if (platform === "facebook") {
+        platform_url = `https://www.facebook.com/sharer/sharer.php?u=${builderPageUrl}`;
+    } else if (platform === "telegram") {
+        platform_url = `https://t.me/share/url?url=${builderPageUrl}&text=${pageText}`
+    }
+
+    window.open(platform_url,
+        "_blank",
+        "width=600,height=400"
+    );
+}
+
+
+
+
+
 

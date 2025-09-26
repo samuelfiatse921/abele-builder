@@ -93,7 +93,7 @@ deleteProjectBtn.addEventListener('click', () => {
                                 unpurchased_templates.forEach((list, index) => {
                                     parentLoadProjectEl.insertAdjacentHTML(
                                         'beforeend',
-                                            `<div class="template_item" data-template="${list.id}">
+                                            `<div class="template_item" data-template="${list.id}" style ="border: 1px solid #3F3F46">
                                                     <div class="top">
                                                       <img src="${list.template}" alt="" />
                                             
