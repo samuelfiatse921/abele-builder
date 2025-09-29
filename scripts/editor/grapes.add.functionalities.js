@@ -316,8 +316,29 @@ function updateSidebarInputs() {
   const target = getTargetComponent(selected);
   if (!target) return;
 
-  const styles = target.getStyle() || {};
-  console.log("Updating sidebar with styles:", styles);
+  const classes = selected.getClasses(); // e.g. ['add-to-cart']
+
+  const cssRules = grapeEditor.Css.getAll();
+  const classStyles = {};
+
+  classes.forEach(cls => {
+    const rule = cssRules.find(r => r.getSelectorsString() === `.${cls}`);
+    if (rule) Object.assign(classStyles, rule.getStyle());
+  });
+
+  const el = selected.getEl();
+
+  // tagName is always uppercase in HTML
+  if (el.tagName === 'BUTTON') {
+    const style = selected.getStyle();
+
+    // Remove only background-color
+    delete style['background-color'];
+
+    selected.setStyle(style);
+  }
+
+  const styles = classStyles || {};
 
   // Background color
   const bgColor = styles["background-color"] || "#FFFFFF00";

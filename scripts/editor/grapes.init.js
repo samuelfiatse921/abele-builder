@@ -567,9 +567,6 @@ function deleteItem() {
   grapeEditor.runCommand('tlb-delete');
 }
 
-function createToolbarSymbol() {
-}
-
 function selectItemParent() {
   grapeEditor.runCommand('select-parent');
 }
@@ -580,7 +577,7 @@ const grapeEditor = grapesjs.init({
   fromElement: true,
   plugins: [customToolbarPlugin, "grapesjs-zoom-plugin"],
   storageManager: false,
-  canvas: { styles: [cssPath] },
+  avoidInlineStyle: false,
   traitManager: {
     appendTo: "#styles-content2"
   },
@@ -690,6 +687,13 @@ const grapeEditor = grapesjs.init({
   },
 });
 
+grapeEditor.on('load', () => {
+  const buttons = grapeEditor.DomComponents.getWrapper().find('button');
+  buttons.forEach(button => {
+    button.set({ stylable: false });
+  });
+});
+
 const undoBtn = document.getElementById('undoBtn');
 const redoBtn = document.getElementById('redoBtn');
 
@@ -767,7 +771,7 @@ function loadTemplateFile(res) {
       .catch((err) => console.error("Error loading template:", err));
 }
 
-function get_user_saved_project(projectTemplateId = null) {
+function get_user_saved_project(projectTemplateId = null, reloadPage=false) {
   var proTemplateId = templateId;
   if (projectTemplateId) {
     proTemplateId = projectTemplateId;
@@ -810,10 +814,13 @@ function get_user_saved_project(projectTemplateId = null) {
       console.log("pages now from saved project:", pages.getAll());
 
       pages.select(pages.get(firstIndexPage));
+    }
+    const url = new URL(window.location);
+    url.searchParams.set('templateId', proTemplateId);
+    window.history.replaceState({}, '', url);
 
-      const url = new URL(window.location);
-      url.searchParams.set('templateId', proTemplateId);
-      window.history.replaceState({}, '', url);
+    if (reloadPage) {
+      window.location.reload();
     }
   });
 }
@@ -821,6 +828,70 @@ function get_user_saved_project(projectTemplateId = null) {
 get_user_saved_project()
 
 const templatePages = document.getElementById("template-pages");
+
+grapeEditor.DomComponents.addType('button', {
+  isComponent: el => el.tagName === 'BUTTON',
+  model: {
+    defaults: {
+      tagName: 'button',
+      // stylable: false, // Prevents the Style Manager from applying styles
+      draggable: true,
+      droppable: false,
+      highlightable: false,
+      editable: true,
+      traits: [
+        {
+          type: 'text',
+          name: 'content',
+          label: 'Text',
+        },
+        'id',
+        'title',
+        'class',
+      ],
+      styles: {}
+    },
+  },
+});
+
+// grapeEditor.on('component:mount', (component) => {
+//   if (component.get('type') === 'button') {
+//     component.set({
+//       hoverable: false,
+//       badgable: false,
+//       highlightable: false
+//     });
+//   }
+// });
+
+const modelDefault = {
+  defaults: {
+    tagName: 'div',
+    draggable: true,
+    droppable: true,
+    highlightable: true,
+    editable: true,
+    layerable: true,
+    selectable: true,
+    hoverable: true,
+    traits: [
+      'id',
+      'title',
+      'class',
+    ],
+    styles: {}
+  },
+};
+
+// grapeEditor.DomComponents.addType('div', {
+//   isComponent: el => el.tagName === 'DIV',
+//   model: modelDefault,
+// });
+//
+// grapeEditor.DomComponents.addType('section', {
+//   isComponent: el => el.tagName === 'SECTION',
+//   model: modelDefault,
+// });
 
 grapeEditor.on('page', () => {
   const pages = grapeEditor.Pages;
@@ -983,3 +1054,9 @@ for (let i = 0; i < sidebarStylesGroup.length; i++) {
       sidebarStylesGroup[i].classList.toggle("closed");
     });
 }
+
+const userlogout = document.querySelector(".logout");
+userlogout.addEventListener("click", () => {
+  window.location.href = abele_marketplace
+})
+

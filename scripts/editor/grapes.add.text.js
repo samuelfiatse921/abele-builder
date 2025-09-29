@@ -73,7 +73,7 @@
   // Sample text preview element
   const sampleText = document.getElementById("sampleText");
 
-  const TEXT_TAGS = ["P", "SPAN", "H1", "H2", "H3", "H4", "H5", "H6"];
+  const TEXT_TAGS = ["P", "SPAN", "H1", "H2", "H3", "H4", "H5", "H6", "A", "BUTTON", "DIV"];
 
   // Validate DOM elements
   if (!addTextButton)
@@ -218,8 +218,7 @@
     }
 
     // Extract the current content
-    let currentContent =
-      component.getEl().innerHTML || component.get("content") || "";
+    let currentContent = component.getInnerHTML() || "";
     if (!currentContent) {
       console.warn(
         "No content found in the selected text component. Using default content."
@@ -263,6 +262,8 @@
     // Check uppercase, font family, font size, text color, and text align by inspecting the component's style
     const styles = component.getStyle() || {};
     formattingStates.isUppercase = styles["text-transform"] === "uppercase";
+    formattingStates.isBold = styles["font-weight"] === "bold";
+    formattingStates.isItalic = styles["font-style"] === "italic";
     formattingStates.fontFamily = styles["font-family"] || "Inter";
     formattingStates.fontSize = styles["font-size"]
       ? parseInt(styles["font-size"], 10).toString()
@@ -350,8 +351,7 @@
 
     if (selected && isTextComponent(selected)) {
       // Get the formatted HTML content of the selected component
-      const formattedContent =
-        selected.getEl().innerHTML || selected.get("content") || "";
+      const formattedContent = selected.getInnerHTML() || "";
       // Apply the component's styles (e.g., text-transform, font-family, font-size, color, text-align) to the preview
       const styles = selected.getStyle() || {};
       sampleText.innerHTML = formattedContent;
@@ -597,9 +597,17 @@
       } else if (command === "text-align") {
         selected.setStyle({ ...currentStyles, "text-align": value });
       } else if (command === "bold") {
-        selected.setStyle({ ...currentStyles, "font-weight": "bold" });
+        if (currentStyles["font-weight"] === "bold") {
+          selected.setStyle({ ...currentStyles, "font-weight": "normal" });
+        } else {
+          selected.setStyle({ ...currentStyles, "font-weight": "bold" });
+        }
       } else if (command === "italic") {
-        selected.setStyle({ ...currentStyles, "font-style": "italic" });
+        if (currentStyles["font-style"] === "italic") {
+          selected.setStyle({ ...currentStyles, "font-style": "normal" });
+        } else {
+          selected.setStyle({ ...currentStyles, "font-style": "italic" });
+        }
       }
       updateButtonStates();
       updateSampleTextPreview();
@@ -607,8 +615,7 @@
     }
 
     // Extract the current content (including HTML formatting) for inline formatting
-    let currentContent =
-      selected.getEl().innerHTML || selected.get("content") || "";
+    let currentContent = selected.getInnerHTML() || "";
     if (!currentContent) {
       console.warn(
         "No content found in the selected text component. Using default content."
@@ -634,7 +641,26 @@
     // Apply formatting using document.execCommand
     try {
       if (command === "createLink" || command === "unlink") {
-        document.execCommand(command, false, value);
+        const content = selected.getInnerHTML();
+        console.log("content for selected link is ", content)
+
+        const styles = selected.getStyle();
+
+        console.log("create link content is ", content);
+
+        const newComponent = grapeEditor.Components.addComponent({
+          type: 'link',
+          tagName: 'a',
+          content: content,
+          attributes: {
+            href: value, // Default href
+            target: '_blank' // Optional
+          },
+          style: styles
+        });
+
+        // Replace the component
+        selected.replaceWith(newComponent);
       } else {
         document.execCommand(command, false, null);
       }
@@ -741,6 +767,7 @@
         const modal = document.getElementById("urlModal");
         const cancelBtn = document.getElementById("cancelBtn");
         const okBtn = document.getElementById("okBtn");
+        const urlInput = document.getElementById("urlInput");
 
         modal.style.display = "flex";
 
@@ -766,6 +793,7 @@
               );
               modal.style.display = "none";
             } catch (e) {
+              console.error(e);
               modal.style.display = "none";
               showFlashMessage(
                   "Invalid URL. Please enter a valid URL starting with http:// or https://.",

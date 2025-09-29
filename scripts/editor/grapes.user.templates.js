@@ -106,18 +106,7 @@ function loadSelectedTemplate(selectedTemplateId, userId) {
         if (result.length > 0) {
             console.log("project saved successfully", result);
             console.log("getting user saved project using id", selectedTemplateId);
-            get_user_saved_project(selectedTemplateId)
-            get_user_templates().then((res) => {
-                user_templates = res
-
-                var parentLoadProjectEl = document.querySelector('#load-project-content-1');
-                parentLoadProjectEl.innerHTML = "";
-                const baseURL = window.location.origin;
-
-                user_templates.forEach((list, index) => {
-                    get_saved_template(parentLoadProjectEl, list, baseURL)
-                })
-            })
+            get_user_saved_project(selectedTemplateId, true)
         } else {
             console.log("project could not be saved", result);
             showFlashMessage(
@@ -128,7 +117,6 @@ function loadSelectedTemplate(selectedTemplateId, userId) {
             );
         }
     });
-
 }
 
 function prepareProjectToDelete(el, templateId, userId) {
