@@ -2224,12 +2224,12 @@
 
           <div class="share_options">
             <button>
-              <img src="/icons/instagram.svg" alt="Instagram" />
+              <img onclick="shareTemplate('instagram')" src="/icons/instagram.svg" alt="Instagram" />
               <span>Instagram</span>
             </button>
 
             <button>
-              <img src="/icons/snapchat.svg" alt="Snapchat" />
+              <img onclick="shareTemplate('snapchat')" src="/icons/snapchat.svg" alt="Snapchat" />
               <span>Snapchat</span>
             </button>
 
@@ -2689,6 +2689,16 @@
         <div class="link-modal-buttons">
           <button class="link-btn-cancel" id="cancelBtn">Cancel</button>
           <button class="link-btn-ok" id="okBtn">OK</button>
+        </div>
+      </div>
+    </div>
+
+    <!--Show share link copied -->
+    <div id="shareLinkModal" class="link-modal">
+      <div class="link-modal-content">
+        <h3>Link copied! You can now share now</h3>
+        <div class="link-modal-buttons">
+          <button class="link-btn-ok" id="shareLinkConfirmedBtn">OK</button>
         </div>
       </div>
     </div>

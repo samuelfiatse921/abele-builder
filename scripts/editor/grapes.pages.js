@@ -177,9 +177,26 @@ function shareEntirePage() {
     getDeploymentLink(request,`${api_endpoint}/vercel/deployment/entire-project`);
 }
 
+function copyAndShare(deploymentLink) {
+    navigator.clipboard.writeText(deploymentLink).then((res) => {
+        const shareLinkModal = document.getElementById("shareLinkModal");
+        shareLinkModal.style.display = "flex";
+        shareLinkModal.style.zIndex = "99999";
+    });
+}
+
+const shareLinkModal = document.getElementById("shareLinkModal");
+const shareLinkConfirmedBtn = document.getElementById("shareLinkConfirmedBtn");
+
+// Close modal
+shareLinkConfirmedBtn.addEventListener("click", () => {
+    shareLinkModal.style.display = "none";
+});
+
 function shareTemplate(platform) {
     const pageText = encodeURIComponent(document.title);
-    const builderPageUrl = encodeURIComponent(localStorage.getItem("deployment_link"));
+    const deploymentLink = localStorage.getItem("deployment_link");
+    const builderPageUrl = encodeURIComponent(deploymentLink);
 
     let platform_url = ""
 
@@ -191,6 +208,8 @@ function shareTemplate(platform) {
         platform_url = `https://www.facebook.com/sharer/sharer.php?u=${builderPageUrl}`;
     } else if (platform === "telegram") {
         platform_url = `https://t.me/share/url?url=${builderPageUrl}&text=${pageText}`
+    } else if (platform === "instagram" || platform === "snapchat") {
+        return copyAndShare(deploymentLink);
     }
 
     window.open(platform_url,
