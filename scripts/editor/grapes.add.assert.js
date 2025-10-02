@@ -18,9 +18,7 @@ searchAsset.addEventListener("input", function(e) {
 function addImageToCanvas(asset) {
     const selected = grapeEditor.getSelected();
 
-    const image_url = api_endpoint.replace("/api/v1", "");
-
-    const src = image_url + asset.filePath
+    const src = getSource(asset.filePath);
 
     if (selected) {
         // Add to selected component
@@ -33,7 +31,7 @@ function addVideoToCanvas(asset) {
 
     const image_url = api_endpoint.replace("/api/v1", "");
 
-    const src = image_url + asset.filePath
+    const src = image_url + asset.filePath;
 
     const videoConfig = {
         type: "video",
@@ -89,7 +87,7 @@ function getFileTypeFromName(fileName) {
     } else if (videoExts.includes(ext)) {
         return "video";
     } else {
-        return "other";
+        return "image";
     }
 }
 
@@ -121,6 +119,14 @@ async function deleteUserAsset(el, asset_id) {
     });
 }
 
+function getSource(filePath) {
+    if (filePath.includes("images.unsplash.com")) {
+        return filePath;
+    } else {
+        return api_endpoint.replace("/api/v1", "") + filePath
+    }
+}
+
 function populateFetchedAssets(res) {
     if (res.length > 0) {
         res.forEach(asset => {
@@ -134,10 +140,8 @@ function populateFetchedAssets(res) {
             assetElement.style.cursor = 'pointer';
 
             let dataTransfer = null;
-
-            const image_url = api_endpoint.replace("/api/v1", "");
-
-            const src = image_url + filePath
+            let src = "";
+            src = getSource(filePath);
 
             if (fileType === 'image') {
                 assetElement.innerHTML = `
