@@ -88,6 +88,7 @@ async function submit_request(api_url, payload) {
   if (result.code === "00") {
     saved_project = result.data;
   }
+  console.log("saved project result:", saved_project);
   return saved_project;
 }
 
@@ -140,6 +141,12 @@ async function saveProjectUpdate(userId, projectTemplateId) {
 }
 
 saveChanges.addEventListener("click", () => {
+  if (disableProjectSave) {
+    const disableSelectedProjectModal = document.getElementById("disabledSaveProjectModal");
+    disableSelectedProjectModal.style.display = "flex";
+    disableSelectedProjectModal.style.zIndex = "99999";
+    return;
+  }
   saveProjectUpdate(userId, templateId).then(result => {
     if (result.length > 0) {
       showFlashMessage(

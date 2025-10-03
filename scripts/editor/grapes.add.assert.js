@@ -273,10 +273,6 @@ populateAssets();
 
 const canvasInit = grapeEditor.Canvas.getElement();
 
-// canvasInit.addEventListener('dragover', function(e) {
-//   e.preventDefault();
-// });
-
 canvasInit.addEventListener('drop', function(e) {
     e.preventDefault();
 
@@ -304,17 +300,6 @@ document.getElementById("uploadAssetBtn").addEventListener("click", () => {
     fileInput.click(); // trigger file select
 });
 
-async function readFileAsDataURL (file) {
-    return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = (error) => reject(error);
-
-        reader.readAsDataURL(file);
-    });
-}
-
 fileInput.addEventListener("change", async () => {
     const files = fileInput.files;
     if (!files.length) return;
@@ -322,7 +307,7 @@ fileInput.addEventListener("change", async () => {
     const allowedImageTypes = ["image/jpg", "image/jpeg", "image/png", "image/gif", "image/webp"];
     const allowedVideoTypes = ["video/mp4", "video/webm", "video/avi", "video/mpeg", "video/quicktime"];
 
-    if (files.length > 1) return;
+    if (files.length > 2) return;
 
     for (const file of files) {
         // Check MIME type
@@ -352,8 +337,10 @@ fileInput.addEventListener("change", async () => {
             console.error("Upload failed:", err);
         }
 
-        populateAssets();
-        fileInput.value = ""; // reset input
     }
+
+    fileInput.value = ""; // reset input
+    populateAssets();
+
 });
 

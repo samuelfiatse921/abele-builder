@@ -193,6 +193,14 @@ shareLinkConfirmedBtn.addEventListener("click", () => {
     shareLinkModal.style.display = "none";
 });
 
+const disableProjectModal = document.getElementById("disabledSaveProjectModal");
+const disableProjectConfirmedBtn = document.getElementById("disabledSaveProjectConfirmedBtn");
+
+// Close modal
+disableProjectConfirmedBtn.addEventListener("click", () => {
+    disableProjectModal.style.display = "none";
+});
+
 function shareTemplate(platform) {
     const pageText = encodeURIComponent(document.title);
     const deploymentLink = localStorage.getItem("deployment_link");

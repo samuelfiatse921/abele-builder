@@ -25,6 +25,109 @@ function loadProjects(event, el) {
     loadProjectModal.style.display = 'block';
 }
 
+const openProjectFileInput = document.getElementById("openProjectFileInput");
+
+function openProjects(event, el) {
+    openProjectFileInput.click(); // trigger file select
+    console.log("openProjectFileInput clicked");
+}
+
+// Helper to read file as text
+function readFileContent(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = (e) => resolve(e.target.result);
+        reader.onerror = (e) => reject(e);
+        reader.readAsText(file);
+    });
+}
+
+
+openProjectFileInput.addEventListener("change", async () => {
+    const files = openProjectFileInput.files;
+    if (!files.length) return;
+
+    const allowedHtmlCssTypes = ["text/html", "text/css"];
+
+    if (files.length > 3) return;
+
+    let uploadedHTMLList = [];
+    let uploadedCSSList = [];
+
+    for (const file of files) {
+        // Check MIME type
+        const fileType = file.type;
+
+        if (![...allowedHtmlCssTypes].includes(fileType)) {
+            alert("Unsupported file type: " + fileType);
+            return;
+        }
+
+        const text = await readFileContent(file);
+
+        if (fileType === "text/html") {
+            uploadedHTMLList.push({"content": text, "name": file.name });
+        } else if (fileType === "text/css") {
+            uploadedCSSList.push({"content": text, "name": file.name })
+        }
+    }
+
+    if (uploadedHTMLList.length > 0 || uploadedCSSList.length > 0) {
+        saveProjectUpdate(userId, templateId).then(result => {
+            console.log("saved project for template ", templateId, result );
+            if (result.length > 0) {
+                console.log("project saved successfully", result);
+                const oldPages = grapeEditor.Pages.getAll();
+                oldPages.forEach(page => {
+                    grapeEditor.Pages.remove(page);
+                });
+
+                let pagesData = []
+
+                let cssStyle = "";
+
+                if (uploadedCSSList.length > 0) {
+                    cssStyle = uploadedCSSList[0].content;
+                }
+
+                uploadedHTMLList.forEach(file => {
+                    pagesData.push({
+                        id: file.name.split(".")[0].trim(),
+                        name: file.name.split(".")[0].trim(),
+                        styles: cssStyle,
+                        component: file.content
+                    });
+                })
+
+                pagesData.forEach(page => {
+                    pages.add(page)
+                })
+
+                pages.select(pages.get(uploadedHTMLList[0].name.split(".")[0]));
+
+                history.pushState({}, '', `?templateId=${crypto.randomUUID()}&userId=${userId}`);
+
+                disableProjectSave = true;
+            } else {
+                console.log("project could not be saved", result);
+                showFlashMessage(
+                    "Request failed",
+                    "Project could not be loaded. Failed to save current project",
+                    "error",
+                    5000
+                );
+            }
+        });
+
+
+    }
+
+    openProjectFileInput.value = ""; // reset input
+
+
+
+});
+
 loadProjectCloseBtn.addEventListener('click', () => {
     loadProjectModal.style.display = 'none';
 });

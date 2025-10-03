@@ -1349,9 +1349,11 @@
                   <svg viewBox="0 0 24 24" role="presentation" class="gs-cmp-icon" style="width: 25px; height: 25px;"><path d="M15.07,11.25L14.17,12.17C13.45,12.89 13,13.5 13,15H11V14.5C11,13.39 11.45,12.39 12.17,11.67L13.41,10.41C13.78,10.05 14,9.55 14,9C14,7.89 13.1,7 12,7A2,2 0 0,0 10,9H8A4,4 0 0,1 12,5A4,4 0 0,1 16,9C16,9.88 15.64,10.67 15.07,11.25M13,19H11V17H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z" style="fill: currentcolor;"></path></svg>
                   <span>About</span>
                 </div>
-                <div class="project-manager">
+                <div class="project-manager" onclick="openProjects(event, this)">
                   <svg viewBox="0 0 24 24" role="presentation" class="gs-cmp-icon" style="width: 25px; height: 25px;"><path d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z" style="fill: currentcolor;"></path></svg>
                   <span>Open Project</span>
+                  <input type="file" id="openProjectFileInput" accept=".html,.css" style="display: none;" multiple />
+
                 </div>
                 <div class="project-manager" onclick="loadProjects(event, this)">
                   <svg class="project-manager-icons" viewBox="0 0 24 24" role="presentation" style="width: 25px; height: 25px;"><path d="M20 5L20 19L4 19L4 5H20M20 3H4C2.89 3 2 3.89 2 5V19C2 20.11 2.89 21 4 21H20C21.11 21 22 20.11 22 19V5C22 3.89 21.11 3 20 3M18 15H6V17H18V15M10 7H6V13H10V7M12 9H18V7H12V9M18 11H12V13H18V11Z" style="fill: currentcolor;"></path></svg>
@@ -2176,7 +2178,7 @@
                     </span>
                     <input style="width: 100%" type="text" placeholder="Search" id="search-asset">
                   </form>
-                  <input type="file" id="customAssetFileInput" accept="image/*,video/*" style="display: none;" />
+                  <input type="file" id="customAssetFileInput" accept="image/*,video/*" style="display: none;" multiple />
                   <button class="upload-btn" id="uploadAssetBtn">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
                       <path fill-rule="evenodd" d="M11.47 2.47a.75.75 0 0 1 1.06 0l4.5 4.5a.75.75 0 0 1-1.06 1.06l-3.22-3.22V16.5a.75.75 0 0 1-1.5 0V4.81L8.03 8.03a.75.75 0 0 1-1.06-1.06l4.5-4.5ZM3 15.75a.75.75 0 0 1 .75.75v2.25a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5V16.5a.75.75 0 0 1 1.5 0v2.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V16.5a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd" />
@@ -2699,6 +2701,16 @@
         <h3>Link copied! You can now share now</h3>
         <div class="link-modal-buttons">
           <button class="link-btn-ok" id="shareLinkConfirmedBtn">OK</button>
+        </div>
+      </div>
+    </div>
+
+    <!--Show share link copied -->
+    <div id="disabledSaveProjectModal" class="link-modal">
+      <div class="link-modal-content">
+        <h3>This project can only be exported</h3>
+        <div class="link-modal-buttons">
+          <button class="link-btn-ok" id="disabledSaveProjectConfirmedBtn">OK</button>
         </div>
       </div>
     </div>

@@ -687,6 +687,8 @@ const grapeEditor = grapesjs.init({
   },
 });
 
+let disableProjectSave = false;
+
 grapeEditor.on('load', () => {
   const buttons = grapeEditor.DomComponents.getWrapper().find('button');
   buttons.forEach(button => {
