@@ -2,6 +2,35 @@ const setTheme = (theme) => {
   document.documentElement.setAttribute("data-theme", theme);
   localStorage.setItem("theme", theme);
   updateButtonStates(theme);
+  updateFontStyles(theme);
+};
+
+const updateFontStyles = (selectedTheme) => {
+  const parent = document.querySelector("#sidebarHeader");
+  const otherStyleContainer = document.querySelector("#otherStyleContainer");
+  if (selectedTheme === "light") {
+    const children = parent.querySelectorAll("*"); // Select all descendants
+    const otherStyleContainerChildren = otherStyleContainer.querySelectorAll("*"); // Select all descendants
+    children.forEach(el => {
+      el.style.setProperty("color", "black", "important");
+      // el.style.setProperty("border-bottom", "black", "important");
+    });
+    otherStyleContainerChildren.forEach(el => {
+      el.style.setProperty("color", "black", "important");
+      // el.style.setProperty("border-bottom", "black", "important");
+    });
+  } else {
+    const children = parent.querySelectorAll("*"); // Select all descendants
+    const otherStyleContainerChildren = otherStyleContainer.querySelectorAll("*"); // Select all descendants
+    children.forEach(el => {
+      el.style.removeProperty("color");
+      // el.style.removeProperty("border-bottom");
+    });
+    otherStyleContainerChildren.forEach(el => {
+      el.style.removeProperty("color");
+      // el.style.removeProperty("border-bottom");
+    });
+  }
 };
 
 const updateButtonStates = (selectedTheme) => {
