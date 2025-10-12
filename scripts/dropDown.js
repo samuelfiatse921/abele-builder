@@ -33,7 +33,10 @@ class Dropdown {
       item.classList.contains("active")
     );
 
-    this.selected.textContent = activeItem?.textContent || text;
+    if (this.selected) {
+      this.selected.textContent = activeItem.textContent || text;
+    }
+
     this.menu.classList.remove("show");
     this.select.classList.remove("open");
   }

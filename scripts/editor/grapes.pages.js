@@ -32,10 +32,10 @@ addPageButton.addEventListener('click', event => {
     pageDropDownMenu.className = "pages-dropdown-content";
     pageDropDownMenu.id = `pages-dropdown-menu-${pageName}`;
     pageDropDownMenu.innerHTML = `
-       <a href="#" onclick="editPageName(this)">Edit</a>
-       <a href="#" onclick="duplicatePage('${pageName}')">Duplicate</a>
-       <a href="#">Share</a>
-       <a href="#" onclick="deletePage('${pageName}')">Delete</a>
+       <a class="pages-dropdown-link" href="#" onclick="editPageName(this)">Edit</a>
+       <a class="pages-dropdown-link" href="#" onclick="duplicatePage('${pageName}')">Duplicate</a>
+       <a class="pages-dropdown-link" href="#">Share</a>
+       <a class="pages-dropdown-link" href="#" onclick="deletePage('${pageName}')">Delete</a>
     `;
 
     pageList.appendChild(pageH2Element);

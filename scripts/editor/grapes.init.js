@@ -926,10 +926,10 @@ grapeEditor.on('page', () => {
               </svg>
             </span>
             <div id="pages-dropdown-menu-${pageName}" class="pages-dropdown-content">
-               <a href="#" onclick="editPageName(this)">Edit</a>
-               <a href="#" onclick="duplicatePage('${pageName}')">Duplicate</a>
-               <a onclick="shareSinglePage('${pageName}')">Share</a>
-               <a href="#" onclick="deletePage('${pageName}')">Delete</a>
+               <a class="pages-dropdown-link" href="#" onclick="editPageName(this)">Edit</a>
+               <a class="pages-dropdown-link" href="#" onclick="duplicatePage('${pageName}')">Duplicate</a>
+               <a class="pages-dropdown-link" onclick="shareSinglePage('${pageName}')">Share</a>
+               <a class="pages-dropdown-link" href="#" onclick="deletePage('${pageName}')">Delete</a>
             </div>
           </div>
         </div>
