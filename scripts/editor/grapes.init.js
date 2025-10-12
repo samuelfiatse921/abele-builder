@@ -1062,3 +1062,33 @@ userlogout.addEventListener("click", () => {
   window.location.href = abele_marketplace
 })
 
+const searchInput = document.getElementById("search_tools_input");
+const toolsContainer = document.getElementById("editorToolsList");
+
+// Store all original tool buttons once (so we can restore them later)
+const originalTools = Array.from(toolsContainer.querySelectorAll("button"));
+
+searchInput.addEventListener("input", () => {
+  const query = searchInput.value.toLowerCase().trim();
+  console.log("Searching tools:", query);
+
+  // Clear current tools list
+  toolsContainer.innerHTML = "";
+
+  // Reset active state on all buttons
+  originalTools.forEach(btn => btn.classList.remove("active"));
+
+  // Filter tools by their second span's text (tool name)
+  const filteredTools = query
+      ? originalTools.filter(btn => {
+        const spans = btn.querySelectorAll("span");
+        const name = spans[1]?.textContent.toLowerCase() || "";
+        return name.includes(query);
+      })
+      : originalTools;
+
+  // Append filtered tools back to the container
+  filteredTools.forEach(btn => toolsContainer.appendChild(btn));
+});
+
+
